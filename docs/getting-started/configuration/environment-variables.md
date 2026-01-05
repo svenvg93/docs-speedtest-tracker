@@ -1,15 +1,19 @@
 ---
 title: Environment Variables
 description: A complete inventory of all environment variables for configuring Speedtest Tracker.
+hide:
+    - toc
 ---
 
 # Environment Variables
+
+ A complete inventory of all environment variables for configuring Speedtest Tracker.
 
 ## Application
 
 | Name | Required | Description | Example |
 | ---- | -------- | ----------- | ------- |
-| `PUID` | :lucide-check: | Used to set the user the container should run as. | `1000` |
+| `PUID` | Yes | Used to set the user the container should run as. | `1000` |
 | `PGID` | Yes | Used to set the group the container should run as. | `1000` |
 | `APP_KEY` | Yes | Key used to encrypt and decrypt data. See the [install](../installation/docker-compose.md#generate-an-application-key) docs to generate a key. | |
 | `APP_URL` | Yes | URL used for links in emails and notifications. | `https://speedtest.example.com` |

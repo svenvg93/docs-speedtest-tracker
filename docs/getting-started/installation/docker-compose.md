@@ -14,6 +14,10 @@ Run the command below to generate a key, the key is required for [encryption](..
 ```bash
 echo -n 'base64:'; openssl rand -base64 32;
 ```
+For Example:
+```
+base64:j+cdcxP3SV7Ja85jrW8f7uwdkp99mRdxtKu2wF8cwcs=
+```
 
 ## Setting Up Docker
 
@@ -28,7 +32,7 @@ SQLite is fine for most installs but you can also use more traditional relationa
 
 === "SQLite"
 
-    ```yaml
+    ```yaml hl_lines="12 13"
     services:
         speedtest-tracker:
             image: lscr.io/linuxserver/speedtest-tracker:latest
@@ -41,6 +45,7 @@ SQLite is fine for most installs but you can also use more traditional relationa
                 - PUID=
                 - PGID=
                 - APP_KEY=
+                - APP_URL=
                 - DB_CONNECTION=sqlite
             volumes:
                 - /path/to/data:/config
@@ -49,7 +54,7 @@ SQLite is fine for most installs but you can also use more traditional relationa
 
 === "MariaDB"
 
-    ```yaml
+    ```yaml hl_lines="12 13"
     services:
         speedtest-tracker:
             image: lscr.io/linuxserver/speedtest-tracker:latest
@@ -62,6 +67,7 @@ SQLite is fine for most installs but you can also use more traditional relationa
                 - PUID=
                 - PGID=
                 - APP_KEY=
+                - APP_URL=
                 - DB_CONNECTION=mariadb
                 - DB_HOST=db
                 - DB_PORT=3306
@@ -94,7 +100,7 @@ SQLite is fine for most installs but you can also use more traditional relationa
 
 === "MySQL"
 
-    ```yaml
+    ```yaml hl_lines="12 13"
     services:
         speedtest-tracker:
             image: lscr.io/linuxserver/speedtest-tracker:latest
@@ -107,6 +113,7 @@ SQLite is fine for most installs but you can also use more traditional relationa
                 - PUID=
                 - PGID=
                 - APP_KEY=
+                - APP_URL=
                 - DB_CONNECTION=mysql
                 - DB_HOST=db
                 - DB_PORT=3306
@@ -139,7 +146,7 @@ SQLite is fine for most installs but you can also use more traditional relationa
 
 === "Postgres"
 
-    ```yaml
+    ```yaml hl_lines="12 13"
     services:
         speedtest-tracker:
             image: lscr.io/linuxserver/speedtest-tracker:latest
@@ -152,6 +159,7 @@ SQLite is fine for most installs but you can also use more traditional relationa
                 - PUID=
                 - PGID=
                 - APP_KEY=
+                - APP_URL=
                 - DB_CONNECTION=pgsql
                 - DB_HOST=db
                 - DB_PORT=5432
@@ -193,10 +201,6 @@ In order for the application to run smoothly, some environment variables need to
 ## Configuration Variables (Optional)
 
 You can set configuration variables to have automatic speedtest on an schedule. Check out the [Environment Variables](../configuration/environment-variables.md#speedtest) section on how to set the variables. Also see the [FAQ](../../help/faqs.md#speedtest) for tips effectively scheduling tests.
-
-!!! info
-
-    Complete overview of the Environment Variables for custom configuration can be found [here](../configuration/environment-variables.md).
 
 ## Start the Container
 

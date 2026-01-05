@@ -38,6 +38,7 @@ services:
       - DB_USERNAME=speedy
       - DB_PASSWORD=password
       - APP_KEY=
+      - APP_URL=
       - DATETIME_FORMAT=
       - APP_TIMEZONE=
       - SPEEDTEST_SCHEDULE= # Optional

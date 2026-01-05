@@ -18,6 +18,10 @@ Run the command below to generate a key, the key is required for [encryption](..
 ```bash
 echo -n 'base64:'; openssl rand -base64 32;
 ```
+For Example:
+```
+base64:j+cdcxP3SV7Ja85jrW8f7uwdkp99mRdxtKu2wF8cwcs=
+```
 
 ## Setting Up Docker
 
@@ -31,13 +35,14 @@ SQLite is fine for most installs but you can also use more traditional relationa
 
 === "SQLite"
 
-    ```bash
+    ```bash hl_lines="6 7"
     docker run -d --name speedtest-tracker --restart unless-stopped \
         -p 8080:80 \
         -p 8443:443 \
         -e PUID= \
         -e PGID= \
         -e APP_KEY= \
+        -e APP_URL= \
         -e DB_CONNECTION=sqlite \
         -v /path/to/data:/config \
         -v /path/to-custom-ssl-keys:/config/keys \
@@ -46,13 +51,14 @@ SQLite is fine for most installs but you can also use more traditional relationa
 
 === "MariaDB"
 
-    ```bash
+    ```bash hl_lines="6 7"
     docker run -d --name speedtest-tracker --restart unless-stopped \
         -p 8080:80 \
         -p 8443:443 \
         -e PUID= \
         -e PGID= \
         -e APP_KEY= \
+        -e APP_URL= \
         -e DB_CONNECTION=mariadb \
         -e DB_HOST= \
         -e DB_PORT=3306 \
@@ -66,13 +72,14 @@ SQLite is fine for most installs but you can also use more traditional relationa
 
 === "MySQL"
 
-    ```bash
+    ```bash hl_lines="6 7"
     docker run -d --name speedtest-tracker --restart unless-stopped \
         -p 8080:80 \
         -p 8443:443 \
         -e PUID= \
         -e PGID= \
         -e APP_KEY= \
+        -e APP_URL= \
         -e DB_CONNECTION=mysql \
         -e DB_HOST= \
         -e DB_PORT=3306 \
@@ -86,13 +93,14 @@ SQLite is fine for most installs but you can also use more traditional relationa
 
 === "Postgres"
 
-    ```bash
+    ```bash hl_lines="6 7"
     docker run -d --name speedtest-tracker --restart unless-stopped \
         -p 8080:80 \
         -p 8443:443 \
         -e PUID=1000 \
         -e PGID=1000 \
-        -e APP_KEY=
+        -e APP_KEY= \
+        -e APP_URL= \
         -e DB_CONNECTION=pgsql \
         -e DB_HOST= \
         -e DB_PORT=5432 \
