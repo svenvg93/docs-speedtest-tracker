@@ -35,7 +35,7 @@ repo_name = "alexjustesen/speedtest-tracker"
 #
 # Read more: https://zensical.org/docs/setup/basics/#copyright
 copyright = """
-Copyright &copy; 2025 The authors
+Copyright &copy; 2025 alexjustesen
 """
 
 # Zensical supports both implicit navigation and explicitly defined navigation.
@@ -50,8 +50,10 @@ nav = [
   {"Getting Started" = [
      "getting-started/index.md",
      {"Installation" = [
-        "getting-started/installation/docker-compose.md",
-        "getting-started/installation/docker.md",
+         {"Docker" = [
+            "getting-started/installation/docker-compose.md",
+            "getting-started/installation/docker.md"
+           ]},
         "getting-started/installation/kubernetes.md",
         "getting-started/installation/unraid.md",
         "getting-started/installation/synology.md",
@@ -364,3 +366,6 @@ toggle.name = "Switch to light mode"
 #link = "https://github.com/user/repo"
 
 
+[project.markdown_extensions.tables]
+[project.markdown_extensions.attr_list]
+[project.markdown_extensions.pymdownx.emoji]
