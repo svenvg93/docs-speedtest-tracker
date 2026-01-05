@@ -1,6 +1,7 @@
 ---
 title: Development Environment
 description: Create a containerized development environment so you can build, test and contribute to Speedtest Tracker.
+icon: lucide/code
 ---
 
 # Development Environment

@@ -1,3 +1,9 @@
+---
+title: Apprise Notifications
+description: Use Apprise to send notifications to multiple services like Discord, Pushover, and Ntfy.
+icon: lucide/bell-ring
+---
+
 # Apprise
 
 Apprise provides a unified notification channel that lets you send alerts to numerous services—like Discord, Pushover, and Ntfy as well as many additional platforms

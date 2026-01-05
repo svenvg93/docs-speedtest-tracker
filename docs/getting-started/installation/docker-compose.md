@@ -1,6 +1,7 @@
 ---
 title: Docker Compose
 description: These instructions will run you through setting up Speedtest Tracker on a Docker server using Docker Compose.
+icon: lucide/package
 ---
 
 # Docker Compose
@@ -23,16 +24,16 @@ base64:j+cdcxP3SV7Ja85jrW8f7uwdkp99mRdxtKu2wF8cwcs=
 
 SQLite is fine for most installs but you can also use more traditional relational databases like MariaDB, MySQL and Postgres.
 
-!!! info
+!!! warning "Required: User ID Configuration"
 
     You will need to get your user's `PUID` and `PGID`, you can do this by running `id $user` on the host.
 
-    [https://docs.linuxserver.io/general/understanding-puid-and-pgid/](https://docs.linuxserver.io/general/understanding-puid-and-pgid/)
+    [Learn more about PUID and PGID](https://docs.linuxserver.io/general/understanding-puid-and-pgid/)
 
 
 === "SQLite"
 
-    ```yaml hl_lines="12 13"
+    ```yaml hl_lines="10 11 12 13"
     services:
         speedtest-tracker:
             image: lscr.io/linuxserver/speedtest-tracker:latest
@@ -42,19 +43,24 @@ SQLite is fine for most installs but you can also use more traditional relationa
                 - 8080:80
                 - 8443:443
             environment:
-                - PUID=
-                - PGID=
-                - APP_KEY=
-                - APP_URL=
+                - PUID= # (1)!
+                - PGID= # (2)!
+                - APP_KEY= # (3)!
+                - APP_URL= # (4)!
                 - DB_CONNECTION=sqlite
             volumes:
                 - /path/to/data:/config
                 - /path/to-custom-ssl-keys:/config/keys
     ```
 
+    1. Your user ID - run `id -u` to find it
+    2. Your group ID - run `id -g` to find it
+    3. Generate with: `echo -n 'base64:'; openssl rand -base64 32`
+    4. The URL where you'll access the app (e.g., `http://localhost:8080`)
+
 === "MariaDB"
 
-    ```yaml hl_lines="12 13"
+    ```yaml hl_lines="10 11 12 13 19"
     services:
         speedtest-tracker:
             image: lscr.io/linuxserver/speedtest-tracker:latest
@@ -64,16 +70,16 @@ SQLite is fine for most installs but you can also use more traditional relationa
                 - 8080:80
                 - 8443:443
             environment:
-                - PUID=
-                - PGID=
-                - APP_KEY=
-                - APP_URL=
+                - PUID= # (1)!
+                - PGID= # (2)!
+                - APP_KEY= # (3)!
+                - APP_URL= # (4)!
                 - DB_CONNECTION=mariadb
                 - DB_HOST=db
                 - DB_PORT=3306
                 - DB_DATABASE=speedtest_tracker
                 - DB_USERNAME=speedtest_tracker
-                - DB_PASSWORD=password
+                - DB_PASSWORD=password # (5)!
             volumes:
                 - /path/to/data:/config
                 - /path/to-custom-ssl-keys:/config/keys
@@ -98,9 +104,15 @@ SQLite is fine for most installs but you can also use more traditional relationa
     speedtest-db:
     ```
 
+    1. Your user ID - run `id -u` to find it
+    2. Your group ID - run `id -g` to find it
+    3. Generate with: `echo -n 'base64:'; openssl rand -base64 32`
+    4. The URL where you'll access the app (e.g., `http://localhost:8080`)
+    5. Change this to a secure password of your choice
+
 === "MySQL"
 
-    ```yaml hl_lines="12 13"
+    ```yaml hl_lines="10 11 12 13 19"
     services:
         speedtest-tracker:
             image: lscr.io/linuxserver/speedtest-tracker:latest
@@ -110,16 +122,16 @@ SQLite is fine for most installs but you can also use more traditional relationa
                 - 8080:80
                 - 8443:443
             environment:
-                - PUID=
-                - PGID=
-                - APP_KEY=
-                - APP_URL=
+                - PUID= # (1)!
+                - PGID= # (2)!
+                - APP_KEY= # (3)!
+                - APP_URL= # (4)!
                 - DB_CONNECTION=mysql
                 - DB_HOST=db
                 - DB_PORT=3306
                 - DB_DATABASE=speedtest_tracker
                 - DB_USERNAME=speedtest_tracker
-                - DB_PASSWORD=password
+                - DB_PASSWORD=password # (5)!
             volumes:
                 - /path/to/data:/config
                 - /path/to-custom-ssl-keys:/config/keys
@@ -144,9 +156,15 @@ SQLite is fine for most installs but you can also use more traditional relationa
     speedtest-db:
     ```
 
+    1. Your user ID - run `id -u` to find it
+    2. Your group ID - run `id -g` to find it
+    3. Generate with: `echo -n 'base64:'; openssl rand -base64 32`
+    4. The URL where you'll access the app (e.g., `http://localhost:8080`)
+    5. Change this to a secure password of your choice
+
 === "Postgres"
 
-    ```yaml hl_lines="12 13"
+    ```yaml hl_lines="10 11 12 13 19"
     services:
         speedtest-tracker:
             image: lscr.io/linuxserver/speedtest-tracker:latest
@@ -156,16 +174,16 @@ SQLite is fine for most installs but you can also use more traditional relationa
                 - 8080:80
                 - 8443:443
             environment:
-                - PUID=
-                - PGID=
-                - APP_KEY=
-                - APP_URL=
+                - PUID= # (1)!
+                - PGID= # (2)!
+                - APP_KEY= # (3)!
+                - APP_URL= # (4)!
                 - DB_CONNECTION=pgsql
                 - DB_HOST=db
                 - DB_PORT=5432
                 - DB_DATABASE=speedtest_tracker
                 - DB_USERNAME=speedtest_tracker
-                - DB_PASSWORD=password
+                - DB_PASSWORD=password # (5)!
             volumes:
                 - /path/to/data:/config
                 - /path/to-custom-ssl-keys:/config/keys
@@ -189,6 +207,12 @@ SQLite is fine for most installs but you can also use more traditional relationa
     volumes:
     speedtest-db:
     ```
+
+    1. Your user ID - run `id -u` to find it
+    2. Your group ID - run `id -g` to find it
+    3. Generate with: `echo -n 'base64:'; openssl rand -base64 32`
+    4. The URL where you'll access the app (e.g., `http://localhost:8080`)
+    5. Change this to a secure password of your choice
 
 !!! info
 

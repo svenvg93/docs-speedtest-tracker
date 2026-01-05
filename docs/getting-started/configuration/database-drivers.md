@@ -1,6 +1,7 @@
 ---
 title: Database Drivers
 description: Speedtest Tracker supports multiple database drivers including SQLite, MySQL and Postgres.
+icon: lucide/database
 ---
 
 # Database Drivers

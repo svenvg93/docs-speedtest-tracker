@@ -1,6 +1,7 @@
 ---
 title: Health Check
 description: Using the health check endpoint to monitor application status.
+icon: lucide/heart-pulse
 ---
 
 # Health Check

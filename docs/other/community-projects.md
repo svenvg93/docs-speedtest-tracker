@@ -1,6 +1,7 @@
 ---
 title: Community Projects
 description: Third-party projects and integrations built by the community that use Speedtest Tracker.
+icon: lucide/users
 ---
 
 # Community Projects

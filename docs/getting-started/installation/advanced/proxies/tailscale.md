@@ -1,67 +1,66 @@
 ---
 title: Tailscale
 description: Access Speedtest Tracker securely within your Tailnet using Tailscale Mesh VPN.
+icon: lucide/shield
 ---
 
 # Tailscale
 
-[Tailscale](https://tailscale.com) Mesh VPN service can be used as an sidecar container to access the Speedtest Tracker within your Tailnet on its own MagicDNS name.
+[Tailscale](https://tailscale.com) Mesh VPN service can be used as a sidecar container to access Speedtest Tracker within your Tailnet using its own MagicDNS name.
 
-## Tailscale Auth key
+## Step 1: Generate Tailscale Auth Key
 
-Generate an auth key for tailscale so the docker container can access your tailnet.
+Create an authentication key for the Docker container:
 
-1. Open the [**Keys**](https://login.tailscale.com/admin/settings/keys) page of the admin console.
-2. Select **Generate auth key**.
-3. Fill out the form fields to specify characteristics about the auth key, such as the description, whether its reusable, when it expires, and device settings.
-4. Select **Generate key**.
+1. Open the [**Keys**](https://login.tailscale.com/admin/settings/keys) page in the Tailscale admin console
+2. Click **Generate auth key**
+3. Configure key settings:
+   - Set description (e.g., "Speedtest Tracker")
+   - Choose if reusable
+   - Set expiration
+   - Configure device settings
+4. Click **Generate key**
+5. **Save this key** - you'll need it in the next step
 
-Save this Auth Key. We will need this later on.
+## Step 2: Add Tailscale Sidecar to Your Docker Compose
 
-## Docker Configuration
+Add the Tailscale sidecar service and update your existing Speedtest Tracker configuration:
 
-```yaml
+```yaml hl_lines="2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 20 21 22"
 services:
+  # Add this new Tailscale sidecar service
   tailscale-speedtest:
     image: tailscale/tailscale
     container_name: tailscale_speedtest-tracker
-    hostname: speedtest
+    hostname: speedtest # This will be your MagicDNS hostname
     environment:
-      - TS_AUTHKEY=
+      - TS_AUTHKEY=<YOUR_AUTH_KEY> # Paste your auth key here
       - TS_STATE_DIR=/var/lib/tailscale
       - TS_USERSPACE=false
     volumes:
-      - ./tailscale-traefik/state:/var/lib/tailscale
+      - ./tailscale-speedtest/state:/var/lib/tailscale
       - /dev/net/tun:/dev/net/tun
     cap_add:
       - net_admin
       - sys_module
     restart: unless-stopped
 
+  # Update your existing speedtest-tracker service
   speedtest-tracker:
-    container_name: speedtest-tracker-tailscale
     depends_on:
       - tailscale-speedtest
-    network_mode: service:tailscale-speedtest
+    network_mode: service:tailscale-speedtest # Share network with Tailscale
     environment:
-        - PUID=1000
-        - PGID=1000
-        - APP_KEY=
-        - DB_CONNECTION=sqlite
-        - SPEEDTEST_SCHEDULE=
-        - SPEEDTEST_SERVERS=
-        - PRUNE_RESULTS_OLDER_THAN=
-        - CHART_DATETIME_FORMAT=
-        - DATETIME_FORMAT=
-        - APP_TIMEZONE=
-        - APP_URL=https://speedtest.yourtailnet.ts.net # Change this to your MagicDNS name
-        - ASSET_URL=https://speedtest.yourtailnet.ts.net # Change this to your MagicDNS name
-    volumes:
-        - /path/to/data:/config
-        - /path/to-custom-ssl-keys:/config/keys
-    image: lscr.io/linuxserver/speedtest-tracker:latest
-    restart: unless-stopped
+      # Add these to your existing environment section
+      - APP_URL=https://speedtest.yourtailnet.ts.net # Change to your MagicDNS name
+      - ASSET_URL=https://speedtest.yourtailnet.ts.net # Change to your MagicDNS name
 ```
+
+!!! warning "Important Configuration Changes"
+    - Replace `<YOUR_AUTH_KEY>` with the key from Step 1
+    - Update the MagicDNS URLs to match your Tailnet name
+    - The `network_mode` setting makes Speedtest Tracker share the Tailscale container's network
+    - Remove any `ports:` mapping from your speedtest-tracker service (not needed with Tailscale)
 
 ## Configuration Reference
 

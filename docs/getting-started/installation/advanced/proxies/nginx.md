@@ -1,44 +1,37 @@
 ---
 title: Nginx
 description: Configure Nginx as a reverse proxy for Speedtest Tracker with SSL support.
+icon: lucide/network
 ---
 
 # Nginx
 
 [Nginx](https://nginx.org) can be used as a Reverse Proxy in front of Speedtest Tracker to expose the Dashboard publicly with a trusted certificate.
 
-First, you will need to add the `APP_URL` and `ASSET_URL` environment variables to your `docker-compose.yml`.
+## Step 1: Update Your Docker Compose
 
-```yaml
+Add the following environment variables to your existing `speedtest-tracker` service in your `docker-compose.yml`:
+
+```yaml hl_lines="3 4"
 services:
     speedtest-tracker:
-        container_name: speedtest-tracker
         environment:
-            - PUID=1000
-            - PGID=1000
-            - APP_KEY=
-            - DB_CONNECTION=sqlite
-            - SPEEDTEST_SCHEDULE=
-            - SPEEDTEST_SERVERS=
-            - PRUNE_RESULTS_OLDER_THAN=
-            - CHART_DATETIME_FORMAT=
-            - DATETIME_FORMAT=
-            - APP_TIMEZONE=
-            # Change both below to the desired domain
-            - APP_URL=https://speedtest.yourdomain.com
-            - ASSET_URL=https://speedtest.yourdomain.com
-        volumes:
-            - /path/to/data:/config
-            - /path/to-custom-ssl-keys:/config/keys
-        image: lscr.io/linuxserver/speedtest-tracker:latest
-        restart: unless-stopped
+            # Add these two lines to your existing environment section
+            - APP_URL=https://speedtest.yourdomain.com # Change to your domain
+            - ASSET_URL=https://speedtest.yourdomain.com # Change to your domain
 ```
 
-Next, you will need to configure nginx to proxy to the Speedtest Tracker app.
+!!! tip "Complete Example"
+    Your complete environment section should include all your existing variables plus the two new ones above.
 
-!!! info
+## Step 2: Configure Nginx
 
-    Depending on how you generate your SSL certificates and how you configure your Docker network, you may need to adjust the `ssl_` and `proxy_pass` values.
+Create an Nginx configuration file to proxy requests to Speedtest Tracker:
+
+!!! info "Before You Start"
+    - Replace `speedtest.yourdomain.com` with your actual domain
+    - Update SSL certificate paths to match your setup
+    - Adjust `proxy_pass` to match your Docker network configuration (hostname or IP:port)
 
 ```nginx
 server {

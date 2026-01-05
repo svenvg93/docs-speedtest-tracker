@@ -1,6 +1,7 @@
 ---
 title: Authorization
 description: User roles and permissions in Speedtest Tracker.
+icon: lucide/shield-check
 ---
 
 # Authorization

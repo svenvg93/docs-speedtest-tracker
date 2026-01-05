@@ -1,6 +1,7 @@
 ---
 title: Docker Run
 description: These instructions will run you through setting up Speedtest Tracker on a Docker server using Docker run.
+icon: lucide/container
 ---
 
 # Docker
@@ -27,90 +28,119 @@ base64:j+cdcxP3SV7Ja85jrW8f7uwdkp99mRdxtKu2wF8cwcs=
 
 SQLite is fine for most installs but you can also use more traditional relational databases like MariaDB, MySQL and Postgres.
 
-!!! info
+!!! warning "Required: User ID Configuration"
 
     You will need to get your user's `PUID` and `PGID`, you can do this by running `id $user` on the host.
 
-    [https://docs.linuxserver.io/general/understanding-puid-and-pgid/](https://docs.linuxserver.io/general/understanding-puid-and-pgid/)
+    [Learn more about PUID and PGID](https://docs.linuxserver.io/general/understanding-puid-and-pgid/)
 
 === "SQLite"
 
-    ```bash hl_lines="6 7"
+    ```bash hl_lines="4 5 6 7"
     docker run -d --name speedtest-tracker --restart unless-stopped \
         -p 8080:80 \
         -p 8443:443 \
-        -e PUID= \
-        -e PGID= \
-        -e APP_KEY= \
-        -e APP_URL= \
+        -e PUID= \ # (1)!
+        -e PGID= \ # (2)!
+        -e APP_KEY= \ # (3)!
+        -e APP_URL= \ # (4)!
         -e DB_CONNECTION=sqlite \
         -v /path/to/data:/config \
         -v /path/to-custom-ssl-keys:/config/keys \
         lscr.io/linuxserver/speedtest-tracker:latest
     ```
 
+    1. Your user ID - run `id -u` to find it
+    2. Your group ID - run `id -g` to find it
+    3. Generate with: `echo -n 'base64:'; openssl rand -base64 32`
+    4. The URL where you'll access the app (e.g., `http://localhost:8080`)
+
 === "MariaDB"
 
-    ```bash hl_lines="6 7"
+    ```bash hl_lines="4 5 6 7 9 12 13"
     docker run -d --name speedtest-tracker --restart unless-stopped \
         -p 8080:80 \
         -p 8443:443 \
-        -e PUID= \
-        -e PGID= \
-        -e APP_KEY= \
-        -e APP_URL= \
+        -e PUID= \ # (1)!
+        -e PGID= \ # (2)!
+        -e APP_KEY= \ # (3)!
+        -e APP_URL= \ # (4)!
         -e DB_CONNECTION=mariadb \
-        -e DB_HOST= \
+        -e DB_HOST= \ # (5)!
         -e DB_PORT=3306 \
         -e DB_DATABASE=speedtest_tracker \
-        -e DB_USERNAME= \
-        -e DB_PASSWORD= \
+        -e DB_USERNAME= \ # (6)!
+        -e DB_PASSWORD= \ # (7)!
         -v /path/to/data:/config \
         -v /path/to-custom-ssl-keys:/config/keys \
         lscr.io/linuxserver/speedtest-tracker:latest
     ```
+
+    1. Your user ID - run `id -u` to find it
+    2. Your group ID - run `id -g` to find it
+    3. Generate with: `echo -n 'base64:'; openssl rand -base64 32`
+    4. The URL where you'll access the app (e.g., `http://localhost:8080`)
+    5. Your MariaDB server hostname or IP address
+    6. Your database username
+    7. Your database password
 
 === "MySQL"
 
-    ```bash hl_lines="6 7"
+    ```bash hl_lines="4 5 6 7 9 12 13"
     docker run -d --name speedtest-tracker --restart unless-stopped \
         -p 8080:80 \
         -p 8443:443 \
-        -e PUID= \
-        -e PGID= \
-        -e APP_KEY= \
-        -e APP_URL= \
+        -e PUID= \ # (1)!
+        -e PGID= \ # (2)!
+        -e APP_KEY= \ # (3)!
+        -e APP_URL= \ # (4)!
         -e DB_CONNECTION=mysql \
-        -e DB_HOST= \
+        -e DB_HOST= \ # (5)!
         -e DB_PORT=3306 \
         -e DB_DATABASE=speedtest_tracker \
-        -e DB_USERNAME= \
-        -e DB_PASSWORD= \
+        -e DB_USERNAME= \ # (6)!
+        -e DB_PASSWORD= \ # (7)!
         -v /path/to/data:/config \
         -v /path/to-custom-ssl-keys:/config/keys \
         lscr.io/linuxserver/speedtest-tracker:latest
     ```
+
+    1. Your user ID - run `id -u` to find it
+    2. Your group ID - run `id -g` to find it
+    3. Generate with: `echo -n 'base64:'; openssl rand -base64 32`
+    4. The URL where you'll access the app (e.g., `http://localhost:8080`)
+    5. Your MySQL server hostname or IP address
+    6. Your database username
+    7. Your database password
 
 === "Postgres"
 
-    ```bash hl_lines="6 7"
+    ```bash hl_lines="4 5 6 7 9 12 13"
     docker run -d --name speedtest-tracker --restart unless-stopped \
         -p 8080:80 \
         -p 8443:443 \
-        -e PUID=1000 \
-        -e PGID=1000 \
-        -e APP_KEY= \
-        -e APP_URL= \
+        -e PUID= \ # (1)!
+        -e PGID= \ # (2)!
+        -e APP_KEY= \ # (3)!
+        -e APP_URL= \ # (4)!
         -e DB_CONNECTION=pgsql \
-        -e DB_HOST= \
+        -e DB_HOST= \ # (5)!
         -e DB_PORT=5432 \
         -e DB_DATABASE=speedtest_tracker \
-        -e DB_USERNAME= \
-        -e DB_PASSWORD= \
+        -e DB_USERNAME= \ # (6)!
+        -e DB_PASSWORD= \ # (7)!
         -v /path/to/data:/config \
         -v /path/to-custom-ssl-keys:/config/keys \
         lscr.io/linuxserver/speedtest-tracker:latest
     ```
+
+    1. Your user ID - run `id -u` to find it
+    2. Your group ID - run `id -g` to find it
+    3. Generate with: `echo -n 'base64:'; openssl rand -base64 32`
+    4. The URL where you'll access the app (e.g., `http://localhost:8080`)
+    5. Your Postgres server hostname or IP address
+    6. Your database username
+    7. Your database password
 
 !!! info
 

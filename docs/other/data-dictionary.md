@@ -1,6 +1,7 @@
 ---
 title: Data Dictionary
 description: Database schema reference for Speedtest Tracker tables and fields.
+icon: lucide/book-open
 ---
 
 # Data Dictionary

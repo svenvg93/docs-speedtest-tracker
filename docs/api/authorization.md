@@ -1,3 +1,9 @@
+---
+title: API Authorization
+description: Authenticate to the Speedtest Tracker API using Bearer tokens.
+icon: lucide/key
+---
+
 # Authorization
 
 A "Bearer Token" is required to authenticate into the API, you can generate tokens for your user account on `/admin/api-tokens`.&#x20;

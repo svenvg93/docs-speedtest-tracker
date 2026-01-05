@@ -1,6 +1,7 @@
 ---
 title: Mail Notifications
 description: Configure email notifications via SMTP for speedtest results.
+icon: lucide/mail
 ---
 
 # Mail

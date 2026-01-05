@@ -1,22 +1,91 @@
 ---
 title: Frequently Asked Questions
 description: A running list of frequently asked questions and their answers.
+icon: lucide/help-circle
 ---
 
 # Frequently Asked Questions
 
-## Docker
+Common questions and answers about Speedtest Tracker setup and usage.
+
+## Installation & Setup
 
 ??? question "I get a warning on container start up that the APP_KEY is missing"
 
-    `APP_KEY` for the encryption. See the [installation docs](../getting-started/installation/docker-compose.md#generate-an-application-key) how to generate one.
+    The `APP_KEY` is required for encryption and security.
+
+    **Solution:**
+
+    1. Generate a key using: `echo -n 'base64:'; openssl rand -base64 32`
+    2. Add it to your `docker-compose.yml` or docker run command: `APP_KEY=base64:your-generated-key`
+    3. Restart the container
+
+    See the [installation docs](../getting-started/installation/docker-compose.md#generate-an-application-key) for detailed instructions.
+
+??? question "How do I access Speedtest Tracker after installation?"
+
+    By default, Speedtest Tracker is accessible at:
+
+    - **HTTP:** `http://your-server-ip:8080`
+    - **HTTPS:** `https://your-server-ip:8443`
+
+    Use the [default login credentials](../getting-started/security/authentication.md#default-user-account) on first access.
+
+??? question "Can I change the default ports?"
+
+    Yes! In your `docker-compose.yml`, modify the port mapping:
+
+    ```yaml
+    ports:
+      - 9090:80  # Change 9090 to your desired port
+      - 9443:443 # Change 9443 to your desired HTTPS port
+    ```
+
+    Restart the container after making changes.
+
+## Database & Data
+
+??? question "Which database should I use?"
+
+    **For most users:** SQLite (default) is perfectly fine and requires no additional setup.
+
+    **Use MariaDB/MySQL/Postgres if:**
+
+    - You expect high traffic or many concurrent users
+    - You want to run multiple instances
+    - You need advanced database features
+
+    See [Database Drivers](../getting-started/configuration/database-drivers.md) for more information.
+
+??? question "Can I migrate from SQLite to MySQL/Postgres?"
+
+    Yes, but it requires manual migration. The recommended approach:
+
+    1. Export your existing data
+    2. Set up a new instance with your preferred database
+    3. Import the data
+
+    **Note:** There's no automated migration tool currently available.
+
+??? question "Where is my data stored?"
+
+    Your data is stored in the volume you mounted to `/config`:
+
+    - **SQLite database:** `/config/database/speedtest.db`
+    - **Configuration files:** `/config`
+    - **Logs:** Check with `docker logs speedtest-tracker`
 
 ## Notifications
 
 ??? question "Links in emails don't point to the correct URL"
 
-    1. Set the correct URL as the `APP_URL` environment variable
+    **Problem:** Notification links show incorrect URLs or localhost addresses.
+
+    **Solution:**
+
+    1. Set the correct URL as the `APP_URL` environment variable: `APP_URL=https://speedtest.yourdomain.com`
     2. Restart the container
+    3. Test by triggering a new notification
 
 ??? question "I'm getting duplicate message via Apprise"
 

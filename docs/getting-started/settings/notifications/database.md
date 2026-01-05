@@ -1,6 +1,7 @@
 ---
 title: Database Notifications
 description: Configure in-app database notifications for speedtest results.
+icon: lucide/inbox
 ---
 
 # Database

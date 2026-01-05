@@ -1,6 +1,7 @@
 ---
 title: InfluxDB v2
 description: Export speedtest results to InfluxDB v2 for long-term storage and visualization.
+icon: lucide/line-chart
 ---
 
 # InfluxDB v2

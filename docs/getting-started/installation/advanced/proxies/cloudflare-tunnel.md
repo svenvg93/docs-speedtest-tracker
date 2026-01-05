@@ -1,59 +1,44 @@
 ---
 title: Cloudflare Tunnel
 description: Configure Cloudflare Tunnel (Zero Trust) as a reverse proxy without exposing your IP address.
+icon: lucide/cloud
 ---
 
 # Cloudflare Tunnel (Zero Trust)
 
 A [Cloudflare tunnel](https://www.cloudflare.com/nl-nl/products/tunnel/) can be used as a reverse proxy in front of Speedtest Tracker when you want to expose the application publicly without exposing your IP address.
 
-## Cloudflare Tunnel Configuration
+## Step 1: Update Your Docker Compose
 
-* Update your `APP_URL` to the public URL you are going to use and restart the service.
-* In the Cloudflare panel go to **Zero Trust** -> **Networks** -> **Tunnels** page.
-* For the tunnel you want to add the Speedtest Tracker to click on **Edit** or add a new tunnel.
-* Go to **Public Hostname.**
-* Click on **Add a public hostname.**
-* Fill in the following fields:
-  * **Subdomain:** The subdomain you want to access the Speedtest Tracker on.
-  * **Domain:** The domain you want to access the Speedtest Tracker on.
-  * **Type:** Connection type to the Speedtest Tracker (http/https)
-    * When choosing HTTPS you will need to disable the TLS verification under `Additional application settings -> TLS -> No TLS Verify`
-  * **URL:** The URL to access the Speedtest Tracker. This can be either the IP Address:Port or the container_name:port.
+Add the following environment variables to your existing `speedtest-tracker` service in your `docker-compose.yml`:
 
-!!! info
-
-    When using the container_name Cloudflare Tunnel and Speedtest Tracker need to be on the same Docker network.
-
-## Docker Configuration
-
-```yaml
+```yaml hl_lines="3 4"
 services:
     speedtest-tracker:
-        container_name: speedtest-tracker
         environment:
-            - PUID=1000
-            - PGID=1000
-            - APP_KEY=
-            - DB_CONNECTION=sqlite
-            - SPEEDTEST_SCHEDULE=
-            - SPEEDTEST_SERVERS=
-            - PRUNE_RESULTS_OLDER_THAN=
-            - CHART_DATETIME_FORMAT=
-            - DATETIME_FORMAT=
-            - APP_TIMEZONE=
-            - APP_URL=https://speedtest.yourdomain.com # Change this to your domain name
-            - ASSET_URL=https://speedtest.yourdomain.com # Change this to your domain name
-        volumes:
-            - /path/to/data:/config
-            - /path/to-custom-ssl-keys:/config/keys
-        image: lscr.io/linuxserver/speedtest-tracker:latest
-        restart: unless-stopped
+            # Add these environment variables to your existing environment section
+            - APP_URL=https://speedtest.yourdomain.com # Change to your domain
+            - ASSET_URL=https://speedtest.yourdomain.com # Change to your domain
 ```
 
-!!! info
+!!! warning "Important"
+    Ensure Speedtest Tracker and your Cloudflare Tunnel are on the same Docker network if using container names.
 
-    Depending on your Cloudflare Tunnel configuration, you need to make sure the Speedtest Tracker and Cloudflare Tunnel are on the same docker network.
+## Step 2: Configure Cloudflare Tunnel
+
+Set up the tunnel in the Cloudflare Zero Trust dashboard:
+
+1. Go to **Zero Trust** → **Networks** → **Tunnels**
+2. Select your tunnel or create a new one, then click **Edit**
+3. Navigate to **Public Hostname**
+4. Click **Add a public hostname**
+5. Configure the following:
+   - **Subdomain:** Your desired subdomain (e.g., `speedtest`)
+   - **Domain:** Your domain name
+   - **Type:** `http` or `https`
+     - If using HTTPS, disable TLS verification under `Additional application settings → TLS → No TLS Verify`
+   - **URL:** Connection to Speedtest Tracker
+     - Use `speedtest-tracker:80` (container name) or `<IP-ADDRESS>:8080`
 
 ## Configuration Reference
 

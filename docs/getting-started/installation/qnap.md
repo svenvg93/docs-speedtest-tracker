@@ -1,6 +1,7 @@
 ---
 title: QNAP
 description: These instructions will run you through setting up Speedtest Tracker on a QNAP NAS using Container Station.
+icon: lucide/server
 ---
 
 # QNAP

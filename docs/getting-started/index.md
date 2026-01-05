@@ -1,5 +1,6 @@
 ---
 title: Getting Started
+icon: lucide/play-circle
 ---
 # Getting Started
 

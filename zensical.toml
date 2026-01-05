@@ -50,14 +50,12 @@ nav = [
   {"Getting Started" = [
      "getting-started/index.md",
      {"Installation" = [
-         {"Docker" = [
-            "getting-started/installation/docker-compose.md",
-            "getting-started/installation/docker.md"
-           ]},
-        "getting-started/installation/kubernetes.md",
-        "getting-started/installation/unraid.md",
-        "getting-started/installation/synology.md",
-        "getting-started/installation/qnap.md",
+         "getting-started/installation/docker-compose.md",
+         "getting-started/installation/docker.md",
+         "getting-started/installation/kubernetes.md",
+       # "getting-started/installation/unraid.md",
+       # "getting-started/installation/synology.md",
+       # "getting-started/installation/qnap.md",
         {"Advanced" = [
            "getting-started/installation/advanced/health-check.md",
            {"Proxies" = [
@@ -93,8 +91,14 @@ nav = [
      ]}
   ]},
   {"Help" = [
+     "help/index.md",
      "help/faqs.md",
-     "help/error-messages.md"
+     {"Troubleshooting" = [
+        "help/troubleshooting/index.md",
+        "help/troubleshooting/application-errors.md",
+        "help/troubleshooting/speedtest-errors.md",
+        "help/troubleshooting/integration-errors.md"
+     ]}
   ]},
   {"Other" = [
      "other/speedtest-process.md",

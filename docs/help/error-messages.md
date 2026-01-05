@@ -1,28 +1,52 @@
 ---
 title: Error Messages
 description: Common error messages and their solutions in Speedtest Tracker.
+icon: lucide/alert-circle
 ---
 
 # Error Messages
 
-## Troubleshooting
+This page contains common error messages you might encounter and how to resolve them.
 
-For all below errors there will be more information provided in the container logs. You can check the logs for more details by checking the container logs by running:
+## Quick Troubleshooting Steps
+
+!!! tip "First Steps for Any Error"
+    1. **Check container logs:** `docker logs speedtest-tracker`
+    2. **Enable debug mode** (see below)
+    3. **Look for the error** in the sections below
+    4. **Check environment variables** are set correctly
+
+### Viewing Logs
+
+Check your container logs for detailed error information:
 
 ```bash
+# View recent logs
 docker logs speedtest-tracker
+
+# Follow logs in real-time
+docker logs -f speedtest-tracker
+
+# View last 100 lines
+docker logs --tail 100 speedtest-tracker
 ```
 
-??? tip "Enable Debugging"
+### Enable Debug Mode
 
-    By default `APP_DEBUG` is set to `false` in production to prevent verbose error outputs. To debug the issue follow the steps below.
+??? tip "How to Enable Debugging"
 
-    1. Set `APP_DEBUG=true` as a environment variable
+    By default `APP_DEBUG` is set to `false` in production to prevent verbose error outputs.
+
+    **To enable debugging:**
+
+    1. Add `APP_DEBUG=true` to your environment variables
     2. Restart the container
-    3. Reproduce the error by visiting the page or performing the action that caused the error
-    4. View the output in the UI or in the logs to help resolve the issue, if you can not resolve it open an issue in the [GitHub](https://github.com/alexjustesen/speedtest-tracker/issues) repository
-    5. In the output the line that starts with `[timestamp] production.ERROR:` is the error the server ran into
-    6. Once the issue is resolved you can remove the `APP_DEBUG` environment variable
+    3. Reproduce the error
+    4. Check the logs - look for lines starting with `[timestamp] production.ERROR:`
+    5. Use the detailed error information to diagnose the issue
+    6. **Remove `APP_DEBUG=true` when done** for security
+
+    If you can't resolve the issue, [open a GitHub issue](https://github.com/alexjustesen/speedtest-tracker/issues) with the error details.
 
 ## Application
 

@@ -1,34 +1,25 @@
 ---
 title: Traefik
 description: Configure Traefik as a reverse proxy for Speedtest Tracker with automatic SSL.
+icon: lucide/network
 ---
 
 # Traefik
 
-[Traefik](https://traefik.io) can be used as a Reverse Proxy in front of Speedtest Tracker when you want to expose the Dashboard publicly with a trusted certificate. You will need at add the `APP_URL` environment and needed labels to the docker compose have Traefik apply the certificate and routing.
+[Traefik](https://traefik.io) can be used as a Reverse Proxy in front of Speedtest Tracker when you want to expose the Dashboard publicly with a trusted certificate.
 
-## Docker Compose
+## Update Your Docker Compose
 
-```yaml
+Add the following to your existing `speedtest-tracker` service in your `docker-compose.yml`:
+
+```yaml hl_lines="4 5 7 8 9 10 11 12"
 services:
     speedtest-tracker:
-        container_name: speedtest-tracker
         environment:
-            - PUID=1000
-            - PGID=1000
-            - APP_KEY=
-            - DB_CONNECTION=sqlite
-            - SPEEDTEST_SCHEDULE=
-            - SPEEDTEST_SERVERS=
-            - PRUNE_RESULTS_OLDER_THAN=
-            - CHART_DATETIME_FORMAT=
-            - DATETIME_FORMAT=
-            - APP_TIMEZONE=
-            - APP_URL=https://speedtest.yourdomain.com # Change this to your domain name
-            - ASSET_URL=https://speedtest.yourdomain.com # Change this to your domain name
-        volumes:
-            - /path/to/data:/config
-            - /path/to-custom-ssl-keys:/config/keys
+            # Add these environment variables to your existing environment section
+            - APP_URL=https://speedtest.yourdomain.com # Change to your domain
+            - ASSET_URL=https://speedtest.yourdomain.com # Change to your domain
+        # Add these labels to enable Traefik routing
         labels:
             - "traefik.enable=true"
             - "traefik.http.routers.speedtest-tracker.rule=Host(`speedtest.yourdomain.com`)"
@@ -36,13 +27,12 @@ services:
             - "traefik.http.routers.speedtest-tracker.tls=true"
             - "traefik.http.routers.speedtest-tracker.tls.certresolver=yourresolver"
             - "traefik.http.services.speedtest-tracker.loadbalancer.server.port=80"
-        image: lscr.io/linuxserver/speedtest-tracker:latest
-        restart: unless-stopped
 ```
 
-!!! info
-
-    Depending on your Traefik configuration, you need to make sure the Speedtest Tracker and Traefik are on the same docker network.
+!!! warning "Important"
+    - Replace `speedtest.yourdomain.com` with your actual domain
+    - Update `yourresolver` to match your Traefik certificate resolver name
+    - Ensure Speedtest Tracker and Traefik are on the same Docker network
 
 ## Configuration Reference
 
