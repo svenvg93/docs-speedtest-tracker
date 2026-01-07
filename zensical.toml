@@ -49,6 +49,10 @@ nav = [
   {"Home" = "index.md"},
   {"Getting Started" = [
      "getting-started/index.md",
+     {"Configuration" = [
+        "getting-started/configuration/database-drivers.md",
+        "getting-started/configuration/environment-variables.md"
+     ]},
      {"Installation" = [
          "getting-started/installation/docker-compose.md",
          "getting-started/installation/docker.md",
@@ -59,59 +63,55 @@ nav = [
         {"Advanced" = [
            "getting-started/installation/advanced/health-check.md",
            {"Proxies" = [
-              "getting-started/installation/advanced/proxies/nginx.md",
-              "getting-started/installation/advanced/proxies/traefik.md",
               "getting-started/installation/advanced/proxies/cloudflare-tunnel.md",
-              "getting-started/installation/advanced/proxies/tailscale.md"
+              "getting-started/installation/advanced/proxies/nginx.md",
+              "getting-started/installation/advanced/proxies/tailscale.md",
+              "getting-started/installation/advanced/proxies/traefik.md"
            ]}
         ]}
      ]},
-     {"Configuration" = [
-        "getting-started/configuration/environment-variables.md",
-        "getting-started/configuration/database-drivers.md"
+     {"Settings" = [
+        {"Data Integration" = [
+           "getting-started/settings/data-integration/index.md",
+           "getting-started/settings/data-integration/influxdb2.md",
+           "getting-started/settings/data-integration/prometheus.md"
+        ]},
+        {"Notifications" = [
+           "getting-started/settings/notifications/index.md",
+           "getting-started/settings/notifications/apprise.md",
+           "getting-started/settings/notifications/database.md",
+           "getting-started/settings/notifications/mail.md",
+           "getting-started/settings/notifications/webhook.md"
+        ]},
+         "getting-started/settings/thresholds.md"
      ]},
      {"Security" = [
         "getting-started/security/authentication.md",
         "getting-started/security/authorization.md",
         "getting-started/security/encryption.md"
-     ]},
-     {"Settings" = [
-        {"Data Exports" = [
-           "getting-started/settings/data-exports/index.md",
-           "getting-started/settings/data-exports/influxdb2.md",
-           "getting-started/settings/data-exports/prometheus.md"
-        ]},
-        {"Notifications" = [
-           "getting-started/settings/notifications/index.md",
-           "getting-started/settings/notifications/mail.md",
-           "getting-started/settings/notifications/database.md",
-           "getting-started/settings/notifications/webhook.md",
-           "getting-started/settings/notifications/apprise.md"
-        ]}
      ]}
   ]},
   {"Help" = [
      "help/index.md",
-     "help/faqs.md",
-     {"Troubleshooting" = [
-        "help/troubleshooting/index.md",
-        "help/troubleshooting/application-errors.md",
-        "help/troubleshooting/speedtest-errors.md",
-        "help/troubleshooting/integration-errors.md"
-     ]}
+      "help/application-errors.md",
+      "help/integration-errors.md",
+      "help/notification-errors.md",
+      "help/speedtest-errors.md"
   ]},
   {"Other" = [
-     "other/speedtest-process.md",
      "other/commands.md",
+     "other/community-projects.md",
      "other/data-dictionary.md",
-     "other/community-projects.md"
+     "other/speedtest-process.md"
   ]},
   {"API" = [
      "api/authorization.md"
   ]},
   {"Contributing" = [
-     "contributing/development-environment.md"
-  ]},
+     "contributing/index.md",
+     "contributing/development-environment.md",
+     "contributing/pull-requests.md"
+  ]}
 ]
 
 

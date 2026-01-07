@@ -1,55 +1,40 @@
 ---
 title: Development Environment
-description: Create a containerized development environment so you can build, test and contribute to Speedtest Tracker.
+description: Set up a local development environment for Speedtest Tracker using Laravel Sail.
 icon: lucide/code
 ---
 
 # Development Environment
 
-Speedtest Tracker is built on the [Laravel](https://laravel.com/) framework, this means we get to use some awesome 1st party packages like [Laravel Sail](https://laravel.com/docs/10.x/sail) to create a local containerized development environment.
-
-These directions will walk you through the steps of setting up that environment.
+Speedtest Tracker uses [Laravel Sail](https://laravel.com/docs/10.x/sail) for local development. Sail provides a containerized environment where the only requirements are Git and Docker.
 
 !!! info
 
-    These directions assume you have a working knowledge of the Laravel framework. If you have questions on how to use it the [Laravel Docs](https://laravel.com/docs/9.x) and [Laracasts series](https://laracasts.com/series/laravel-8-from-scratch) on "Laravel from Scratch" are a good place to start.
+    This guide assumes basic knowledge of Laravel. See the [Laravel Docs](https://laravel.com/docs/10.x) and [Laracasts](https://laracasts.com/series/laravel-8-from-scratch) for more information.
 
-### Setup and Start the Development Environment
+## Setup
 
-#### 1. Clone the repository
+### 1. Clone and Configure
 
-First let's clone the [repository](https://github.com/alexjustesen/speedtest-tracker) to your machine.
-
-```bash
-git clone git@github.com:alexjustesen/speedtest-tracker \
-    && cd speedtest-tracker
-```
-
-#### 2. Make a copy of `.env.example` and update DB variables
-
-Next we need to make a copy of `.env.example`, the environment file is what Laravel uses.
+Clone the repository and set up environment variables:
 
 ```bash
+# Clone repository
+git clone git@github.com:alexjustesen/speedtest-tracker
+cd speedtest-tracker
+
+# Copy environment file
 cp .env.example .env
+
+# Generate application key
+echo -n 'base64:'; openssl rand -base64 32
 ```
 
-You will copy and fill in the following Environment Variables
+Update `.env` with your generated `APP_KEY`.
 
-```
-APP_NAME="Speedtest Tracker"
-APP_ENV=local
-APP_KEY=
-APP_DEBUG=false
-APP_TIMEZONE=UTC
-```
+### 2. Install Dependencies
 
-!!! info
-
-    Generate the APP_KEY at with the command: `echo -n 'base64:'; openssl rand -base64 32;`
-
-#### 3. Install Composer dependencies
-
-We'll use a temporary container to install the Composer dependencies for the application.
+Install Composer dependencies using a temporary container:
 
 ```bash
 docker run --rm \
@@ -60,97 +45,70 @@ docker run --rm \
     composer install --ignore-platform-reqs
 ```
 
-#### 4. Build Sail development container
+### 3. Build and Start
 
-We utilize [Laravel Sail](https://laravel.com/docs/10.x/sail) for a local development environment this way on your machine the only requirements are Git and Docker. To build the development environment run the commands below.
+Build the Sail container and start the environment:
 
 ```bash
+# Build container
 ./vendor/bin/sail build --no-cache
 
-# or if you have a Sail alias setup...
-sail build --no-cache
-```
-
-#### 5. Start the development environment
-
-To start up the environment we can now use the Sail binary that is included with the package to start our development environment.
-
-```bash
+# Start in background
 ./vendor/bin/sail up -d
-
-# or if you have a Sail alias setup...
-sail up -d
 ```
 
-#### 6. Create the database
+!!! tip "Sail Alias"
+    Create an alias for convenience: `alias sail='./vendor/bin/sail'`
 
-To start up the environment we need to make a database
+### 4. Database and Assets
+
+Set up the database and build frontend assets:
 
 ```bash
+# Create SQLite database
 touch database/database.sqlite
-```
 
-As well need to make the needed tables etc in the database.
-
-```bash
+# Run migrations
 ./vendor/bin/sail artisan migrate:fresh --force
 
-# or if you have a Sail alias setup...
-sail artisan migrate:fresh --force
-```
-
-#### 7. Installing NPM assets
-
-We will need to install the needed NPM assets
-
-```bash
+# Install and build frontend
 ./vendor/bin/sail npm install && ./vendor/bin/sail npm run build
-
-# or if you have a Sail alias setup...
-sail npm install && sail npm run build
-
 ```
 
-## Reset your development environment
+## Development Workflows
 
-You can reset your development environment at any time by re-running a fresh migration:
+### Reset Database
+
+Reset your database to a clean state:
 
 ```bash
 ./vendor/bin/sail artisan migrate:fresh --force
-
-# or if you have a Sail alias setup...
-sail artisan migrate:fresh --force
 ```
 
-## Processing Jobs in the Queue using a Worker
+### Process Queue Jobs
 
-Processes like running a speedtest and sending notifications are offloaded to be run by a worker process. If you're testing or developing anything requiring the queue jobs be processed run the command below.
+Speedtests and notifications run in the queue. Start a worker:
 
 ```bash
 ./vendor/bin/sail artisan queue:work
-
-# or if you have a Sail alias setup...
-sail artisan queue:work
 ```
 
-## Lint your code before opening a PR or committing changes
+### Lint Code
 
-To keep PHP's code style consistent across multiple contributors a successful lint workflow is required to pass. Check your code quality locally by running the command below and fixing it's recommendations.
+All code must pass linting before submission:
 
 ```bash
-./vendor/bin/sail bin duster lint --using=pint -v
-
-# or if you have a Sail alias setup...
-sail bin duster lint --using=pint -v
+./vendor/bin/pint
 ```
 
-## Stopping the development environment
+### Stop Environment
 
-When you're done in the environment you can stop the containers using the command below.
+Stop the containers when done:
 
 ```bash
 ./vendor/bin/sail down
-
-# or if you have a Sail alias setup...
-sail down
 ```
+
+## Next Steps
+
+Environment ready? See [Pull Requests](pull-requests.md) to learn how to submit your changes.

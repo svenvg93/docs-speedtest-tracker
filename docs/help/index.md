@@ -6,55 +6,64 @@ icon: lucide/life-buoy
 
 # Help & Troubleshooting
 
-Need help with Speedtest Tracker? This section contains answers to common questions and solutions to known issues.
+Need help with Speedtest Tracker? Start here to diagnose and resolve issues.
 
-## Quick Links
+## Quick Diagnostics
 
-### [Frequently Asked Questions](faqs.md)
-Common questions about Docker setup, notifications, timezones, and speedtest scheduling.
+### Check Container Logs
 
-**Popular topics:**
-- Setting up APP_KEY
-- Configuring notifications
-- Timezone configuration
-- Speedtest scheduling tips
-
-### [Error Messages](error-messages.md)
-Detailed explanations of error messages and how to resolve them.
-
-**Common errors:**
-- 500 Server Error
-- APP_KEY issues
-- Speedtest process failures
-- InfluxDB connection problems
-
-## Getting Help
-
-### Check the Logs
 Most issues can be diagnosed by checking the container logs:
 
-```bash
-docker logs speedtest-tracker
-```
+??? tip "How to check the logs"
+
+      ```bash
+      # View recent logs
+      docker logs speedtest-tracker
+
+      # Follow logs in real-time
+      docker logs -f speedtest-tracker
+
+      # View last 100 lines
+      docker logs --tail 100 speedtest-tracker
+      ```
+
+      For Docker Compose:
+
+      ```bash
+      docker compose logs speedtest-tracker
+      ```
 
 ### Enable Debug Mode
-For detailed error information:
 
-1. Set `APP_DEBUG=true` in your environment variables
-2. Restart the container
-3. Reproduce the issue
-4. Check logs for detailed error messages
-5. Remove `APP_DEBUG` once resolved
+By default APP_DEBUG is set to false in production to prevent verbose error outputs.
 
-### Still Need Help?
 
-If you can't find a solution here:
+??? tip "How to Enable Debugging"
 
-1. **Search existing issues:** Check if someone else has reported the same problem
-2. **Open a new issue:** [GitHub Issues](https://github.com/alexjustesen/speedtest-tracker/issues)
-3. **Provide details:** Include logs, error messages, and your configuration (remove sensitive data)
+    **To enable debugging:**
+
+    1. Add `APP_DEBUG=true` to your environment variables
+    2. Restart the container
+    3. Reproduce the error
+    4. Check the logs - look for lines starting with `[timestamp] production.ERROR:`
+    5. Use the detailed error information to diagnose the issue
+    6. **Remove `APP_DEBUG=true` when done** for security
+
+    If you can't resolve the issue, [open a GitHub issue](https://github.com/alexjustesen/speedtest-tracker/issues) with the error details.
+
+## Need More Help?
+
+If the logs and debug mode don't reveal the issue:
+
+1. **Search existing issues:** Check if someone has reported the same problem on [GitHub Issues](https://github.com/alexjustesen/speedtest-tracker/issues)
+2. **Gather information before opening an issue:**
+   - Container logs (with `APP_DEBUG=true` if helpful)
+   - Your configuration (remove sensitive data like passwords and keys)
+   - Steps to reproduce the issue
+   - Version information
+3. **Create an issue:** [Open a new issue](https://github.com/alexjustesen/speedtest-tracker/issues/new) with all the information you've gathered
 
 !!! tip "Before Opening an Issue"
-    - Check that you're using a [supported installation method](../getting-started/index.md)
-    - Verify all required environment variables are set
+    - Verify you're using a [supported installation method](../getting-started/index.md)
+    - Check you're on the latest version
     - Review the [configuration documentation](../getting-started/configuration/environment-variables.md)

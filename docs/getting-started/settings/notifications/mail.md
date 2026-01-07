@@ -1,5 +1,5 @@
 ---
-title: Mail Notifications
+title: Mail
 description: Configure email notifications via SMTP for speedtest results.
 icon: lucide/mail
 ---
@@ -32,31 +32,8 @@ MAIL_FROM_NAME=
 
     `MAIL_SCHEME` is optional, only use it if you need to define `smtp` or `smtps` otherwise Laravel will determine the scheme based on the port provided.
 
-## Examples
-
-### Gmail
-
-1. Go to [https://myaccount.google.com/](https://myaccount.google.com/) and click on the "Security" tab.
-2. Under the "How you sign in to Google" section, click on "2-Step Verification".
-3. Click on "App passwords".
-4. Enter a name for your app password and click "Create". Use this password for the `MAIL_PASSWORD` env variable in the example configuration below.
-
-```
-MAIL_MAILER=smtp
-MAIL_HOST=smtp.gmail.com
-MAIL_PORT=465
-MAIL_USERNAME="username@gmail.com"
-MAIL_PASSWORD="password"
-MAIL_FROM_ADDRESS="username@gmail.com"
-MAIL_FROM_NAME="Speedtest Tracker"
-```
-
-## Triggers
-
-| Name | Description |
-| ---- | ----------- |
-| on every scheduled speedtest run | On each successful scheduled speedtest a notification will be send to the application. |
-| on threshold failures for scheduled speedtests | On any absolute threshold failure for scheduled speedtest a notification will be send to the application. |
+## Providers
+Most SMTP providers work with Speedtest Tracker. Check your mail provider's documentation for SMTP settings. Common ports: `25`, `465` (SSL), `587` (TLS)
 
 ## Recipients
 

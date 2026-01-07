@@ -6,7 +6,7 @@ icon: lucide/package
 
 # Docker Compose
 
-Setting up your environment with Docker Compose is the recommended way as it'll setup the application and a database for you. These steps will run you through setting up the application using Docker and Docker Compose.
+Setting up your environment with Docker Compose is the recommended way as it will set up the application and a database for you. These steps will guide you through setting up the application using Docker Compose.
 
 ## Generate an Application Key
 
@@ -24,12 +24,8 @@ base64:j+cdcxP3SV7Ja85jrW8f7uwdkp99mRdxtKu2wF8cwcs=
 
 SQLite is fine for most installs but you can also use more traditional relational databases like MariaDB, MySQL and Postgres.
 
-!!! warning "Required: User ID Configuration"
-
-    You will need to get your user's `PUID` and `PGID`, you can do this by running `id $user` on the host.
-
-    [Learn more about PUID and PGID](https://docs.linuxserver.io/general/understanding-puid-and-pgid/)
-
+!!! tip
+    Please make sure the highlighted environment variables are filled in — each one is required for the application to work properly.
 
 === "SQLite"
 
@@ -48,6 +44,8 @@ SQLite is fine for most installs but you can also use more traditional relationa
                 - APP_KEY= # (3)!
                 - APP_URL= # (4)!
                 - DB_CONNECTION=sqlite
+                - SPEEDTEST_SCHEDULE= # (5)!
+                - SPEEDTEST_SERVERS= # (6)!
             volumes:
                 - /path/to/data:/config
                 - /path/to-custom-ssl-keys:/config/keys
@@ -57,10 +55,12 @@ SQLite is fine for most installs but you can also use more traditional relationa
     2. Your group ID - run `id -g` to find it
     3. Generate with: `echo -n 'base64:'; openssl rand -base64 32`
     4. The URL where you'll access the app (e.g., `http://localhost:8080`)
+    5. (Optional) Cron expression for when to run tests (e.g., `0 */2 * * *` for every 2 hours)
+    6. (Optional) Comma separated server IDs to use (e.g., `52365` or `36998,52365`)
 
 === "MariaDB"
 
-    ```yaml hl_lines="10 11 12 13 19"
+    ```yaml hl_lines="10 11 12 13"
     services:
         speedtest-tracker:
             image: lscr.io/linuxserver/speedtest-tracker:latest
@@ -79,7 +79,9 @@ SQLite is fine for most installs but you can also use more traditional relationa
                 - DB_PORT=3306
                 - DB_DATABASE=speedtest_tracker
                 - DB_USERNAME=speedtest_tracker
-                - DB_PASSWORD=password # (5)!
+                - DB_PASSWORD=password
+                - SPEEDTEST_SCHEDULE= # (5)!
+                - SPEEDTEST_SERVERS= # (6)!
             volumes:
                 - /path/to/data:/config
                 - /path/to-custom-ssl-keys:/config/keys
@@ -108,11 +110,12 @@ SQLite is fine for most installs but you can also use more traditional relationa
     2. Your group ID - run `id -g` to find it
     3. Generate with: `echo -n 'base64:'; openssl rand -base64 32`
     4. The URL where you'll access the app (e.g., `http://localhost:8080`)
-    5. Change this to a secure password of your choice
+    5. (Optional) Cron expression for when to run tests (e.g., `0 */2 * * *` for every 2 hours)
+    6. (Optional) Comma separated server IDs to use (e.g., `52365` or `36998,52365`)
 
 === "MySQL"
 
-    ```yaml hl_lines="10 11 12 13 19"
+    ```yaml hl_lines="10 11 12 13"
     services:
         speedtest-tracker:
             image: lscr.io/linuxserver/speedtest-tracker:latest
@@ -131,7 +134,9 @@ SQLite is fine for most installs but you can also use more traditional relationa
                 - DB_PORT=3306
                 - DB_DATABASE=speedtest_tracker
                 - DB_USERNAME=speedtest_tracker
-                - DB_PASSWORD=password # (5)!
+                - DB_PASSWORD=password
+                - SPEEDTEST_SCHEDULE= # (5)!
+                - SPEEDTEST_SERVERS= # (6)!
             volumes:
                 - /path/to/data:/config
                 - /path/to-custom-ssl-keys:/config/keys
@@ -160,11 +165,12 @@ SQLite is fine for most installs but you can also use more traditional relationa
     2. Your group ID - run `id -g` to find it
     3. Generate with: `echo -n 'base64:'; openssl rand -base64 32`
     4. The URL where you'll access the app (e.g., `http://localhost:8080`)
-    5. Change this to a secure password of your choice
+    5. (Optional) Cron expression for when to run tests (e.g., `0 */2 * * *` for every 2 hours)
+    6. (Optional) Comma separated server IDs to use (e.g., `52365` or `36998,52365`)
 
 === "Postgres"
 
-    ```yaml hl_lines="10 11 12 13 19"
+    ```yaml hl_lines="10 11 12 13"
     services:
         speedtest-tracker:
             image: lscr.io/linuxserver/speedtest-tracker:latest
@@ -183,7 +189,9 @@ SQLite is fine for most installs but you can also use more traditional relationa
                 - DB_PORT=5432
                 - DB_DATABASE=speedtest_tracker
                 - DB_USERNAME=speedtest_tracker
-                - DB_PASSWORD=password # (5)!
+                - DB_PASSWORD=password
+                - SPEEDTEST_SCHEDULE= # (5)!
+                - SPEEDTEST_SERVERS= # (6)!
             volumes:
                 - /path/to/data:/config
                 - /path/to-custom-ssl-keys:/config/keys
@@ -212,24 +220,30 @@ SQLite is fine for most installs but you can also use more traditional relationa
     2. Your group ID - run `id -g` to find it
     3. Generate with: `echo -n 'base64:'; openssl rand -base64 32`
     4. The URL where you'll access the app (e.g., `http://localhost:8080`)
-    5. Change this to a secure password of your choice
+    5. (Optional) Cron expression for when to run tests (e.g., `0 */2 * * *` for every 2 hours)
+    6. (Optional) Comma separated server IDs to use (e.g., `52365` or `36998,52365`)
 
-!!! info
+??? tip "Want to use HTTPS?"
 
-    If you would like to provide your own SSL keys, they must be named `cert.crt` (full chain) and `cert.key` (private key), and mounted in the container folder `/config/keys`.
+    Provide your own SSL keys, they must be named `cert.crt` (full chain) and `cert.key` (private key), and mounted in the container folder `/config/keys`.
+
+??? tip "Scheduling automatic speedtests"
+    Use [crontab.guru](https://crontab.guru/) to help create cron expressions for `SPEEDTEST_SCHEDULE`. See the [FAQ](../../help/faqs.md#speedtest) for tips on effectively scheduling tests.
 
 ## Environment Variables
 
-In order for the application to run smoothly, some environment variables need to be set. Check out the [Environment Variables](../configuration/environment-variables.md) section. Make sure all **required** variables are configured.
-
-## Configuration Variables (Optional)
-
-You can set configuration variables to have automatic speedtest on an schedule. Check out the [Environment Variables](../configuration/environment-variables.md#speedtest) section on how to set the variables. Also see the [FAQ](../../help/faqs.md#speedtest) for tips effectively scheduling tests.
+The examples above include the required environment variables. For additional configuration options like [Display](../configuration/environment-variables.md#display) and other settings, see the complete [Environment Variables](../configuration/environment-variables.md) reference.
 
 ## Start the Container
 
-You can now start the container accordingly the platform you are on.
+Save your Docker Compose configuration to a file named `docker-compose.yml`, then start the container:
+
+```bash
+docker compose up -d
+```
+
+The `-d` flag runs the containers in detached mode (in the background).
 
 ## First Login
 
-During the start the container there is a default username and password created. Use the [default login](../security/authentication.md#default-user-account) credentials to login to the application. You can [change the default user](../security/authentication.md#change-account-details) after logging in.
+When the container starts for the first time, a default username and password are created. Use the [default login](../security/authentication.md#default-user-account) credentials to login to the application. You can [change the default user](../security/authentication.md#change-account-details) after logging in.

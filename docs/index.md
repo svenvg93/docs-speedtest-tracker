@@ -17,10 +17,6 @@ A self-hosted internet performance tracking application that runs speedtest chec
 [Get Started](getting-started/){ .md-button .md-button--primary }
 [View on GitHub](https://github.com/alexjustesen/speedtest-tracker){ .md-button }
 
----
-
-## :sparkles: Key Features
-
 <div class="grid cards" markdown>
 
 - :chart_with_upwards_trend: **Performance Monitoring**

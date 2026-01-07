@@ -1,5 +1,5 @@
 ---
-title: Speedtest Errors
+title: Speedtest
 description: Troubleshoot speedtest execution, server selection, and connectivity issues.
 icon: lucide/zap
 ---
@@ -118,33 +118,12 @@ This page covers errors related to running speedtests, server selection, and the
 
     This [comment on GitHub](https://github.com/alexjustesen/speedtest-tracker/issues/552#issuecomment-2028532010) can help you get the formatting right.
 
-## Network Configuration
-
-??? question "Tests are failing behind a proxy or VPN"
-
-    If you're running Speedtest Tracker behind a proxy or VPN, the speedtests may fail or return unexpected results.
-
-    **Things to check:**
-
-    1. **Proxy configuration** - Ensure the container can bypass the proxy for speedtest traffic if needed
-    2. **VPN routing** - Verify the VPN isn't interfering with speedtest traffic
-    3. **Firewall rules** - Check that required ports aren't blocked
-    4. **Docker network mode** - Consider using `host` network mode if appropriate
-
-    **Test connectivity:**
-
-    ```bash
-    # Test from inside the container
-    docker exec speedtest-tracker ping -c 4 google.com
-    docker exec speedtest-tracker curl -I https://speedtest.net
-    ```
-
-## Still Having Issues?
+## Need More Help?
 
 If you can't resolve the problem:
 
-1. Check the [container logs](index.md#check-container-status) for detailed error messages
+1. Check the [container logs](index.md#check-container-logs) for detailed error messages
 2. Enable [debug mode](index.md#enable-debug-mode) for more information
-3. Review [environment variables](../../getting-started/configuration/environment-variables.md#speed-tests) for speedtest configuration
+3. Review the [configuration documentation](../../getting-started/configuration/environment-variables.md)
 4. Check [GitHub Issues](https://github.com/alexjustesen/speedtest-tracker/issues) for similar problems
 5. Open a new issue with logs and configuration details (remove sensitive data)

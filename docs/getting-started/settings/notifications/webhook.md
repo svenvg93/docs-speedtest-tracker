@@ -1,5 +1,5 @@
 ---
-title: Webhook Notifications
+title: Webhook
 description: Send speedtest results to webhooks with JSON payloads.
 icon: lucide/webhook
 ---
@@ -63,11 +63,3 @@ A webhook will send a JSON payload to a receiver of your choice
       "url": "http://localhost/admin/results"
     }
     ```
-
-
-## Triggers
-
-| Name | Description |
-| ---- | ----------- |
-| on every scheduled speedtest run | On each successful scheduled speedtest a notification will be send to the application. |
-| on threshold failures for scheduled speedtests | On any absolute threshold failure for scheduled speedtest a notification will be send to the application. |

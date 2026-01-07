@@ -1,5 +1,5 @@
 ---
-title: Apprise Notifications
+title: Apprise
 description: Use Apprise to send notifications to multiple services like Discord, Pushover, and Ntfy.
 icon: lucide/bell-ring
 ---
@@ -33,10 +33,3 @@ By default the format used for message is `markdown` This allows us to do some f
 #### Preview Images
 
 By default Apprise does not allow preview images for URLs. This is an default setting on the Apprise instance. Depending on the service used you can override this settings in the notification channel URL. Check the Apprise documentation to see if your service support this and how to set it.
-
-### Triggers
-
-| Name | Description |
-| ---- | ----------- |
-| on every scheduled speedtest run | On each successful scheduled speedtest a notification will be send to the application. |
-| on threshold failures for scheduled speedtests | On any absolute threshold failure for scheduled speedtest a notification will be send to the application. |

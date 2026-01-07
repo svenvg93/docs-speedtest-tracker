@@ -6,7 +6,7 @@ icon: lucide/container
 
 # Docker
 
-Setting up your environment with Docker Compose is the recommended way as it'll setup the application and a database for you. These steps will run you through setting up the application using Docker and Docker Compose.
+Setting up your environment with Docker Compose is the recommended way as it will set up the application and a database for you. These steps will guide you through setting up the application using Docker run commands.
 
 !!! info
 
@@ -28,11 +28,8 @@ base64:j+cdcxP3SV7Ja85jrW8f7uwdkp99mRdxtKu2wF8cwcs=
 
 SQLite is fine for most installs but you can also use more traditional relational databases like MariaDB, MySQL and Postgres.
 
-!!! warning "Required: User ID Configuration"
-
-    You will need to get your user's `PUID` and `PGID`, you can do this by running `id $user` on the host.
-
-    [Learn more about PUID and PGID](https://docs.linuxserver.io/general/understanding-puid-and-pgid/)
+!!! tip
+    Please make sure the highlighted environment variables are filled in — each one is required for the application to work properly.
 
 === "SQLite"
 
@@ -45,6 +42,8 @@ SQLite is fine for most installs but you can also use more traditional relationa
         -e APP_KEY= \ # (3)!
         -e APP_URL= \ # (4)!
         -e DB_CONNECTION=sqlite \
+        -e SPEEDTEST_SCHEDULE= \ # (5)!
+        -e SPEEDTEST_SERVERS= \ # (6)!
         -v /path/to/data:/config \
         -v /path/to-custom-ssl-keys:/config/keys \
         lscr.io/linuxserver/speedtest-tracker:latest
@@ -54,6 +53,8 @@ SQLite is fine for most installs but you can also use more traditional relationa
     2. Your group ID - run `id -g` to find it
     3. Generate with: `echo -n 'base64:'; openssl rand -base64 32`
     4. The URL where you'll access the app (e.g., `http://localhost:8080`)
+    5. (Optional) Cron expression for when to run tests (e.g., `"0 */2 * * *"` for every 2 hours)
+    6. (Optional) Comma separated server IDs to use (e.g., `"52365"` or `"36998,52365"`)
 
 === "MariaDB"
 
@@ -71,6 +72,8 @@ SQLite is fine for most installs but you can also use more traditional relationa
         -e DB_DATABASE=speedtest_tracker \
         -e DB_USERNAME= \ # (6)!
         -e DB_PASSWORD= \ # (7)!
+        -e SPEEDTEST_SCHEDULE= \ # (8)!
+        -e SPEEDTEST_SERVERS= \ # (9)!
         -v /path/to/data:/config \
         -v /path/to-custom-ssl-keys:/config/keys \
         lscr.io/linuxserver/speedtest-tracker:latest
@@ -83,6 +86,8 @@ SQLite is fine for most installs but you can also use more traditional relationa
     5. Your MariaDB server hostname or IP address
     6. Your database username
     7. Your database password
+    8. (Optional) Cron expression for when to run tests (e.g., `"0 */2 * * *"` for every 2 hours)
+    9. (Optional) Comma separated server IDs to use (e.g., `"52365"` or `"36998,52365"`)
 
 === "MySQL"
 
@@ -100,6 +105,8 @@ SQLite is fine for most installs but you can also use more traditional relationa
         -e DB_DATABASE=speedtest_tracker \
         -e DB_USERNAME= \ # (6)!
         -e DB_PASSWORD= \ # (7)!
+        -e SPEEDTEST_SCHEDULE= \ # (8)!
+        -e SPEEDTEST_SERVERS= \ # (9)!
         -v /path/to/data:/config \
         -v /path/to-custom-ssl-keys:/config/keys \
         lscr.io/linuxserver/speedtest-tracker:latest
@@ -112,6 +119,8 @@ SQLite is fine for most installs but you can also use more traditional relationa
     5. Your MySQL server hostname or IP address
     6. Your database username
     7. Your database password
+    8. (Optional) Cron expression for when to run tests (e.g., `"0 */2 * * *"` for every 2 hours)
+    9. (Optional) Comma separated server IDs to use (e.g., `"52365"` or `"36998,52365"`)
 
 === "Postgres"
 
@@ -129,6 +138,8 @@ SQLite is fine for most installs but you can also use more traditional relationa
         -e DB_DATABASE=speedtest_tracker \
         -e DB_USERNAME= \ # (6)!
         -e DB_PASSWORD= \ # (7)!
+        -e SPEEDTEST_SCHEDULE= \ # (8)!
+        -e SPEEDTEST_SERVERS= \ # (9)!
         -v /path/to/data:/config \
         -v /path/to-custom-ssl-keys:/config/keys \
         lscr.io/linuxserver/speedtest-tracker:latest
@@ -141,27 +152,23 @@ SQLite is fine for most installs but you can also use more traditional relationa
     5. Your Postgres server hostname or IP address
     6. Your database username
     7. Your database password
+    8. (Optional) Cron expression for when to run tests (e.g., `"0 */2 * * *"` for every 2 hours)
+    9. (Optional) Comma separated server IDs to use (e.g., `"52365"` or `"36998,52365"`)
 
-!!! info
+??? tip "Want to use HTTPS?"
+    Provide your own SSL keys, they must be named `cert.crt` (full chain) and `cert.key` (private key), and mounted in the container folder `/config/keys`.
 
-    If you would like to provide your own SSL keys, they must be named `cert.crt` (full chain) and `cert.key` (private key), and mounted in the container folder `/config/keys`.
+??? tip "Scheduling automatic speedtests"
+    Use [crontab.guru](https://crontab.guru/) to help create cron expressions for `SPEEDTEST_SCHEDULE`. See the [FAQ](../../help/faqs.md#speedtest) for tips on effectively scheduling tests.
 
 ## Environment Variables
 
-In order for the application to run smoothly, some environment variables need to be set. Check out the [Environment Variables](../configuration/environment-variables.md) section. Make sure all **required** variables are configured.
-
-## Configuration Variables (Optional)
-
-You can set configuration variables to have automatic speedtest on an schedule. Check out the [Environment Variables](../configuration/environment-variables.md#speedtest) section on how to set the variables. Also see the [FAQ](../../help/faqs.md#speedtest) for tips effectively scheduling tests.
-
-!!! info
-
-    Complete overview of the Environment Variables for custom configuration can be found [here](../configuration/environment-variables.md).
+The examples above include the required environment variables. For additional configuration options like [Display](../configuration/environment-variables.md#display) and other settings, see the complete [Environment Variables](../configuration/environment-variables.md) reference.
 
 ## Start the Container
 
-You can now start the container accordingly the platform you are on.
+Run the Docker command from the appropriate tab above to start your container. The container will start automatically and begin running in the background.
 
 ## First Login
 
-During the start the container there is a default username and password created. Use the [default login](../security/authentication.md#default-user-account) credentials to login to the application. You can [change the default user](../security/authentication.md#change-account-details) after logging in.
+When the container starts for the first time, a default username and password are created. Use the [default login](../security/authentication.md#default-user-account) credentials to login to the application. You can [change the default user](../security/authentication.md#change-account-details) after logging in.
