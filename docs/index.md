@@ -8,7 +8,7 @@ hide:
 
 <div align="center" markdown>
 
-# :zap: Speedtest Tracker
+# Speedtest Tracker
 
 ### Monitor your internet speed over time
 

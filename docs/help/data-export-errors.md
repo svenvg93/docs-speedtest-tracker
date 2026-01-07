@@ -1,12 +1,12 @@
 ---
-title: Integration
-description: Troubleshoot data exports, notifications, and third-party integrations.
+title: Data Export
+description: Troubleshoot data exports
 icon: lucide/plug
 ---
 
-# Integration Errors
+# Data Export Errors
 
-This page covers errors related to data exports (InfluxDB, Prometheus), notifications, and third-party integrations.
+This page covers errors related to data exports.
 
 ## InfluxDB Integration
 

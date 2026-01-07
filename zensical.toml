@@ -49,14 +49,10 @@ nav = [
   {"Home" = "index.md"},
   {"Getting Started" = [
      "getting-started/index.md",
-     {"Configuration" = [
-        "getting-started/configuration/database-drivers.md",
-        "getting-started/configuration/environment-variables.md"
-     ]},
      {"Installation" = [
          "getting-started/installation/docker-compose.md",
          "getting-started/installation/docker.md",
-         "getting-started/installation/kubernetes.md",
+       # "getting-started/installation/kubernetes.md",
        # "getting-started/installation/unraid.md",
        # "getting-started/installation/synology.md",
        # "getting-started/installation/qnap.md",
@@ -69,6 +65,10 @@ nav = [
               "getting-started/installation/advanced/proxies/traefik.md"
            ]}
         ]}
+     ]},
+     {"Configuration" = [
+        "getting-started/configuration/database-drivers.md",
+        "getting-started/configuration/environment-variables.md"
      ]},
      {"Settings" = [
         {"Data Integration" = [
@@ -94,7 +94,7 @@ nav = [
   {"Help" = [
      "help/index.md",
       "help/application-errors.md",
-      "help/integration-errors.md",
+      "help/data-export-errors.md",
       "help/notification-errors.md",
       "help/speedtest-errors.md"
   ]},
