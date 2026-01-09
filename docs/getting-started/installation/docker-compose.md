@@ -228,7 +228,33 @@ SQLite is fine for most installs but you can also use more traditional relationa
     Provide your own SSL keys, they must be named `cert.crt` (full chain) and `cert.key` (private key), and mounted in the container folder `/config/keys`.
 
 ??? tip "Scheduling automatic speedtests"
-    Use [crontab.guru](https://crontab.guru/) to help create cron expressions for `SPEEDTEST_SCHEDULE`. See the [FAQ](../../help/faqs.md#speedtest) for tips on effectively scheduling tests.
+    Use [crontab.guru](https://crontab.guru/) to help create cron expressions for `SPEEDTEST_SCHEDULE`. See the [FAQ](../../help/speedtest-errors/#test-quality-issues) for tips on effectively scheduling tests.
+
+??? tip "Running with unprivileged containers?"
+
+    Most Docker setups can send ICMP requests (used for connectivity checks) without needing elevated privileges. However, if your Docker user doesn't run with elevated permissions or doesn't belong to the Docker group, the ping check during speedtests may fail.
+
+    **Solution:**
+
+    Add the `NET_RAW` capability to allow ICMP requests:
+
+    ```yaml
+    services:
+      speedtest-tracker:
+        # ... other configuration
+        cap_add:
+          - NET_RAW
+    ```
+
+    **Security Options:**
+
+    If you have security options like `no-new-privileges:true` configured, these may also block ICMP requests. Remove any conflicting security options:
+
+    ```yaml
+    # Remove or comment out:
+    # security_opt:
+    #   - no-new-privileges:true
+    ```
 
 ## Environment Variables
 

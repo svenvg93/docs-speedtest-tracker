@@ -18,7 +18,7 @@ This page covers errors related to running speedtests, server selection, and the
 
     - There is a docker network problem or no internet connection
     - Some DNS block lists will block this domain, if you're getting errors and your server has access to the internet you'll need to add this to your allow lists
-    - _Most_ Docker setups can send ICMP requests without needed elevated privileges on the host or in the container. That being said if your Docker user doesn't run with elevated permissions or doesn't belong to the Docker group you can get a failure on this step. To allow the user to send ICMP requests you need to add the permission to the container.
+    - If running with unprivileged containers, the ping check may fail. See the [unprivileged containers setup guide](../../getting-started/installation/docker-compose.md#running-with-unprivileged-containers) for configuration instructions.
 
     **Configuration options:**
 

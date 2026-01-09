@@ -1,46 +1,25 @@
 ---
 title: Home
-icon: lucide/rocket
 hide:
   - navigation
   - toc
 ---
 
-<div align="center" markdown>
+# Introduction
 
-# Speedtest Tracker
+Speedtest Tracker is a self-hosted application that monitors the performance and uptime of your internet connection. Build using Laravel and Speedtest CLI
+from Ookla®, deployable with Docker.
 
-### Monitor your internet speed over time
+#### Why might I want this?
 
-A self-hosted internet performance tracking application that runs speedtest checks against Ookla's Speedtest service.
+The main use case for Speedtest Tracker is to build a history of your internet performance and ISP's uptime so you can be informed when you're not receiving your ISP's advertised rates.
 
-[Get Started](getting-started/){ .md-button .md-button--primary }
-[View on GitHub](https://github.com/alexjustesen/speedtest-tracker){ .md-button }
+_...also some of us just like a lot of data._
 
-<div class="grid cards" markdown>
+#### What about that other Speedtest Tracker?
 
-- :chart_with_upwards_trend: **Performance Monitoring**
+As far as I can tell [https://github.com/henrywhitaker3/Speedtest-Tracker](https://github.com/henrywhitaker3/Speedtest-Tracker) was abandoned. This version is meant to be an actively maintained replacement with an improved UI and feature set.
 
-    Track download, upload, and ping metrics over time with beautiful charts
+#### Do you have a demo?
 
-- :bell: **Smart Notifications**
-
-    Get alerted via email, webhook, or database when speeds drop below thresholds
-
-- :package: **Easy Deployment**
-
-    Deploy with Docker, Docker Compose, or Kubernetes in minutes
-
-- :lock: **Secure & Private**
-
-    Self-hosted solution - your data stays on your infrastructure
-
-- :outbox_tray: **Data Export**
-
-    Export metrics to InfluxDB, Prometheus, or other monitoring platforms
-
-- :gear: **Flexible Configuration**
-
-    Customize test schedules, servers, and thresholds to match your needs
-
-</div>
+No, but [DB Tech](https://www.youtube.com/watch?v=feArak6WCLw), [Awesome Opens Source](https://www.youtube.com/watch?v=iyRUj77cjKg) and [Techdox](https://www.youtube.com/watch?v=vZiaWyuqsaY) over on YouTube have awesome videos showing you how to get Speedtest Tracker up and running with and a quick demo.
