@@ -2,11 +2,18 @@
 title: Cloudflare Tunnel
 description: Configure Cloudflare Tunnel (Zero Trust) as a reverse proxy without exposing your IP address.
 icon: lucide/cloud
+tags:
+  - proxy
+  - cloudflare
+  - security
 ---
 
 # Cloudflare Tunnel (Zero Trust)
 
 A [Cloudflare tunnel](https://www.cloudflare.com/nl-nl/products/tunnel/) can be used as a reverse proxy in front of Speedtest Tracker when you want to expose the application publicly without exposing your IP address.
+
+!!! warning "Community Configuration"
+    This configuration is community-based and not officially supported by the Speedtest Tracker project. If you encounter any problems, please open a [discussion](https://github.com/alexjustesen/speedtest-tracker/discussions) to get community support. We welcome pull requests to improve this configuration.
 
 ## Step 1: Update Your Docker Compose
 

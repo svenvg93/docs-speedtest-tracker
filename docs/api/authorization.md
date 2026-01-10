@@ -2,6 +2,10 @@
 title: API Authorization
 description: Authenticate to the Speedtest Tracker API using Bearer tokens.
 icon: lucide/key
+tags:
+  - api
+  - authentication
+  - security
 ---
 
 # Authorization

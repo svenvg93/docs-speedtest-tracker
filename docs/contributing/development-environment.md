@@ -1,7 +1,10 @@
 ---
-title: Development Environment
+title: Dev Environment
 description: Set up a local development environment for Speedtest Tracker using Laravel Sail.
 icon: lucide/code
+tags:
+  - contributing
+  - development
 ---
 
 # Development Environment
@@ -20,7 +23,7 @@ Clone the repository and set up environment variables:
 
 ```bash
 # Clone repository
-git clone git@github.com:alexjustesen/speedtest-tracker
+git clone git@github.com:YOUR-USERNAME/speedtest-tracker.git
 cd speedtest-tracker
 
 # Copy environment file
@@ -111,4 +114,4 @@ Stop the containers when done:
 
 ## Next Steps
 
-Environment ready? See [Pull Requests](pull-requests.md) to learn how to submit your changes.
+Environment ready? See the [Contributing Guide](index.md) to learn how to submit your changes.

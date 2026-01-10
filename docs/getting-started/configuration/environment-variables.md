@@ -2,6 +2,10 @@
 title: Environment Variables
 description: A complete inventory of all environment variables for configuring Speedtest Tracker.
 icon: lucide/settings
+tags:
+  - configuration
+  - reference
+  - environment
 hide:
     - toc
 ---

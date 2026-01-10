@@ -2,6 +2,11 @@
 title: Speedtest
 description: Troubleshoot speedtest execution, server selection, and connectivity issues.
 icon: lucide/zap
+tags:
+  - help
+  - troubleshooting
+  - speedtest
+  - errors
 ---
 
 # Speedtest Errors

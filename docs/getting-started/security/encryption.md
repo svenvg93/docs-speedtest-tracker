@@ -2,6 +2,10 @@
 title: Encryption
 description: Learn about encryption and application keys in Speedtest Tracker.
 icon: lucide/lock
+tags:
+  - security
+  - encryption
+  - configuration
 ---
 
 # Encryption

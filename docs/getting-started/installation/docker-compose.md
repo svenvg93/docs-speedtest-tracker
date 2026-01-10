@@ -2,6 +2,10 @@
 title: Docker Compose
 description: These instructions will run you through setting up Speedtest Tracker on a Docker server using Docker Compose.
 icon: lucide/package
+tags:
+  - installation
+  - docker
+  - docker-compose
 ---
 
 # Docker Compose

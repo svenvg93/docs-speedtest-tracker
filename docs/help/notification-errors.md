@@ -2,6 +2,11 @@
 title: Notifications
 description: Troubleshoot notification delivery and configuration issues.
 icon: lucide/bell
+tags:
+  - help
+  - troubleshooting
+  - notifications
+  - errors
 ---
 
 # Notification Errors

@@ -2,11 +2,18 @@
 title: Nginx
 description: Configure Nginx as a reverse proxy for Speedtest Tracker with SSL support.
 icon: lucide/network
+tags:
+  - proxy
+  - nginx
+  - ssl
 ---
 
 # Nginx
 
 [Nginx](https://nginx.org) can be used as a Reverse Proxy in front of Speedtest Tracker to expose the Dashboard publicly with a trusted certificate.
+
+!!! warning "Community Configuration"
+    This configuration is community-based and not officially supported by the Speedtest Tracker project. If you encounter any problems, please open a [discussion](https://github.com/alexjustesen/speedtest-tracker/discussions) to get community support. We welcome pull requests to improve this configuration.
 
 ## Step 1: Update Your Docker Compose
 

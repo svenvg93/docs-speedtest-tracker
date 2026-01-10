@@ -2,11 +2,18 @@
 title: Traefik
 description: Configure Traefik as a reverse proxy for Speedtest Tracker with automatic SSL.
 icon: lucide/network
+tags:
+  - proxy
+  - traefik
+  - ssl
 ---
 
 # Traefik
 
 [Traefik](https://traefik.io) can be used as a Reverse Proxy in front of Speedtest Tracker when you want to expose the Dashboard publicly with a trusted certificate.
+
+!!! warning "Community Configuration"
+    This configuration is community-based and not officially supported by the Speedtest Tracker project. If you encounter any problems, please open a [discussion](https://github.com/alexjustesen/speedtest-tracker/discussions) to get community support. We welcome pull requests to improve this configuration.
 
 ## Update Your Docker Compose
 

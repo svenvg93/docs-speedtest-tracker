@@ -2,6 +2,10 @@
 title: Commands
 description: Commands offer additional functionality like providing debug information and performing maintenance tasks.
 icon: lucide/terminal
+tags:
+  - reference
+  - commands
+  - cli
 ---
 
 # Commands

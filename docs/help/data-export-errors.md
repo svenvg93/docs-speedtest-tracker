@@ -2,6 +2,11 @@
 title: Data Export
 description: Troubleshoot data exports
 icon: lucide/plug
+tags:
+  - help
+  - troubleshooting
+  - data-export
+  - errors
 ---
 
 # Data Export Errors

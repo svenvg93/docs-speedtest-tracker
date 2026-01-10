@@ -2,6 +2,10 @@
 title: Authentication
 description: Manage user accounts and authentication in Speedtest Tracker.
 icon: lucide/user
+tags:
+  - security
+  - authentication
+  - user-management
 ---
 
 # Authentication

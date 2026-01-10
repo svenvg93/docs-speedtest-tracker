@@ -2,6 +2,10 @@
 title: Thresholds
 description: Set minimum download, upload, and ping values to automatically mark tests as unhealthy when they fall below these thresholds.
 icon: lucide/gauge
+tags:
+  - settings
+  - monitoring
+  - thresholds
 ---
 
 # Thresholds

@@ -2,6 +2,10 @@
 title: Unraid
 description: These instructions will run you through setting up Speedtest Tracker on an Unraid NAS using Community Applications.
 icon: lucide/server
+tags:
+  - installation
+  - unraid
+  - nas
 ---
 
 # Unraid

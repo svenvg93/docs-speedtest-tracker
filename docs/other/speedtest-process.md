@@ -2,6 +2,10 @@
 title: Speedtest Process
 description: Understanding how Speedtest Tracker executes speedtests internally.
 icon: lucide/zap
+tags:
+  - reference
+  - speedtest
+  - internals
 ---
 
 # Speedtest Process

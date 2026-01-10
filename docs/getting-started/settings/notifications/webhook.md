@@ -2,6 +2,11 @@
 title: Webhook
 description: Send speedtest results to webhooks with JSON payloads.
 icon: lucide/webhook
+tags:
+  - settings
+  - notifications
+  - webhook
+  - integrations
 ---
 
 # Webhook

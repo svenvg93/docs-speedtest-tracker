@@ -1,6 +1,9 @@
 ---
 title: Getting Started
 icon: lucide/play-circle
+tags:
+  - getting-started
+  - introduction
 hide:
   - footer
 ---

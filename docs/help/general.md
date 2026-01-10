@@ -1,7 +1,11 @@
 ---
-title: Help & Troubleshooting
+title: General
 description: Find solutions to common issues and get help with Speedtest Tracker.
 icon: lucide/life-buoy
+tags:
+  - help
+  - troubleshooting
+  - overview
 ---
 
 # Help & Troubleshooting
@@ -35,7 +39,7 @@ Most issues can be diagnosed by checking the container logs:
 
 ### Enable Debug Mode
 
-By default APP_DEBUG is set to false in production to prevent verbose error outputs.
+By default `APP_DEBUG` is set to false in production to prevent verbose error outputs.
 
 
 ??? tip "How to Enable Debugging"

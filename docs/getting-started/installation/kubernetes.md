@@ -2,6 +2,9 @@
 title: Kubernetes
 description: These instructions will run you through setting up Speedtest Tracker in a Kubernetes cluster.
 icon: lucide/cloud
+tags:
+  - installation
+  - kubernetes
 ---
 
 # Kubernetes

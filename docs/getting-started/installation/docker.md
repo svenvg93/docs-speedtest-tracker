@@ -2,6 +2,9 @@
 title: Docker Run
 description: These instructions will run you through setting up Speedtest Tracker on a Docker server using Docker run.
 icon: lucide/container
+tags:
+  - installation
+  - docker
 ---
 
 # Docker

@@ -2,6 +2,11 @@
 title: Prometheus
 description: Expose speedtest metrics for Prometheus scraping and monitoring.
 icon: lucide/bar-chart
+tags:
+  - settings
+  - data-integration
+  - prometheus
+  - monitoring
 ---
 
 # Prometheus

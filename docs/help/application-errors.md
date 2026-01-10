@@ -2,6 +2,11 @@
 title: Application
 description: Troubleshoot web interface, authentication, and core application issues.
 icon: lucide/alert-triangle
+tags:
+  - help
+  - troubleshooting
+  - application
+  - errors
 ---
 
 # Application Errors
@@ -12,16 +17,7 @@ This page covers errors related to the web interface, authentication, and core a
 
 ??? question "I'm getting a `500 | SERVER ERROR` error"
 
-    The `500 | SERVER ERROR` is caused by either a bug or a misconfiguration. You must enable debugging to determine the exact cause of the error.
-
-    **To enable debugging:**
-
-    1. Add `APP_DEBUG=true` to your environment variables
-    2. Restart the container: `docker restart speedtest-tracker`
-    3. Reproduce the error
-    4. Check the logs - look for lines starting with `[timestamp] production.ERROR:`
-    5. Use the detailed error information to diagnose the issue
-    6. **Remove `APP_DEBUG=true` when done** for security
+    The `500 | SERVER ERROR` is caused by either a bug or a misconfiguration. You must [enable debugging](../help/index.md#enable-debug-mode) to determine the exact cause of the error.
 
     If you can't resolve the issue, [open a GitHub issue](https://github.com/alexjustesen/speedtest-tracker/issues) with the error details.
 

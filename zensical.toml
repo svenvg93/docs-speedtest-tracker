@@ -17,7 +17,7 @@ site_name = "Speedtest Tracker"
 # meaningful description of the site content for use by search engines.
 #
 # Read more: https://zensical.org/docs/setup/basics/#site_description
-site_description = "A new project generated from the default template project."
+site_description = "Self-hosted application that monitors the performance and uptime of your internet connection."
 
 # The site_author attribute. This is used in the HTML head element.
 #
@@ -52,38 +52,34 @@ nav = [
      {"Installation" = [
          "getting-started/installation/docker-compose.md",
          "getting-started/installation/docker.md",
-       # "getting-started/installation/kubernetes.md",
-       # "getting-started/installation/unraid.md",
-       # "getting-started/installation/synology.md",
-       # "getting-started/installation/qnap.md",
-        {"Advanced" = [
+        {"Advanced Setup" = [
            "getting-started/installation/advanced/health-check.md",
-           {"Proxies" = [
-              "getting-started/installation/advanced/proxies/cloudflare-tunnel.md",
+           {"Reverse Proxies" = [
               "getting-started/installation/advanced/proxies/nginx.md",
-              "getting-started/installation/advanced/proxies/tailscale.md",
-              "getting-started/installation/advanced/proxies/traefik.md"
+              "getting-started/installation/advanced/proxies/traefik.md",
+              "getting-started/installation/advanced/proxies/cloudflare-tunnel.md",
+              "getting-started/installation/advanced/proxies/tailscale.md"
            ]}
         ]}
      ]},
      {"Configuration" = [
-        "getting-started/configuration/database-drivers.md",
-        "getting-started/configuration/environment-variables.md"
+        "getting-started/configuration/environment-variables.md",
+        "getting-started/configuration/database-drivers.md"
      ]},
      {"Settings" = [
-        {"Data Integration" = [
-           "getting-started/settings/data-integration/index.md",
-           "getting-started/settings/data-integration/influxdb2.md",
-           "getting-started/settings/data-integration/prometheus.md"
-        ]},
-        {"Notifications" = [
-           "getting-started/settings/notifications/index.md",
-           "getting-started/settings/notifications/apprise.md",
-           "getting-started/settings/notifications/database.md",
-           "getting-started/settings/notifications/mail.md",
-           "getting-started/settings/notifications/webhook.md"
-        ]},
-         "getting-started/settings/thresholds.md"
+     "getting-started/settings/thresholds.md",
+     {"Notifications" = [
+        "getting-started/settings/notifications/index.md",
+        "getting-started/settings/notifications/database.md",
+        "getting-started/settings/notifications/mail.md",
+        "getting-started/settings/notifications/webhook.md",
+        "getting-started/settings/notifications/apprise.md"
+     ]},
+     {"Data Integration" = [
+        "getting-started/settings/data-integration/index.md",
+        "getting-started/settings/data-integration/influxdb2.md",
+        "getting-started/settings/data-integration/prometheus.md"
+     ]}
      ]},
      {"Security" = [
         "getting-started/security/authentication.md",
@@ -91,26 +87,30 @@ nav = [
         "getting-started/security/encryption.md"
      ]}
   ]},
-  {"Help" = [
-     "help/index.md",
-      "help/application-errors.md",
-      "help/data-export-errors.md",
-      "help/notification-errors.md",
-      "help/speedtest-errors.md"
-  ]},
-  {"Other" = [
-     "other/commands.md",
-     "other/community-projects.md",
-     "other/data-dictionary.md",
-     "other/speedtest-process.md"
-  ]},
   {"API" = [
      "api/authorization.md"
   ]},
+  {"Help & Troubleshooting" = [
+     "help/general.md",
+     "help/speedtest-errors.md",
+     "help/application-errors.md",
+     "help/notification-errors.md",
+     "help/data-export-errors.md"
+  ]},
+  {"Other" = [
+     "other/commands.md",
+     "other/speedtest-process.md",
+     "other/data-dictionary.md",
+     "other/community-projects.md"
+  ]},
   {"Contributing" = [
-     "contributing/index.md",
-     "contributing/development-environment.md",
-     "contributing/pull-requests.md"
+     "contributing/getting-started.md",
+     {"Documentation" = [
+        "contributing/documentation.md"
+     ]},
+     {"Code" = [
+        "contributing/development-environment.md"
+     ]}
   ]}
 ]
 
@@ -138,6 +138,9 @@ nav = [
 # ----------------------------------------------------------------------------
 [project.theme]
 
+# Set the logo to use an image file from the docs directory
+logo = "img/speedtest-tracker-icon.png"
+
 # change this to "classic" to use the traditional Material for MkDocs look.
 #variant = "classic"
 
@@ -159,7 +162,7 @@ nav = [
 # - https://zensical.org/docs/setup/logo-and-icons/#favicon
 # - https://developer.mozilla.org/en-US/docs/Glossary/Favicon
 #
-#favicon = "images/favicon.png"
+favicon = "img/favicon.ico"
 
 # Zensical supports more than 60 different languages. This means that the
 # labels and tooltips that Zensical's templates produce are translated.
@@ -188,13 +191,13 @@ features = [
     # will generate an edit button for the page. This works for common
     # repository hosting services.
     # https://zensical.org/docs/setup/repository/#code-actions
-    #"content.action.edit",
+    "content.action.edit",
 
     # If you have a repository configured and turn on this feature, Zensical
     # will generate a button that allows the user to view the Markdown
     # code for the current page.
     # https://zensical.org/docs/setup/repository/#code-actions
-    #"content.action.view",
+    "content.action.view",
 
     # Code annotations allow you to add an icon with a tooltip to your
     # code blocks to provide explanations at crucial points.
@@ -345,21 +348,17 @@ toggle.name = "Switch to light mode"
 
 # ----------------------------------------------------------------------------
 # You can configure your own logo to be shown in the header using the "logo"
-# option in the "icons" subsection. The logo can be a path to a file in your
-# "docs_dir" or it can be a path to an icon.
+# option in the [project.theme] section (see above). For image files like PNG,
+# use the path relative to docs_dir in [project.theme] section.
 #
-# Likewise, you can customize the logo used for the repository section of the
-# header. Zensical derives the default logo for this from the repository URL.
-# See below...
-#
-# There are other icons you can customize. See the documentation for details.
+# The [project.theme.icon] section is for customizing icon-based elements like
+# the repository icon. The logo for repository is derived from the repository URL.
 #
 # Read more:
 # - https://zensical.org/docs/setup/logo-and-icons
 # - https://zensical.org/docs/authoring/icons-emojis/#search
 # ----------------------------------------------------------------------------
 #[project.theme.icon]
-#logo = "lucide/smile"
 #repo = "lucide/smile"
 
 # ----------------------------------------------------------------------------

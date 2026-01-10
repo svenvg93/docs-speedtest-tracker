@@ -2,11 +2,18 @@
 title: Tailscale
 description: Access Speedtest Tracker securely within your Tailnet using Tailscale Mesh VPN.
 icon: lucide/shield
+tags:
+  - vpn
+  - tailscale
+  - security
 ---
 
 # Tailscale
 
 [Tailscale](https://tailscale.com) Mesh VPN service can be used as a sidecar container to access Speedtest Tracker within your Tailnet using its own MagicDNS name.
+
+!!! warning "Community Configuration"
+    This configuration is community-based and not officially supported by the Speedtest Tracker project. If you encounter any problems, please open a [discussion](https://github.com/alexjustesen/speedtest-tracker/discussions) to get community support. We welcome pull requests to improve this configuration.
 
 ## Step 1: Generate Tailscale Auth Key
 

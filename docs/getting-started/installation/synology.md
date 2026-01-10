@@ -2,6 +2,10 @@
 title: Synology
 description: These instructions will run you through setting up Speedtest Tracker on a Synology NAS using Container Manager.
 icon: lucide/server
+tags:
+  - installation
+  - synology
+  - nas
 ---
 
 # Synology

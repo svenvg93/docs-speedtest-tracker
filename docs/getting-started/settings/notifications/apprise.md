@@ -2,6 +2,11 @@
 title: Apprise
 description: Use Apprise to send notifications to multiple services like Discord, Pushover, and Ntfy.
 icon: lucide/bell-ring
+tags:
+  - settings
+  - notifications
+  - apprise
+  - integrations
 ---
 
 # Apprise

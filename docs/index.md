@@ -1,5 +1,8 @@
 ---
 title: Home
+tags:
+  - introduction
+  - overview
 hide:
   - navigation
   - toc

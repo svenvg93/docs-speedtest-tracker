@@ -2,6 +2,10 @@
 title: Notifications
 description: Configure notifications for speedtest results via database, mail, webhook, and Apprise.
 icon: lucide/bell
+tags:
+  - settings
+  - notifications
+  - alerts
 ---
 
 # Notifications
