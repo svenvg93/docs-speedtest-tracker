@@ -33,86 +33,31 @@ The documentation is organized into the following sections:
 - Use **active voice** instead of passive voice
 - Be **friendly and helpful** without being overly casual
 
-### Page Frontmatter
-
-Every documentation page must include frontmatter with the following fields:
-
-```markdown
----
-title: Page Title
-description: A brief description of the page content (1-2 sentences).
-icon: lucide/icon-name
-tags:
-  - category-tag
-  - feature-tag
----
-```
-
-### Tag Guidelines
-
-Use a combination of category tags and contextual tags:
-
-**Category Tags:**
-- `installation` - Installation guides
-- `configuration` - Configuration and setup
-- `security` - Security-related topics
-- `settings` - Application settings
-- `help` - Troubleshooting
-- `reference` - Reference materials
-- `contributing` - Contributing guides
-- `api` - API documentation
-
-**Contextual Tags:**
-- Technology tags: `docker`, `kubernetes`, `nginx`, `traefik`
-- Platform tags: `unraid`, `synology`, `qnap`, `nas`
-- Feature tags: `notifications`, `monitoring`, `database`, `proxy`
-
-## Markdown Features
-
-The documentation uses Zensical, which provides powerful markdown extensions for creating rich, interactive documentation. For complete documentation on all available markdown features and syntax, see the official Zensical documentation:
-
-**[Zensical Markdown Reference](https://zensical.org/docs/authoring/markdown/)**
-
 ## Making Changes
 
-### Local Testing
+### Using GitBook
 
-Before submitting changes, test your documentation locally to ensure everything renders correctly.
+The documentation is hosted and managed on **GitBook**. Since GitBook uses a proprietary markdown format, the easiest way to edit the documentation is through the GitBook web app, which provides the best editing experience with live preview and a visual editor.
 
-??? tip "Install Zensical"
-    You can follow Zensical [installation guide](https://zensical.org/docs/get-started/#installation) to install everything needed 
+**To edit documentation via GitBook:**
 
-??? tip "Using Dev Container"
+1. Fork the [speedtest-tracker/docs-speedtest-tracker](https://github.com/alexjustesen/speedtest-tracker) repository on GitHub
+2. Create a new branch called: docs/your-nice-branch-name
+2. Go to [GitBook](https://www.gitbook.com) and sign in with your GitHub account
+3. Link your GitHub fork to GitBook:
+   - Create a new space or import your fork
+   - Enable Git Sync to connect your fork
+4. Edit documentation in GitBook's visual editor with live preview
+5. Changes are automatically synced to your GitHub fork
+6. Submit a pull request from your fork to the main repository
 
-    **Prerequisites**
-
-    - [Docker](https://www.docker.com/get-started) installed and running  
-    - [Visual Studio Code](https://code.visualstudio.com)  
-    - [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) installed in VS Code
-
-    **Launch Dev Container**
-
-    1. Open your repository in VS Code
-    2. Then follow the instructions for your OS:\
-    •	macOS: Press Command + Shift + P → type Dev Containers: Reopen in Container → press Enter\
-    •	Windows: Press Ctrl + Shift + P → type Dev Containers: Reopen in Container → press Enter
-    4. VS Code will build the container and install all dependencies automatically
-
-    Once inside the container, you can serve the site locally:
-
-    ```bash
-    zensical serve -a 0.0.0.0:8000
-    ```
-
-    Then open `http://localhost:8000` in your browser to preview.
+This approach gives you the best editing experience with real-time preview, spell checking, and GitBook's markdown enhancements.
 
 ## Common Mistakes to Avoid
 
 - Don't use absolute URLs for internal links
-- Don't forget to include frontmatter tags
 - Don't use first person ("I", "we") in documentation
 - Don't include outdated version-specific information without noting versions
-- Don't create documentation without testing locally first
 
 ## Questions or Help
 
