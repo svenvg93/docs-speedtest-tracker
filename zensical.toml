@@ -87,6 +87,7 @@ nav = [
         "getting-started/security/encryption.md"
      ]}
   ]},
+  {"What's New" = "release-notes.md"},
   {"API" = [
      "api/authorization.md"
   ]},
@@ -111,8 +112,7 @@ nav = [
      {"Code" = [
         "contributing/development-environment.md"
      ]}
-  ]},
-  {"GitHub Repo" = "https://github.com/zensical/docs"}
+  ]}
 ]
 
 
