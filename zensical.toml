@@ -111,7 +111,8 @@ nav = [
      {"Code" = [
         "contributing/development-environment.md"
      ]}
-  ]}
+  ]},
+  {"GitHub Repo" = "https://github.com/zensical/docs"}
 ]
 
 
@@ -328,11 +329,13 @@ features = [
 # ----------------------------------------------------------------------------
 [[project.theme.palette]]
 scheme = "default"
+accent = "orange"
 toggle.icon = "lucide/sun"
 toggle.name = "Switch to dark mode"
 
 [[project.theme.palette]]
 scheme = "slate"
+accent = "orange"
 toggle.icon = "lucide/moon"
 toggle.name = "Switch to light mode"
 
