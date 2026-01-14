@@ -9,246 +9,161 @@ tags:
 
 # Release Notes
 
-<div id="releases-container">
-  <p>Loading releases...</p>
-</div>
+!!! info "Latest Releases"
 
-<script>
-async function fetchReleases() {
-  const container = document.getElementById('releases-container');
+    This page shows the 10 most recent releases. For the complete release history, visit the [GitHub releases page](https://github.com/alexjustesen/speedtest-tracker/releases).
 
-  try {
-    const response = await fetch('https://api.github.com/repos/alexjustesen/speedtest-tracker/releases?per_page=10', {
-      headers: {
-        'Accept': 'application/vnd.github.html+json'
-      }
-    });
+## v1.13.5
 
-    if (!response.ok) {
-      throw new Error('Failed to fetch releases');
-    }
+**Released:** January 08, 2026 • **Author:** [@alexjustesen](https://github.com/alexjustesen) • [View on GitHub](https://github.com/alexjustesen/speedtest-tracker/releases/tag/v1.13.5)
 
-    const releases = await response.json();
+### What's Changed
+* Rename benchmark healthy/unhealthy event classes and update references by @alexjustesen in https://github.com/alexjustesen/speedtest-tracker/pull/2607
+* gh actions: bump actions/create-github-app-token from 1 to 2 by @dependabot[bot] in https://github.com/alexjustesen/speedtest-tracker/pull/2621
+* gh actions: bump actions/cache from 4 to 5 by @dependabot[bot] in https://github.com/alexjustesen/speedtest-tracker/pull/2622
+* gh actions: bump peter-evans/repository-dispatch from 3 to 4 by @dependabot[bot] in https://github.com/alexjustesen/speedtest-tracker/pull/2623
+* chore: update bug report template with support guidelines by @svenvg93 in https://github.com/alexjustesen/speedtest-tracker/pull/2591
+* Fix: Apprise test button shown without saving by @svenvg93 in https://github.com/alexjustesen/speedtest-tracker/pull/2627
+* Fix: Skip SkipSpeedtestJob when env var is empty by @svenvg93 in https://github.com/alexjustesen/speedtest-tracker/pull/2626
+* Fix: Increase timeout for Apprise notifications by @svenvg93 in https://github.com/alexjustesen/speedtest-tracker/pull/2628
+* Chore: clean up ping logs by @svenvg93 in https://github.com/alexjustesen/speedtest-tracker/pull/2629
+* chore: add missing translation strings by @svenvg93 in https://github.com/alexjustesen/speedtest-tracker/pull/2639
+* Chore: Add helpertext for notification triggers by @svenvg93 in https://github.com/alexjustesen/speedtest-tracker/pull/2640
+* Release v1.13.5 by @alexjustesen in https://github.com/alexjustesen/speedtest-tracker/pull/2641
 
-    if (releases.length === 0) {
-      container.innerHTML = '<p>No releases found.</p>';
-      return;
-    }
 
-    let html = '';
+**Full Changelog**: https://github.com/alexjustesen/speedtest-tracker/compare/v1.13.4...v1.13.5
 
-    releases.forEach(release => {
-      const date = new Date(release.published_at).toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
+---
 
-      // Use GitHub's rendered HTML (should be available with the Accept header)
-      const body = release.body_html || parseMarkdown(release.body || 'No release notes provided.');
+## v1.13.4 - 200th RELEASE 🥳
 
-      // Create a URL-safe ID from the tag name
-      const releaseId = (release.tag_name || '').replace(/[^a-zA-Z0-9-]/g, '-').toLowerCase();
+**Released:** December 26, 2025 • **Author:** [@alexjustesen](https://github.com/alexjustesen) • [View on GitHub](https://github.com/alexjustesen/speedtest-tracker/releases/tag/v1.13.4)
 
-      html += `
-        <div class="release">
-          <h2 id="${releaseId}">
-            ${release.name || release.tag_name}
-            ${release.prerelease ? '<span class="badge badge-prerelease">Pre-release</span>' : ''}
-            ${release.draft ? '<span class="badge badge-draft">Draft</span>' : ''}
-          </h2>
+### What's Fixed
+* Mark speedtest as scheduled when triggered using the API by @alexjustesen in https://github.com/alexjustesen/speedtest-tracker/pull/2597
 
-          <div class="release-meta">
-            <span>${date}</span>
-            ${release.author ? ` • by <a href="${release.author.html_url}" target="_blank" rel="noopener noreferrer">@${release.author.login}</a>` : ''}
-            <span> • <a href="${release.html_url}" target="_blank" rel="noopener noreferrer">View on GitHub</a></span>
-          </div>
+### What's Changed
+* New Crowdin updates by @alexjustesen in https://github.com/alexjustesen/speedtest-tracker/pull/2496
+* New Crowdin updates by @alexjustesen in https://github.com/alexjustesen/speedtest-tracker/pull/2598
+* Release v1.13.4 by @alexjustesen in https://github.com/alexjustesen/speedtest-tracker/pull/2605
 
-          <div class="release-body">
-            ${body}
-          </div>
-        </div>
-      `;
-    });
+**Full Changelog**: https://github.com/alexjustesen/speedtest-tracker/compare/v1.13.3...v1.13.4
 
-    html += `
-      <div style="margin-top: 2rem; text-align: center;">
-        <a href="https://github.com/alexjustesen/speedtest-tracker/releases" target="_blank" rel="noopener noreferrer" class="md-button md-button--primary">
-          View All Releases on GitHub
-        </a>
-      </div>
-    `;
+---
 
-    container.innerHTML = html;
+## v1.13.3 - ⚠️ Action required if you use Apprise
 
-  } catch (error) {
-    console.error('Error fetching releases:', error);
-    container.innerHTML = `
-      <div class="admonition warning">
-        <p class="admonition-title">Unable to load releases</p>
-        <p>We couldn't fetch the latest releases. Please visit the
-          <a href="https://github.com/alexjustesen/speedtest-tracker/releases" target="_blank" rel="noopener noreferrer">
-            GitHub Releases page
-          </a> directly.
-        </p>
-      </div>
-    `;
-  }
-}
+**Released:** December 19, 2025 • **Author:** [@alexjustesen](https://github.com/alexjustesen) • [View on GitHub](https://github.com/alexjustesen/speedtest-tracker/releases/tag/v1.13.3)
 
-// Simple markdown parser for release notes
-function parseMarkdown(markdown) {
-  let html = markdown;
+!!! warning
 
-  // Code blocks (must be done before other replacements)
-  html = html.replace(/```[\s\S]*?```/g, (match) => {
-    return '<pre><code>' + match.slice(3, -3).trim() + '</code></pre>';
-  });
+    This release might require you to update your Apprise URL, see PR #2579.
 
-  // Headers
-  html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
-  html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
-  html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
 
-  // Bold (before italic to handle overlap)
-  html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-  html = html.replace(/\_\_(.*?)\_\_/g, '<strong>$1</strong>');
+### What's Changed
+* Chore: Improve Apprise Logic & UI Text by @svenvg93 in https://github.com/alexjustesen/speedtest-tracker/pull/2579
+* chore: deprecate notification channel alarm on dashboard and notifications by @svenvg93 in https://github.com/alexjustesen/speedtest-tracker/pull/2577
+* Release v1.13.3 by @alexjustesen in https://github.com/alexjustesen/speedtest-tracker/pull/2580
 
-  // Italic
-  html = html.replace(/\*([^\*]+)\*/g, '<em>$1</em>');
-  html = html.replace(/\_([^\_]+)\_/g, '<em>$1</em>');
 
-  // Links - markdown format [text](url)
-  html = html.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+**Full Changelog**: https://github.com/alexjustesen/speedtest-tracker/compare/v1.13.2...v1.13.3
 
-  // Auto-link plain URLs (not already in href or inside tags)
-  html = html.replace(/(?<!href="|">)(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
+---
 
-  // Inline code (after links to avoid breaking URLs)
-  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+## v1.13.2
 
-  // Lists
-  html = html.replace(/^\* (.*$)/gim, '<li>$1</li>');
-  html = html.replace(/^- (.*$)/gim, '<li>$1</li>');
-  html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
+**Released:** December 18, 2025 • **Author:** [@alexjustesen](https://github.com/alexjustesen) • [View on GitHub](https://github.com/alexjustesen/speedtest-tracker/releases/tag/v1.13.2)
 
-  // Line breaks
-  html = html.replace(/\n\n/g, '</p><p>');
-  html = '<p>' + html + '</p>';
+### What's Changed
+* add selection details option to speedtest command by @alexjustesen in https://github.com/alexjustesen/speedtest-tracker/pull/2572
+* remove platform stats from metrics dashboard by @alexjustesen in https://github.com/alexjustesen/speedtest-tracker/pull/2574
+* Release v1.13.2 by @alexjustesen in https://github.com/alexjustesen/speedtest-tracker/pull/2575
 
-  // Clean up empty paragraphs
-  html = html.replace(/<p><\/p>/g, '');
-  html = html.replace(/<p>\s*<h/g, '<h');
-  html = html.replace(/<\/h([1-6])>\s*<\/p>/g, '</h$1>');
-  html = html.replace(/<p>\s*<ul>/g, '<ul>');
-  html = html.replace(/<\/ul>\s*<\/p>/g, '</ul>');
-  html = html.replace(/<p>\s*<pre>/g, '<pre>');
-  html = html.replace(/<\/pre>\s*<\/p>/g, '</pre>');
 
-  return html;
-}
+**Full Changelog**: https://github.com/alexjustesen/speedtest-tracker/compare/v1.13.1...v1.13.2
 
-// Load releases when page loads
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', fetchReleases);
-} else {
-  fetchReleases();
-}
-</script>
+---
 
-<style>
-.release {
-  margin-bottom: 3rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--md-default-fg-color--lightest);
-}
+## v1.13.1 (Ping Hotfix)
 
-.release h2 {
-  margin-bottom: 0.5rem;
-}
+**Released:** December 17, 2025 • **Author:** [@alexjustesen](https://github.com/alexjustesen) • [View on GitHub](https://github.com/alexjustesen/speedtest-tracker/releases/tag/v1.13.1)
 
-.release h2 a {
-  color: var(--md-default-fg-color);
-}
+### What's Changed
+* Hotfix v1.13.1 (fix for ping failing) by @alexjustesen in https://github.com/alexjustesen/speedtest-tracker/pull/2561
 
-.release h2 a:hover {
-  color: var(--md-accent-fg-color);
-}
 
-.badge {
-  padding: 0.2rem 0.5rem;
-  border-radius: 0.2rem;
-  font-size: 0.75rem;
-  margin-left: 0.5rem;
-  color: white;
-}
+**Full Changelog**: https://github.com/alexjustesen/speedtest-tracker/compare/v1.13.0...v1.13.1
 
-.badge-prerelease {
-  background: var(--md-accent-fg-color);
-}
+---
 
-.badge-draft {
-  background: var(--md-default-fg-color--lighter);
-}
+## v1.13.1-beta.2 :material-test-tube:{ title='Pre-release' }
 
-.release-meta {
-  color: var(--md-default-fg-color--light);
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
+**Released:** December 16, 2025 • **Author:** [@alexjustesen](https://github.com/alexjustesen) • [View on GitHub](https://github.com/alexjustesen/speedtest-tracker/releases/tag/v1.13.1-beta.2)
 
-.release-body {
-  line-height: 1.6;
-}
+**Full Changelog**: https://github.com/alexjustesen/speedtest-tracker/compare/v1.13.0...v1.13.1-beta.2
 
-.release-body ul {
-  margin-left: 1.5rem;
-}
+---
 
-.release-body li {
-  margin-bottom: 0.5rem;
-}
+## v1.13.1-beta :material-test-tube:{ title='Pre-release' }
 
-.release-body code {
-  background: var(--md-code-bg-color);
-  padding: 0.1rem 0.3rem;
-  border-radius: 0.2rem;
-  font-size: 0.85em;
-  font-family: var(--md-code-font-family);
-}
+**Released:** December 16, 2025 • **Author:** [@alexjustesen](https://github.com/alexjustesen) • [View on GitHub](https://github.com/alexjustesen/speedtest-tracker/releases/tag/v1.13.1-beta)
 
-.release-body pre {
-  background: var(--md-code-bg-color);
-  padding: 1rem;
-  border-radius: 0.3rem;
-  overflow-x: auto;
-  margin: 1rem 0;
-}
+**Full Changelog**: https://github.com/alexjustesen/speedtest-tracker/compare/v1.13.0...v1.13.1-beta
 
-.release-body pre code {
-  background: transparent;
-  padding: 0;
-}
+---
 
-.release-body a {
-  color: var(--md-accent-fg-color);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-bottom-color 0.2s;
-}
+## v1.13.0
 
-.release-body a:hover {
-  border-bottom-color: var(--md-accent-fg-color);
-}
+**Released:** December 16, 2025 • **Author:** [@alexjustesen](https://github.com/alexjustesen) • [View on GitHub](https://github.com/alexjustesen/speedtest-tracker/releases/tag/v1.13.0)
 
-.release-body h1,
-.release-body h2,
-.release-body h3 {
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
-}
+### What's New
+* check for internet using ping by @alexjustesen in https://github.com/alexjustesen/speedtest-tracker/pull/2556
 
-.release-body p {
-  margin-bottom: 1rem;
-}
-</style>
+### What's Changed
+* fix: adjust speedtest button size based on request context by @alexjustesen in https://github.com/alexjustesen/speedtest-tracker/pull/2550
+* Update form method to use Schema instead of Form in ListOoklaServers by @alexjustesen in https://github.com/alexjustesen/speedtest-tracker/pull/2551
+* fix: datetime format for next speedtest banner by @alexjustesen in https://github.com/alexjustesen/speedtest-tracker/pull/2554
+* update external IP fetching logic to handle failures by @alexjustesen in https://github.com/alexjustesen/speedtest-tracker/pull/2555
+* move skip IPs configuration to preflight settings by @alexjustesen in https://github.com/alexjustesen/speedtest-tracker/pull/2557
+* Release v1.13.0 by @alexjustesen in https://github.com/alexjustesen/speedtest-tracker/pull/2558
+
+
+**Full Changelog**: https://github.com/alexjustesen/speedtest-tracker/compare/v1.12.4...v1.13.0
+
+---
+
+## v1.12.4
+
+**Released:** December 15, 2025 • **Author:** [@alexjustesen](https://github.com/alexjustesen) • [View on GitHub](https://github.com/alexjustesen/speedtest-tracker/releases/tag/v1.12.4)
+
+### What's New
+* feat: add speedtest button to metric dashboard by @svenvg93 in https://github.com/alexjustesen/speedtest-tracker/pull/2521
+
+### What's Changed
+* Added version to dashboard footer by @alexjustesen in https://github.com/alexjustesen/speedtest-tracker/pull/2537
+* Release v1.12.4 by @alexjustesen in https://github.com/alexjustesen/speedtest-tracker/pull/2548
+
+
+**Full Changelog**: https://github.com/alexjustesen/speedtest-tracker/compare/v1.12.3...v1.12.4
+
+---
+
+## v1.12.3
+
+**Released:** December 09, 2025 • **Author:** [@alexjustesen](https://github.com/alexjustesen) • [View on GitHub](https://github.com/alexjustesen/speedtest-tracker/releases/tag/v1.12.3)
+
+### What's Changed
+* chore: round ping value to two decimal places in latest result stats by @svenvg93 in https://github.com/alexjustesen/speedtest-tracker/pull/2520
+* bug; fix last result not using the display_timezone env var by @svenvg93 in https://github.com/alexjustesen/speedtest-tracker/pull/2522
+* Combine result server columns by @alexjustesen in https://github.com/alexjustesen/speedtest-tracker/pull/2526
+* chore: Switch Apprise to markdown by @svenvg93 in https://github.com/alexjustesen/speedtest-tracker/pull/2531
+* Release v1.12.3 by @alexjustesen in https://github.com/alexjustesen/speedtest-tracker/pull/2532
+
+
+**Full Changelog**: https://github.com/alexjustesen/speedtest-tracker/compare/v1.12.2...v1.12.3
+
+---
+
+
+[View All Releases on GitHub](https://github.com/alexjustesen/speedtest-tracker/releases){ .md-button .md-button--primary }
