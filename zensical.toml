@@ -87,16 +87,16 @@ nav = [
         "getting-started/security/encryption.md"
      ]}
   ]},
-  {"What's New" = "release-notes.md"},
-  {"API" = [
-     "api/authorization.md"
-  ]},
   {"Help & Troubleshooting" = [
      "help/general.md",
      "help/speedtest-errors.md",
      "help/application-errors.md",
      "help/notification-errors.md",
      "help/data-export-errors.md"
+  ]},
+  {"Changelog" = "https://github.com/alexjustesen/speedtest-tracker/releases"},
+  {"API" = [
+     "api/authorization.md"
   ]},
   {"Other" = [
      "other/commands.md",

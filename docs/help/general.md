@@ -31,12 +31,6 @@ Most issues can be diagnosed by checking the container logs:
       docker logs --tail 100 speedtest-tracker
       ```
 
-      For Docker Compose:
-
-      ```bash
-      docker compose logs speedtest-tracker
-      ```
-
 ### Enable Debug Mode
 
 By default `APP_DEBUG` is set to false in production to prevent verbose error outputs.
