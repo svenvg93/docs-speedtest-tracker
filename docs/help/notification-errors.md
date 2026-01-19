@@ -29,7 +29,7 @@ This page covers errors related to email notifications, webhooks, and third-part
 
     **Solution:**
 
-    1. Check the [logs](index.md#check-container-logs) to see if the timeout happened
+    1. Check the [logs](general.md#check-container-logs) to see if the timeout happened
     2. Look for messages indicating Apprise timeout or retry attempts
     3. Consider optimizing your Apprise configuration or notification services
     4. If a specific service is slow, consider removing it or increasing timeout tolerance
@@ -94,8 +94,8 @@ This page covers errors related to email notifications, webhooks, and third-part
 
 If you can't resolve the problem:
 
-1. Check the [container logs](index.md#check-container-logs) for detailed error messages
-2. Enable [debug mode](index.md#enable-debug-mode) for more information
+1. Check the [container logs](general.md#check-container-logs) for detailed error messages
+2. Enable [debug mode](general.md#enable-debug-mode) for more information
 3. Review the [configuration documentation](../../getting-started/configuration/environment-variables.md)
 4. Check [GitHub Issues](https://github.com/alexjustesen/speedtest-tracker/issues) for similar problems
 5. Open a new issue with logs and configuration details (remove sensitive data)

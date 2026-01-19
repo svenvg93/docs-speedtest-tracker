@@ -127,8 +127,8 @@ This page covers errors related to running speedtests, server selection, and the
 
 If you can't resolve the problem:
 
-1. Check the [container logs](index.md#check-container-logs) for detailed error messages
-2. Enable [debug mode](index.md#enable-debug-mode) for more information
+1. Check the [container logs](general.md#check-container-logs) for detailed error messages
+2. Enable [debug mode](general.md#enable-debug-mode) for more information
 3. Review the [configuration documentation](../../getting-started/configuration/environment-variables.md)
 4. Check [GitHub Issues](https://github.com/alexjustesen/speedtest-tracker/issues) for similar problems
 5. Open a new issue with logs and configuration details (remove sensitive data)

@@ -236,29 +236,7 @@ SQLite is fine for most installs but you can also use more traditional relationa
 
 ??? tip "Running with unprivileged containers?"
 
-    Most Docker setups can send ICMP requests (used for connectivity checks) without needing elevated privileges. However, if your Docker user doesn't run with elevated permissions or doesn't belong to the Docker group, the ping check during speedtests may fail.
-
-    **Solution:**
-
-    Add the `NET_RAW` capability to allow ICMP requests:
-
-    ```yaml
-    services:
-      speedtest-tracker:
-        # ... other configuration
-        cap_add:
-          - NET_RAW
-    ```
-
-    **Security Options:**
-
-    If you have security options like `no-new-privileges:true` configured, these may also block ICMP requests. Remove any conflicting security options:
-
-    ```yaml
-    # Remove or comment out:
-    # security_opt:
-    #   - no-new-privileges:true
-    ```
+    If your Docker user doesn't have elevated permissions, ping checks during speedtests may fail. See the [unprivileged containers troubleshooting guide](../../help/application-errors/#ping-checks-failing-with-unprivileged-containers) for the solution.
 
 ## Environment Variables
 
