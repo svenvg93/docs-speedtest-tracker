@@ -1,4 +1,4 @@
-name: Documentation
+name: Documentation - Check Links
 
 on:
   pull_request:
