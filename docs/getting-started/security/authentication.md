@@ -16,9 +16,12 @@ Speedtest Tracker uses Filament for the admin panel. During the install process 
 
 During the first start of the application a default admin account is created for you:
 
-| Username            | Password   |
-| ------------------- | ---------- |
-| `admin@example.com` | `password` |
+| Username            | Password   | Name.  |
+| ------------------- | ---------- | ------ |
+| `admin@example.com` | `password` | Admin  |
+
+??? tip "Custom default account"
+     Use [environment variables](../configuration/environment-variables.md#authentication) to define the default user account during installation.
 
 ## Change Account Details
 

@@ -1,6 +1,10 @@
-.required-no {
+/* Environment Variables Tables */
+.env-required-no {
   color: #EE0F0F;
 }
-.required-yes {
+.env-required-yes {
   color: #25ee0fd8;
+}
+.env-tooltip {
+  color: #ee950f;
 }
