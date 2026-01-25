@@ -32,11 +32,11 @@ base64:j+cdcxP3SV7Ja85jrW8f7uwdkp99mRdxtKu2wF8cwcs=
 SQLite is fine for most installs but you can also use more traditional relational databases like MariaDB, MySQL and Postgres.
 
 !!! tip
-    Please make sure the highlighted environment variables are filled in — each one is required for the application to work properly.
+    Please make sure the highlighted values are filled in — each one is required for the application to work properly.
 
 === "SQLite"
 
-    ```bash hl_lines="4 5 6 7"
+    ```bash hl_lines="4 5 6 7 11 12"
     docker run -d --name speedtest-tracker --restart unless-stopped \
         -p 8080:80 \
         -p 8443:443 \
@@ -47,8 +47,8 @@ SQLite is fine for most installs but you can also use more traditional relationa
         -e DB_CONNECTION=sqlite \
         -e SPEEDTEST_SCHEDULE= \ # (5)!
         -e SPEEDTEST_SERVERS= \ # (6)!
-        -v /path/to/data:/config \
-        -v /path/to-custom-ssl-keys:/config/keys \
+        -v /path/to/data:/config \ # (7)!
+        -v /path/to-custom-ssl-keys:/config/keys \ # (8)!
         lscr.io/linuxserver/speedtest-tracker:latest
     ```
 
@@ -58,10 +58,12 @@ SQLite is fine for most installs but you can also use more traditional relationa
     4. The URL where you'll access the app (e.g., `http://localhost:8080`)
     5. (Optional) Cron expression for when to run tests (e.g., `"0 */2 * * *"` for every 2 hours)
     6. (Optional) Comma separated server IDs to use (e.g., `"52365"` or `"36998,52365"`)
+    7. Change to an actual path on your system (e.g., `./data:/config`)
+    8. (Optional) Change to your SSL keys path, or remove if not using HTTPS
 
 === "MariaDB"
 
-    ```bash hl_lines="4 5 6 7 9 12 13"
+    ```bash hl_lines="4 5 6 7 9 12 13 16 17"
     docker run -d --name speedtest-tracker --restart unless-stopped \
         -p 8080:80 \
         -p 8443:443 \
@@ -77,8 +79,8 @@ SQLite is fine for most installs but you can also use more traditional relationa
         -e DB_PASSWORD= \ # (7)!
         -e SPEEDTEST_SCHEDULE= \ # (8)!
         -e SPEEDTEST_SERVERS= \ # (9)!
-        -v /path/to/data:/config \
-        -v /path/to-custom-ssl-keys:/config/keys \
+        -v /path/to/data:/config \ # (10)!
+        -v /path/to-custom-ssl-keys:/config/keys \ # (11)!
         lscr.io/linuxserver/speedtest-tracker:latest
     ```
 
@@ -91,10 +93,12 @@ SQLite is fine for most installs but you can also use more traditional relationa
     7. Your database password
     8. (Optional) Cron expression for when to run tests (e.g., `"0 */2 * * *"` for every 2 hours)
     9. (Optional) Comma separated server IDs to use (e.g., `"52365"` or `"36998,52365"`)
+    10. Change to an actual path on your system (e.g., `./data:/config`)
+    11. (Optional) Change to your SSL keys path, or remove if not using HTTPS
 
 === "MySQL"
 
-    ```bash hl_lines="4 5 6 7 9 12 13"
+    ```bash hl_lines="4 5 6 7 9 12 13 16 17"
     docker run -d --name speedtest-tracker --restart unless-stopped \
         -p 8080:80 \
         -p 8443:443 \
@@ -110,8 +114,8 @@ SQLite is fine for most installs but you can also use more traditional relationa
         -e DB_PASSWORD= \ # (7)!
         -e SPEEDTEST_SCHEDULE= \ # (8)!
         -e SPEEDTEST_SERVERS= \ # (9)!
-        -v /path/to/data:/config \
-        -v /path/to-custom-ssl-keys:/config/keys \
+        -v /path/to/data:/config \ # (10)!
+        -v /path/to-custom-ssl-keys:/config/keys \ # (11)!
         lscr.io/linuxserver/speedtest-tracker:latest
     ```
 
@@ -124,10 +128,12 @@ SQLite is fine for most installs but you can also use more traditional relationa
     7. Your database password
     8. (Optional) Cron expression for when to run tests (e.g., `"0 */2 * * *"` for every 2 hours)
     9. (Optional) Comma separated server IDs to use (e.g., `"52365"` or `"36998,52365"`)
+    10. Change to an actual path on your system (e.g., `./data:/config`)
+    11. (Optional) Change to your SSL keys path, or remove if not using HTTPS
 
 === "Postgres"
 
-    ```bash hl_lines="4 5 6 7 9 12 13"
+    ```bash hl_lines="4 5 6 7 9 12 13 16 17"
     docker run -d --name speedtest-tracker --restart unless-stopped \
         -p 8080:80 \
         -p 8443:443 \
@@ -143,8 +149,8 @@ SQLite is fine for most installs but you can also use more traditional relationa
         -e DB_PASSWORD= \ # (7)!
         -e SPEEDTEST_SCHEDULE= \ # (8)!
         -e SPEEDTEST_SERVERS= \ # (9)!
-        -v /path/to/data:/config \
-        -v /path/to-custom-ssl-keys:/config/keys \
+        -v /path/to/data:/config \ # (10)!
+        -v /path/to-custom-ssl-keys:/config/keys \ # (11)!
         lscr.io/linuxserver/speedtest-tracker:latest
     ```
 
@@ -157,6 +163,8 @@ SQLite is fine for most installs but you can also use more traditional relationa
     7. Your database password
     8. (Optional) Cron expression for when to run tests (e.g., `"0 */2 * * *"` for every 2 hours)
     9. (Optional) Comma separated server IDs to use (e.g., `"52365"` or `"36998,52365"`)
+    10. Change to an actual path on your system (e.g., `./data:/config`)
+    11. (Optional) Change to your SSL keys path, or remove if not using HTTPS
 
 ??? tip "Want to use HTTPS?"
     Provide your own SSL keys, they must be named `cert.crt` (full chain) and `cert.key` (private key), and mounted in the container folder `/config/keys`.

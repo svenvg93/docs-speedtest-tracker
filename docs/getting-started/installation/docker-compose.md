@@ -29,11 +29,11 @@ base64:j+cdcxP3SV7Ja85jrW8f7uwdkp99mRdxtKu2wF8cwcs=
 SQLite is fine for most installs but you can also use more traditional relational databases like MariaDB, MySQL and Postgres.
 
 !!! tip
-    Please make sure the highlighted environment variables are filled in — each one is required for the application to work properly.
+    Please make sure the highlighted values are filled in — each one is required for the application to work properly.
 
 === "SQLite"
 
-    ```yaml hl_lines="10 11 12 13"
+    ```yaml hl_lines="10 11 12 13 18 19"
     services:
         speedtest-tracker:
             image: lscr.io/linuxserver/speedtest-tracker:latest
@@ -51,8 +51,8 @@ SQLite is fine for most installs but you can also use more traditional relationa
                 - SPEEDTEST_SCHEDULE= # (5)!
                 - SPEEDTEST_SERVERS= # (6)!
             volumes:
-                - /path/to/data:/config
-                - /path/to-custom-ssl-keys:/config/keys
+                - /path/to/data:/config # (7)!
+                - /path/to-custom-ssl-keys:/config/keys # (8)!
     ```
 
     1. Your user ID - run `id -u` to find it
@@ -61,10 +61,12 @@ SQLite is fine for most installs but you can also use more traditional relationa
     4. The URL where you'll access the app (e.g., `http://localhost:8080`)
     5. (Optional) Cron expression for when to run tests (e.g., `0 */2 * * *` for every 2 hours)
     6. (Optional) Comma separated server IDs to use (e.g., `52365` or `36998,52365`)
+    7. Change to an actual path on your system (e.g., `./data:/config`)
+    8. (Optional) Change to your SSL keys path, or remove if not using HTTPS
 
 === "MariaDB"
 
-    ```yaml hl_lines="10 11 12 13"
+    ```yaml hl_lines="10 11 12 13 24 25"
     services:
         speedtest-tracker:
             image: lscr.io/linuxserver/speedtest-tracker:latest
@@ -87,8 +89,8 @@ SQLite is fine for most installs but you can also use more traditional relationa
                 - SPEEDTEST_SCHEDULE= # (5)!
                 - SPEEDTEST_SERVERS= # (6)!
             volumes:
-                - /path/to/data:/config
-                - /path/to-custom-ssl-keys:/config/keys
+                - /path/to/data:/config # (7)!
+                - /path/to-custom-ssl-keys:/config/keys # (8)!
             depends_on:
                 - db
         db:
@@ -116,10 +118,12 @@ SQLite is fine for most installs but you can also use more traditional relationa
     4. The URL where you'll access the app (e.g., `http://localhost:8080`)
     5. (Optional) Cron expression for when to run tests (e.g., `0 */2 * * *` for every 2 hours)
     6. (Optional) Comma separated server IDs to use (e.g., `52365` or `36998,52365`)
+    7. Change to an actual path on your system (e.g., `./data:/config`)
+    8. (Optional) Change to your SSL keys path, or remove if not using HTTPS
 
 === "MySQL"
 
-    ```yaml hl_lines="10 11 12 13"
+    ```yaml hl_lines="10 11 12 13 24 25"
     services:
         speedtest-tracker:
             image: lscr.io/linuxserver/speedtest-tracker:latest
@@ -142,8 +146,8 @@ SQLite is fine for most installs but you can also use more traditional relationa
                 - SPEEDTEST_SCHEDULE= # (5)!
                 - SPEEDTEST_SERVERS= # (6)!
             volumes:
-                - /path/to/data:/config
-                - /path/to-custom-ssl-keys:/config/keys
+                - /path/to/data:/config # (7)!
+                - /path/to-custom-ssl-keys:/config/keys # (8)!
             depends_on:
                 - db
         db:
@@ -171,10 +175,12 @@ SQLite is fine for most installs but you can also use more traditional relationa
     4. The URL where you'll access the app (e.g., `http://localhost:8080`)
     5. (Optional) Cron expression for when to run tests (e.g., `0 */2 * * *` for every 2 hours)
     6. (Optional) Comma separated server IDs to use (e.g., `52365` or `36998,52365`)
+    7. Change to an actual path on your system (e.g., `./data:/config`)
+    8. (Optional) Change to your SSL keys path, or remove if not using HTTPS
 
 === "Postgres"
 
-    ```yaml hl_lines="10 11 12 13"
+    ```yaml hl_lines="10 11 12 13 24 25"
     services:
         speedtest-tracker:
             image: lscr.io/linuxserver/speedtest-tracker:latest
@@ -197,8 +203,8 @@ SQLite is fine for most installs but you can also use more traditional relationa
                 - SPEEDTEST_SCHEDULE= # (5)!
                 - SPEEDTEST_SERVERS= # (6)!
             volumes:
-                - /path/to/data:/config
-                - /path/to-custom-ssl-keys:/config/keys
+                - /path/to/data:/config # (7)!
+                - /path/to-custom-ssl-keys:/config/keys # (8)!
             depends_on:
                 - db
         db:
@@ -226,6 +232,8 @@ SQLite is fine for most installs but you can also use more traditional relationa
     4. The URL where you'll access the app (e.g., `http://localhost:8080`)
     5. (Optional) Cron expression for when to run tests (e.g., `0 */2 * * *` for every 2 hours)
     6. (Optional) Comma separated server IDs to use (e.g., `52365` or `36998,52365`)
+    7. Change to an actual path on your system (e.g., `./data:/config`)
+    8. (Optional) Change to your SSL keys path, or remove if not using HTTPS
 
 ??? tip "Want to use HTTPS?"
 
