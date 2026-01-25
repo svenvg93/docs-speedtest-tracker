@@ -19,11 +19,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Check links in documentation
-        uses: lycheeverse/lychee-action@v2
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          args: --verbose --no-progress './docs/**/*.md'
-          fail: true
+          python-version: '3.12'
+
+      - name: Check links in documentation
+        run: |
+          pip install linkchecker
+          linkchecker docs/ --check-extern
 
       - name: Install Wrangler v4
         run: npm install --save-dev wrangler@4

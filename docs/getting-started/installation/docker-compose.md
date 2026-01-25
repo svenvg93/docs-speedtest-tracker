@@ -232,7 +232,7 @@ SQLite is fine for most installs but you can also use more traditional relationa
     Provide your own SSL keys, they must be named `cert.crt` (full chain) and `cert.key` (private key), and mounted in the container folder `/config/keys`.
 
 ??? tip "Scheduling automatic speedtests"
-    Use [crontab.guru](https://crontab.guru/) to help create cron expressions for `SPEEDTEST_SCHEDULE`. See the [FAQ](../../help/speedtest-errors/#test-quality-issues) for tips on effectively scheduling tests.
+    Use [crontab.guru](https://crontab.guru/) to help create cron expressions for `SPEEDTEST_SCHEDULE`. See the [FAQ](../../help/speedtest-errors.md#test-quality-issues) for tips on effectively scheduling tests.
 
 ??? tip "Running with unprivileged containers?"
 

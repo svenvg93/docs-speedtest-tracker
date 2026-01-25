@@ -109,6 +109,6 @@ If you can't resolve the problem:
 
 1. Check the [container logs](general.md#check-container-logs) for both Speedtest Tracker and the integration service
 2. Enable [debug mode](general.md#enable-debug-mode) for detailed error messages
-3. Review the [configuration documentation](../../getting-started/configuration/environment-variables.md)
+3. Review the [configuration documentation](../getting-started/configuration/environment-variables.md)
 4. Check [GitHub Issues](https://github.com/alexjustesen/speedtest-tracker/issues) for similar problems
 5. Open a new issue with logs and configuration details from **both services** (remove sensitive data)
