@@ -4,7 +4,7 @@ description: Set minimum download, upload, and ping values to automatically mark
 icon: lucide/gauge
 tags:
   - settings
-  - monitoring
+  - benchmarking
   - thresholds
 ---
 

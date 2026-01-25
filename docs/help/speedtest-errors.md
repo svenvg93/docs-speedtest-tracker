@@ -106,7 +106,7 @@ This page covers errors related to running speedtests, server selection, and the
     - Check firewall rules aren't blocking outbound connections
     - Ensure DNS is properly configured in the container
 
-## Test Quality Issues
+## Test Results
 
 ??? question "Scheduled tests give lower results than manual tests"
 
@@ -122,6 +122,10 @@ This page covers errors related to running speedtests, server selection, and the
     ```
 
     This [comment on GitHub](https://github.com/alexjustesen/speedtest-tracker/issues/552#issuecomment-2028532010) can help you get the formatting right.
+
+??? question "Healthy Column is empty in the results table"
+
+    Tests are compared against the configured [thresholds](../getting-started/settings/thresholds.md) to determine if they are healthy. If no thresholds are set, this check is skipped.
 
 ## Need More Help?
 

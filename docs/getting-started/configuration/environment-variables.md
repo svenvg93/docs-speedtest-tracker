@@ -20,7 +20,7 @@ A complete inventory of all environment variables for configuring Speedtest Trac
 | ---- | :------: | ----------- | ------- | ------- |
 | `PUID` | :lucide-check:{ .env-required-yes } | User ID the container runs as. | | `1000` |
 | `PGID` | :lucide-check:{ .env-required-yes } | Group ID the container runs as. | | `1000` |
-| `APP_KEY` | :lucide-check:{ .env-required-yes } | Application encryption key. :material-information-outline:{ title="See Installation Guide" .env-tooltip } | | |
+| `APP_KEY` | :lucide-check:{ .env-required-yes } | Application encryption key. :lucide-info:{ title="See Installation Guide" .env-tooltip } | | |
 | `APP_URL` | :lucide-check:{ .env-required-yes } | Base URL used in emails and notifications. | | `https://speedtest.example.com` |
 | `APP_NAME` | :lucide-x:{ .env-required-no } | Application name shown in the UI and notifications. | Speedtest Tracker | |
 | `ASSET_URL` | :lucide-x:{ .env-required-no } | Base URL for serving assets (reverse proxy setups). | | `https://speedtest.example.com` |
@@ -32,9 +32,9 @@ A complete inventory of all environment variables for configuring Speedtest Trac
 
 | Name | Required | Description | Default | Example |
 | ---- | :------: | ----------- | ------- | ------- |
-| `ADMIN_NAME` | :lucide-x:{ .env-required-no } | Initial admin username. :material-information-outline:{ title="Initial setup only" .env-tooltip } | [See Authentication](../security/authentication.md#default-user-account) | `Speedy` |
-| `ADMIN_EMAIL` | :lucide-x:{ .env-required-no } | Initial admin email. :material-information-outline:{ title="Initial setup only" .env-tooltip } | [See Authentication](../security/authentication.md#default-user-account) | `speedy@tracker.com` |
-| `ADMIN_PASSWORD` | :lucide-x:{ .env-required-no } | Initial admin password. :material-information-outline:{ title="Initial setup only" .env-tooltip } |[See Authentication](../security/authentication.md#default-user-account) | `superinternet` |
+| `ADMIN_NAME` | :lucide-x:{ .env-required-no } | Initial admin username. :lucide-info:{ title="Initial setup only" .env-tooltip } | [See Authentication](../security/authentication.md#default-user-account) | `Speedy` |
+| `ADMIN_EMAIL` | :lucide-x:{ .env-required-no } | Initial admin email. :lucide-info:{ title="Initial setup only" .env-tooltip } | [See Authentication](../security/authentication.md#default-user-account) | `speedy@tracker.com` |
+| `ADMIN_PASSWORD` | :lucide-x:{ .env-required-no } | Initial admin password. :lucide-info:{ title="Initial setup only" .env-tooltip } |[See Authentication](../security/authentication.md#default-user-account) | `superinternet` |
 
 ## Display 
 
@@ -52,18 +52,18 @@ A complete inventory of all environment variables for configuring Speedtest Trac
 
 | Name | Required | Description | Default | Example |
 | ---- | :------: | ----------- | ------- | ------- |
-| `SPEEDTEST_SKIP_IPS` | :lucide-x:{ .env-required-no } | Skip tests when these public IPs are detected.:material-information-outline:{ title="Comma sperated list. Either IPs or CIDR notations" .env-tooltip } | | `1.1.1.1` |
+| `SPEEDTEST_SKIP_IPS` | :lucide-x:{ .env-required-no } | Skip tests when these public IPs are detected.:lucide-info:{ title="Comma sperated list. Either IPs or CIDR notations" .env-tooltip } | | `1.1.1.1` |
 | `SPEEDTEST_SCHEDULE` | :lucide-x:{ .env-required-no } | Cron schedule for automated speedtests. | | `6 */2 * * *` |
 | `SPEEDTEST_SERVERS` | :lucide-x:{ .env-required-no } | Server IDs randomly used for testing. | | `36998,52365` |
 | `SPEEDTEST_BLOCKED_SERVERS` | :lucide-x:{ .env-required-no } | Server IDs excluded from testing. | | |
 | `SPEEDTEST_INTERFACE` | :lucide-x:{ .env-required-no } | Network interface used inside the container. | | `eth0` |
 | `SPEEDTEST_EXTERNAL_IP_URL` | :lucide-x:{ .env-required-no } | Service used to detect external IP address. | `https://icanhazip.com` | |
 | `SPEEDTEST_INTERNET_CHECK_HOSTNAME` | :lucide-x:{ .env-required-no } | Hostname used to verify internet connectivity. | `icanhazip.com` | |
-| `THRESHOLD_ENABLED` | :lucide-x:{ .env-required-no } | Enable speed and ping thresholds :material-information-outline:{ title="Initial setup only" .env-tooltip }. | `false` | `true` |
-| `THRESHOLD_DOWNLOAD` | :lucide-x:{ .env-required-no } | Minimum download speed threshold (Mbps). :material-information-outline:{ title="Initial setup only" .env-tooltip } | `0` :material-information-outline:{ title="0 = Disable" .env-tooltip } | `900` |
-| `THRESHOLD_UPLOAD` | :lucide-x:{ .env-required-no } | Minimum upload speed threshold (Mbps). :material-information-outline:{ title="Initial setup only" .env-tooltip } | `0` :material-information-outline:{ title="0 = Disable" .env-tooltip } | `900` |
-| `THRESHOLD_PING` | :lucide-x:{ .env-required-no } | Maximum ping threshold (ms). :material-information-outline:{ title="Initial setup only" .env-tooltip } | `0` :material-information-outline:{ title="0 = Disable" .env-tooltip }| `25` |
-| `PRUNE_RESULTS_OLDER_THAN` | :lucide-x:{ .env-required-no } | Delete results older than this many days. | `0` :material-information-outline:{ title=" 0 = Disable" .env-tooltip } | `7` |
+| `THRESHOLD_ENABLED` | :lucide-x:{ .env-required-no } | Enable speed and ping thresholds. :lucide-info:{ title="Initial setup only" .env-tooltip } | `false` | `true` |
+| `THRESHOLD_DOWNLOAD` | :lucide-x:{ .env-required-no } | Minimum download speed threshold (Mbps). :lucide-info:{ title="Initial setup only" .env-tooltip } | `0` :lucide-info:{ title="0 = Disable" .env-tooltip } | `900` |
+| `THRESHOLD_UPLOAD` | :lucide-x:{ .env-required-no } | Minimum upload speed threshold (Mbps). :lucide-info:{ title="Initial setup only" .env-tooltip } | `0` :lucide-info:{ title="0 = Disable" .env-tooltip } | `900` |
+| `THRESHOLD_PING` | :lucide-x:{ .env-required-no } | Maximum ping threshold (ms). :lucide-info:{ title="Initial setup only" .env-tooltip } | `0` :lucide-info:{ title="0 = Disable" .env-tooltip }| `25` |
+| `PRUNE_RESULTS_OLDER_THAN` | :lucide-x:{ .env-required-no } | Delete results older than this many days. | `0` :lucide-info:{ title=" 0 = Disable" .env-tooltip } | `7` |
 
 ## API
 

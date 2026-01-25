@@ -22,7 +22,7 @@ You can also add this to your Docker Compose file so the Docker service can moni
 
 ```yaml
 healthcheck:
-    test: curl -fSs APP_URL/api/healthcheck | jq -r .message || exit 1
+    test: curl -fSs "$APP_URL/api/healthcheck" | jq -r .message || exit 1
     interval: 10s
     retries: 3
     start_period: 30s

@@ -18,37 +18,17 @@ Speedtest Tracker offers several notification channels, each with its own streng
 
 <div class="grid cards" markdown>
 
--   :lucide-inbox:{ .lg .middle } __Database__
+- :lucide-inbox:{ .lg .middle } [__Database__](database.md)  
+  In-app notifications in the header.
 
-    ---
+- :lucide-mail:{ .lg .middle } [__Mail__](mail.md)  
+  Email notifications via SMTP.
 
-    In-app notifications that appear in the application header
+- :lucide-webhook:{ .lg .middle } [__Webhook__](webhook.md)  
+  JSON payloads for integration with other services.
 
-    [:octicons-arrow-right-24: Configure Database Notifications](database.md)
-
--   :lucide-mail:{ .lg .middle } __Mail__
-
-    ---
-
-    Email notifications via SMTP to one or more recipients
-
-    [:octicons-arrow-right-24: Configure Mail Notifications](mail.md)
-
--   :lucide-webhook:{ .lg .middle } __Webhook__
-
-    ---
-
-    JSON payloads sent to custom endpoints for integration with other services
-
-    [:octicons-arrow-right-24: Configure Webhook Notifications](webhook.md)
-
--   :lucide-bell-ring:{ .lg .middle } __Apprise__
-
-    ---
-
-    Unified notification system supporting 100+ services including Discord, Pushover, Ntfy, and more
-
-    [:octicons-arrow-right-24: Configure Apprise Notifications](apprise.md)
+- :lucide-bell-ring:{ .lg .middle } [__Apprise__](apprise.md)  
+  Unified notifications for 100+ services (Discord, Pushover, Ntfy, etc.).
 
 </div>
 
@@ -58,10 +38,8 @@ Triggers determine when notifications are sent. All notification channels suppor
 
 | Name | Description |
 | ---- | ----------- |
-| on every scheduled speedtest run | On each successful scheduled speedtest a notification will be sent to the application. |
-| on threshold failures for scheduled speedtests | On any absolute threshold failure for scheduled speedtest a notification will be sent to the application. |
+| On every scheduled speedtest run | Sends a notification after each successful scheduled speedtest. |
+| On threshold failures for scheduled speedtests | Sends a notification if any threshold is exceeded during a scheduled speedtest. |
 
-!!! tip
-
-    Configure your [thresholds](../thresholds.md) to define what constitutes a threshold failure.
-
+??? tip "Configure thresholds"
+    Set up your [thresholds](../thresholds.md) to define what counts as a failure.
