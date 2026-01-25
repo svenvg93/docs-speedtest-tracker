@@ -19,6 +19,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check links in documentation
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --verbose --no-progress './docs/**/*.md'
+          fail: true
+
       - name: Install Wrangler v4
         run: npm install --save-dev wrangler@4
 
