@@ -15,7 +15,7 @@ This page covers errors related to data exports.
 
 ## InfluxDB Integration
 
-??? question "Failed to bulk write to InfluxDB"
+??? failure "Failed to bulk write to InfluxDB"
 
     When Speedtest Tracker fails to write data to InfluxDB this error is shown. The [container logs](general.md#check-container-logs) will show more details on why it failed.
 
@@ -48,7 +48,7 @@ This page covers errors related to data exports.
        - If using Docker Compose, ensure both containers are on the same network
        - Verify `INFLUXDB_HOST` uses the correct container name or IP
 
-??? question "Failed to write test data to InfluxDB"
+??? failure "Failed to write test data to InfluxDB"
 
     When Speedtest Tracker fails to write data to InfluxDB this error is shown. The [container logs](general.md#check-container-logs) will show more details on why it failed.
 
@@ -62,7 +62,7 @@ This page covers errors related to data exports.
 
     See the troubleshooting steps in "Failed to bulk write to InfluxDB" above.
 
-??? question "Failed to write to InfluxDB"
+??? failure "Failed to write to InfluxDB"
 
     When Speedtest Tracker fails to write data to InfluxDB this error is shown. The [container logs](general.md#check-container-logs) will show more details on why it failed.
 
@@ -78,7 +78,7 @@ This page covers errors related to data exports.
 
 ## Prometheus Integration
 
-??? question "Prometheus can't scrape metrics"
+??? failure "Prometheus can't scrape metrics"
 
     **Troubleshooting steps:**
 
@@ -103,12 +103,13 @@ This page covers errors related to data exports.
        - If using Docker Compose, ensure containers are on the same network
        - Check firewall rules aren't blocking the connection
 
-## Need More Help?
+??? info "Need More Help?"
 
-If you can't resolve the problem:
+    If you can't resolve the problem:
 
-1. Check the [container logs](general.md#check-container-logs) for both Speedtest Tracker and the integration service
-2. Enable [debug mode](general.md#enable-debug-mode) for detailed error messages
-3. Review the [configuration documentation](../getting-started/configuration/environment-variables.md)
-4. Check [GitHub Issues](https://github.com/alexjustesen/speedtest-tracker/issues) for similar problems
-5. Open a new issue with logs and configuration details from **both services** (remove sensitive data)
+    1. Check the [container logs](general.md#check-container-logs) for detailed error messages
+    2. Enable [debug mode](general.md#enable-debug-mode) for more information
+    3. Review the [configuration documentation](../getting-started/configuration/environment-variables.md)
+    4. Search [GitHub Issues](https://github.com/alexjustesen/speedtest-tracker/issues) for similar problems
+    5. [Open a new issue](https://github.com/alexjustesen/speedtest-tracker/issues/new) with logs and configuration details (remove sensitive data)
+

@@ -36,7 +36,7 @@ This page covers errors related to email notifications, webhooks, and third-part
 
 ## Email Notifications
 
-??? question "Email notifications aren't being sent"
+??? failure "Email notifications aren't being sent"
 
     **Common causes:**
 
@@ -66,7 +66,7 @@ This page covers errors related to email notifications, webhooks, and third-part
 
 ## Webhook Notifications
 
-??? question "Webhook notifications are failing"
+??? failure "Webhook notifications are failing"
 
     **Troubleshooting steps:**
 
@@ -90,12 +90,12 @@ This page covers errors related to email notifications, webhooks, and third-part
        - Check the receiving service's logs for errors
        - Verify the payload format is correct
 
-## Need More Help?
+??? info "Need More Help?"
 
-If you can't resolve the problem:
+    If you can't resolve the problem:
 
-1. Check the [container logs](general.md#check-container-logs) for detailed error messages
-2. Enable [debug mode](general.md#enable-debug-mode) for more information
-3. Review the [configuration documentation](../getting-started/configuration/environment-variables.md)
-4. Check [GitHub Issues](https://github.com/alexjustesen/speedtest-tracker/issues) for similar problems
-5. Open a new issue with logs and configuration details (remove sensitive data)
+    1. Check the [container logs](general.md#check-container-logs) for detailed error messages
+    2. Enable [debug mode](general.md#enable-debug-mode) for more information
+    3. Review the [configuration documentation](../getting-started/configuration/environment-variables.md)
+    4. Search [GitHub Issues](https://github.com/alexjustesen/speedtest-tracker/issues) for similar problems
+    5. [Open a new issue](https://github.com/alexjustesen/speedtest-tracker/issues/new) with logs and configuration details (remove sensitive data)

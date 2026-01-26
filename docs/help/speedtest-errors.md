@@ -15,7 +15,7 @@ This page covers errors related to running speedtests, server selection, and the
 
 ## Connectivity Errors
 
-??? question "Failed to connected to hostname"
+??? failure  "Failed to connected to hostname"
 
     When a speedtest is being processed, Speedtest Tracker will make a ICMP ping to [icanhazip.com](http://icanhazip.com) to check if there is an internet connection before starting the Speedtest.
 
@@ -29,7 +29,7 @@ This page covers errors related to running speedtests, server selection, and the
 
     - Use available [Environment Variables](../getting-started/configuration/environment-variables.md#speed-tests) to change the endpoint to your liking
 
-??? question "Failed to fetch external IP address"
+??? failure "Failed to fetch external IP address"
 
     When the `SPEEDTEST_SKIP_IPS` environment variable is set, Speedtest Tracker will make a call to [http://icanhazip.com](http://icanhazip.com/) to get your external IP address. This is done to check if your external IP address (WAN IP) should be skipped.
 
@@ -48,7 +48,7 @@ This page covers errors related to running speedtests, server selection, and the
 
 ## Ookla CLI Errors
 
-??? question "Configuration - Could not retrieve or read configuration (ConfigurationError)"
+??? failure "Configuration - Could not retrieve or read configuration (ConfigurationError)"
 
     This is usually thrown when the CLI fails to reach the internet (internet down) or the specified server.
 
@@ -59,7 +59,7 @@ This page covers errors related to running speedtests, server selection, and the
     3. Test connectivity: `docker exec speedtest-tracker ping -c 4 speedtest.net`
     4. Check container logs for more details
 
-??? question "Configuration - No servers defined (NoServersException)"
+??? failure "Configuration - No servers defined (NoServersException)"
 
     This usually means the defined server is no longer available. Remove it from your server list and try testing with a different server.
 
@@ -70,7 +70,7 @@ This page covers errors related to running speedtests, server selection, and the
     3. Add a different server or let it auto-select
     4. Run a new test
 
-??? question "Server Selection - Failed to find a working test server (NoServers)"
+??? failure "Server Selection - Failed to find a working test server (NoServers)"
 
     Not 100% sure what causes this exception yet but it's likely when the CLI can't locate a local server. You should specify a list of servers to see if that addresses the issue.
 
@@ -81,7 +81,7 @@ This page covers errors related to running speedtests, server selection, and the
     3. Choose servers close to your location
     4. Save and run a new test
 
-??? question "Unable to retrieve Ookla servers, check internet connection and see logs"
+??? failure "Unable to retrieve Ookla servers, check internet connection and see logs"
 
     This error is shown when we try to retrieve the Ookla server list when selecting a server when running a manual speedtest. We get the list from: [https://www.speedtest.net/api/js/servers](https://www.speedtest.net/api/js/servers).
 
@@ -127,12 +127,12 @@ This page covers errors related to running speedtests, server selection, and the
 
     Tests are compared against the configured [thresholds](../getting-started/settings/thresholds.md) to determine if they are healthy. If no thresholds are set, this check is skipped.
 
-## Need More Help?
+??? info "Need More Help?"
 
-If you can't resolve the problem:
+    If you can't resolve the problem:
 
-1. Check the [container logs](general.md#check-container-logs) for detailed error messages
-2. Enable [debug mode](general.md#enable-debug-mode) for more information
-3. Review the [configuration documentation](../getting-started/configuration/environment-variables.md)
-4. Check [GitHub Issues](https://github.com/alexjustesen/speedtest-tracker/issues) for similar problems
-5. Open a new issue with logs and configuration details (remove sensitive data)
+    1. Check the [container logs](general.md#check-container-logs) for detailed error messages
+    2. Enable [debug mode](general.md#enable-debug-mode) for more information
+    3. Review the [configuration documentation](../getting-started/configuration/environment-variables.md)
+    4. Search [GitHub Issues](https://github.com/alexjustesen/speedtest-tracker/issues) for similar problems
+    5. [Open a new issue](https://github.com/alexjustesen/speedtest-tracker/issues/new) with logs and configuration details (remove sensitive data)

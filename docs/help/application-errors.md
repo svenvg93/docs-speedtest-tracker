@@ -49,7 +49,7 @@ This page covers errors related to the web interface, authentication, and core a
 
 ## Database Issues
 
-??? question "Database connection errors"
+??? failure "Database connection errors"
 
     **For external databases (MySQL/MariaDB/Postgres):**
 
@@ -77,7 +77,7 @@ This page covers errors related to the web interface, authentication, and core a
 
 ## Docker & Container Issues
 
-??? question "Ping checks failing with unprivileged containers"
+??? failure "Ping checks failing with unprivileged containers"
 
     Most Docker setups can send ICMP requests (used for connectivity checks) without needing elevated privileges. However, if your Docker user doesn't run with elevated permissions or doesn't belong to the Docker group, the ping check during speedtests may fail.
 
@@ -105,7 +105,7 @@ This page covers errors related to the web interface, authentication, and core a
 
 ## Encryption & Security
 
-??? question "Unsupported cipher or incorrect key length"
+??? failure "Unsupported cipher or incorrect key length"
 
     **Error:** Supported ciphers are: `aes-128-cbc`, `aes-256-cbc`, `aes-128-gcm`, `aes-256-gcm`.
 
@@ -119,7 +119,7 @@ This page covers errors related to the web interface, authentication, and core a
 
     See the [installation steps](../../getting-started/installation/docker-compose.md#generate-an-application-key) for detailed instructions.
 
-??? question "I get a warning on container start up that the APP_KEY is missing"
+??? failure "I get a warning on container start up that the APP_KEY is missing"
 
     The `APP_KEY` is required for encryption and security.
 
@@ -133,7 +133,7 @@ This page covers errors related to the web interface, authentication, and core a
 
 ## Server Errors
 
-??? question "I'm getting a `500 | SERVER ERROR` error"
+??? failure "I'm getting a `500 | SERVER ERROR` error"
 
     The `500 | SERVER ERROR` is caused by either a bug or a misconfiguration. You must [enable debugging](general.md#enable-debug-mode) to determine the exact cause of the error.
 
@@ -152,12 +152,12 @@ This page covers errors related to the web interface, authentication, and core a
 
     Once set restart the container.
 
-## Need More Help?
+??? info "Need More Help?"
 
-If you can't resolve the problem:
+    If you can't resolve the problem:
 
-1. Check the [container logs](general.md#check-container-logs) for detailed error messages
-2. Enable [debug mode](general.md#enable-debug-mode) for more information
-3. Review the [configuration documentation](../getting-started/configuration/environment-variables.md)
-4. Check [GitHub Issues](https://github.com/alexjustesen/speedtest-tracker/issues) for similar problems
-5. Open a new issue with logs and configuration details (remove sensitive data)
+    1. Check the [container logs](general.md#check-container-logs) for detailed error messages
+    2. Enable [debug mode](general.md#enable-debug-mode) for more information
+    3. Review the [configuration documentation](../getting-started/configuration/environment-variables.md)
+    4. Search [GitHub Issues](https://github.com/alexjustesen/speedtest-tracker/issues) for similar problems
+    5. [Open a new issue](https://github.com/alexjustesen/speedtest-tracker/issues/new) with logs and configuration details (remove sensitive data)
