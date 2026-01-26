@@ -169,12 +169,13 @@ SQLite is fine for most installs but you can also use more traditional relationa
 ??? tip "Want to use HTTPS?"
     Provide your own SSL keys, they must be named `cert.crt` (full chain) and `cert.key` (private key), and mounted in the container folder `/config/keys`.
 
-??? tip "Scheduling automatic speedtests"
-    Use [crontab.guru](https://crontab.guru/) to help create cron expressions for `SPEEDTEST_SCHEDULE`. See the [FAQ](../../help/speedtest-errors.md#test-quality-issues) for tips on effectively scheduling tests.
+??? tip "Monitor container health"
 
-??? tip "Running with unprivileged containers?"
+    The application provides a healthcheck endpoint at `/api/healthcheck` that returns a 200 status code when running properly. You can use this endpoint to monitor your container's status with external monitoring tools or orchestration platforms.
 
-    If your Docker user doesn't have elevated permissions, ping checks during speedtests may fail. See the [unprivileged containers troubleshooting guide](../../help/application-errors/#ping-checks-failing-with-unprivileged-containers) for the solution.
+    ```bash
+    curl http://localhost:8080/api/healthcheck
+    ```
 
 ## Environment Variables
 

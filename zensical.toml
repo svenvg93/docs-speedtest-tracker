@@ -15,19 +15,12 @@ nav = [
     {"Installation" = [
       "getting-started/installation/docker-compose.md",
       "getting-started/installation/docker.md",
-      {"Advanced Setup" = [
-        "getting-started/installation/advanced/health-check.md",
-        {"Reverse Proxies" = [
-          "getting-started/installation/advanced/proxies/nginx.md",
-          "getting-started/installation/advanced/proxies/traefik.md",
-          "getting-started/installation/advanced/proxies/cloudflare-tunnel.md",
-          "getting-started/installation/advanced/proxies/tailscale.md"
-        ]}
-      ]}
     ]},
     {"Configuration" = [
       "getting-started/configuration/environment-variables.md",
-      "getting-started/configuration/database-drivers.md"
+      "getting-started/configuration/database-drivers.md",
+      "getting-started/configuration/reverse-proxies.md",
+
     ]},
     {"Settings" = [
       "getting-started/settings/thresholds.md",
@@ -88,7 +81,6 @@ features = [
   "content.action.view",
   "content.code.annotate",
   "content.code.copy",
-  "content.code.select",
   "content.footnote.tooltips",
   "content.tabs.link",
   "content.tooltips",
@@ -105,7 +97,6 @@ features = [
   "search.highlight",
   "toc.follow"
 ]
-
 
 
 [[project.theme.palette]]
