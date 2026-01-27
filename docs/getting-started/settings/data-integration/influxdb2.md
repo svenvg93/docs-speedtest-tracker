@@ -28,7 +28,7 @@ If you have a history of results, you can use the `Export current results` featu
 
 ## Grafana Dashboard
 
-You can use this community made Grafana Dashboard to visualize your data: [Speedtest-Tracker-v2-InfluxDBv2](https://github.com/masterwishx/Speedtest-Tracker-v2-InfluxDBv2)
+You can use this community made Grafana Dashboard to visualize your data: [Speedtest-Tracker-v2-InfluxDBv2]
 
 ## Data Pattern
 
@@ -62,3 +62,5 @@ The Speedtest Tracker exports data in two categories: `Tag` and `Field`. Tags ar
 | `upload_latency_high` | float | Field |
 | `upload_latency_low` | float | Field |
 | `packet_loss` | float | Field |
+
+  [Speedtest-Tracker-v2-InfluxDBv2]: https://github.com/masterwishx/Speedtest-Tracker-v2-InfluxDBv2

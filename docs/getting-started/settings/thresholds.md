@@ -49,7 +49,7 @@ Thresholds are useful for:
 
 Unhealthy test results can trigger notifications through your configured notification channels. This allows you to be alerted immediately when your internet connection fails to meet your minimum requirements.
 
-See [Notifications](../settings/notifications/index.md) for more information on setting up alerts.
+See [Notifications] for more information on setting up alerts.
 
 ## Example Configuration
 
@@ -60,3 +60,5 @@ For a typical home internet connection with a 500 Mbps download, 100 Mbps upload
 - **Minimum Ping**: `50` (acceptable latency for most activities)
 
 Adjust these values based on your specific internet plan and requirements.
+
+  [Notifications]: ../settings/notifications/index.md

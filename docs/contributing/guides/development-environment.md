@@ -9,11 +9,11 @@ tags:
 
 # Development Environment
 
-Speedtest Tracker uses [Laravel Sail](https://laravel.com/docs/10.x/sail) for local development. Sail provides a containerized environment where the only requirements are Git and Docker.
+Speedtest Tracker uses [Laravel Sail] for local development. Sail provides a containerized environment where the only requirements are Git and Docker.
 
 !!! info
 
-    This guide assumes basic knowledge of Laravel. See the [Laravel Docs](https://laravel.com/docs/10.x) and [Laracasts](https://laracasts.com/series/laravel-8-from-scratch) for more information.
+    This guide assumes basic knowledge of Laravel. See the [Laravel Docs] and [Laracasts] for more information.
 
 ## Setup
 
@@ -116,4 +116,7 @@ Stop the containers when done:
 
 Environment ready? See the [pull request] to learn how to submit your changes.
 
+  [Laravel Sail]: https://laravel.com/docs/10.x/sail
+  [Laravel Docs]: https://laravel.com/docs/10.x
+  [Laracasts]: https://laracasts.com/series/laravel-8-from-scratch
   [pull request]: ../pull-requests.md

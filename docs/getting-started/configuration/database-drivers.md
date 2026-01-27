@@ -9,7 +9,7 @@ tags:
 
 # Database Drivers
 
-Since Speedtest Tracker is built on the Laravel Framework any of the framework's supported database [drivers](https://laravel.com/docs/10.x/database#configuration) are also supported.
+Since Speedtest Tracker is built on the Laravel Framework any of the framework's supported database [drivers] are also supported.
 
 SQLite ships as the default driver but you can also use MySQL/MariaDB/Postgres.
 
@@ -60,3 +60,5 @@ SQLite is a good option for simple installs. The database will be create automat
 | `DB_USERNAME`        | User that'll be used to connect to the database.         |
 | `DB_PASSWORD`        | Password for the user above.                             |
 | `DB_SEARCH_PATH`     | To change the database schema used by Postgres.          |
+
+  [drivers]: https://laravel.com/docs/10.x/database#configuration

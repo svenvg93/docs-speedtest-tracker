@@ -17,7 +17,7 @@ This page covers errors related to data exports.
 
 ??? failure "Failed to bulk write to InfluxDB"
 
-    When Speedtest Tracker fails to write data to InfluxDB this error is shown. The [container logs](general.md#check-container-logs) will show more details on why it failed.
+    When Speedtest Tracker fails to write data to InfluxDB this error is shown. The [container logs] will show more details on why it failed.
 
     **Possible reasons:**
 
@@ -50,7 +50,7 @@ This page covers errors related to data exports.
 
 ??? failure "Failed to write test data to InfluxDB"
 
-    When Speedtest Tracker fails to write data to InfluxDB this error is shown. The [container logs](general.md#check-container-logs) will show more details on why it failed.
+    When Speedtest Tracker fails to write data to InfluxDB this error is shown. The [container logs] will show more details on why it failed.
 
     **Possible reasons:**
 
@@ -64,7 +64,7 @@ This page covers errors related to data exports.
 
 ??? failure "Failed to write to InfluxDB"
 
-    When Speedtest Tracker fails to write data to InfluxDB this error is shown. The [container logs](general.md#check-container-logs) will show more details on why it failed.
+    When Speedtest Tracker fails to write data to InfluxDB this error is shown. The [container logs] will show more details on why it failed.
 
     **Possible reasons:**
 
@@ -107,9 +107,15 @@ This page covers errors related to data exports.
 
     If you can't resolve the problem:
 
-    1. Check the [container logs](general.md#check-container-logs) for detailed error messages
-    2. Enable [debug mode](general.md#enable-debug-mode) for more information
-    3. Review the [configuration documentation](../getting-started/configuration/environment-variables.md)
-    4. Search [GitHub Issues](https://github.com/alexjustesen/speedtest-tracker/issues) for similar problems
-    5. [Open a new issue](https://github.com/alexjustesen/speedtest-tracker/issues/new) with logs and configuration details (remove sensitive data)
+    1. Check the [container logs] for detailed error messages
+    2. Enable [debug mode] for more information
+    3. Review the [configuration documentation]
+    4. Search [GitHub Issues] for similar problems
+    5. [Open a new issue] with logs and configuration details (remove sensitive data)
+
+  [container logs]: general.md#check-container-logs
+  [debug mode]: general.md#enable-debug-mode
+  [configuration documentation]: ../getting-started/configuration/environment-variables.md
+  [GitHub Issues]: https://github.com/alexjustesen/speedtest-tracker/issues
+  [Open a new issue]: https://github.com/alexjustesen/speedtest-tracker/issues/new
 

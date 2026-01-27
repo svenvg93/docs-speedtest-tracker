@@ -47,14 +47,21 @@ By default `APP_DEBUG` is set to false in production to prevent verbose error ou
     5. Use the detailed error information to diagnose the issue
     6. **Remove `APP_DEBUG=true` when done** for security
 
-    If you can't resolve the issue, [open a GitHub issue](https://github.com/alexjustesen/speedtest-tracker/issues) with the error details.
+    If you can't resolve the issue, [open a GitHub issue] with the error details.
 
 ??? info "Need More Help?"
 
     If you can't resolve the problem:
 
-    1. Check the [container logs](general.md#check-container-logs) for detailed error messages
-    2. Enable [debug mode](general.md#enable-debug-mode) for more information
-    3. Review the [configuration documentation](../getting-started/configuration/environment-variables.md)
-    4. Search [GitHub Issues](https://github.com/alexjustesen/speedtest-tracker/issues) for similar problems
-    5. [Open a new issue](https://github.com/alexjustesen/speedtest-tracker/issues/new) with logs and configuration details (remove sensitive data)
+    1. Check the [container logs] for detailed error messages
+    2. Enable [debug mode] for more information
+    3. Review the [configuration documentation]
+    4. Search [GitHub Issues] for similar problems
+    5. [Open a new issue] with logs and configuration details (remove sensitive data)
+
+  [open a GitHub issue]: https://github.com/alexjustesen/speedtest-tracker/issues
+  [container logs]: general.md#check-container-logs
+  [debug mode]: general.md#enable-debug-mode
+  [configuration documentation]: ../getting-started/configuration/environment-variables.md
+  [GitHub Issues]: https://github.com/alexjustesen/speedtest-tracker/issues
+  [Open a new issue]: https://github.com/alexjustesen/speedtest-tracker/issues/new

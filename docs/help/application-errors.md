@@ -19,7 +19,7 @@ This page covers errors related to the web interface, authentication, and core a
 
     **Common causes:**
 
-    1. **Using wrong credentials** - Check the [default login credentials](../../getting-started/security/authentication.md#default-user-account)
+    1. **Using wrong credentials** - Check the [default login credentials]
     2. **APP_KEY not set** - See the cipher error above
     3. **Wrong APP_URL** - Verify `APP_URL` matches how you access the app
     4. **Container not running** - Check with `docker ps | grep speedtest-tracker`
@@ -45,7 +45,7 @@ This page covers errors related to the web interface, authentication, and core a
     docker exec -it speedtest-tracker php /app/www/artisan app:user-reset-password
     ```
 
-    See the [Commands documentation](../../other/commands.md) for more available commands.
+    See the [Commands documentation] for more available commands.
 
 ## Database Issues
 
@@ -117,7 +117,7 @@ This page covers errors related to the web interface, authentication, and core a
     2. Add it to your environment variables: `APP_KEY=your-generated-key`
     3. Restart the container
 
-    See the [installation steps](../../getting-started/installation/docker-compose.md#generate-an-application-key) for detailed instructions.
+    See the [installation steps] for detailed instructions.
 
 ??? failure "I get a warning on container start up that the APP_KEY is missing"
 
@@ -129,15 +129,15 @@ This page covers errors related to the web interface, authentication, and core a
     2. Add it to your `docker-compose.yml` or docker run command: `APP_KEY=your-generated-key`
     3. Restart the container
 
-    See the [installation docs](../../getting-started/installation/docker-compose.md#generate-an-application-key) for detailed instructions.
+    See the [installation docs] for detailed instructions.
 
 ## Server Errors
 
 ??? failure "I'm getting a `500 | SERVER ERROR` error"
 
-    The `500 | SERVER ERROR` is caused by either a bug or a misconfiguration. You must [enable debugging](general.md#enable-debug-mode) to determine the exact cause of the error.
+    The `500 | SERVER ERROR` is caused by either a bug or a misconfiguration. You must [enable debugging] to determine the exact cause of the error.
 
-    If you can't resolve the issue, [open a GitHub issue](https://github.com/alexjustesen/speedtest-tracker/issues) with the error details.
+    If you can't resolve the issue, [open a GitHub issue] with the error details.
 
 ## Time Zones
 
@@ -156,8 +156,20 @@ This page covers errors related to the web interface, authentication, and core a
 
     If you can't resolve the problem:
 
-    1. Check the [container logs](general.md#check-container-logs) for detailed error messages
-    2. Enable [debug mode](general.md#enable-debug-mode) for more information
-    3. Review the [configuration documentation](../getting-started/configuration/environment-variables.md)
-    4. Search [GitHub Issues](https://github.com/alexjustesen/speedtest-tracker/issues) for similar problems
-    5. [Open a new issue](https://github.com/alexjustesen/speedtest-tracker/issues/new) with logs and configuration details (remove sensitive data)
+    1. Check the [container logs] for detailed error messages
+    2. Enable [debug mode] for more information
+    3. Review the [configuration documentation]
+    4. Search [GitHub Issues] for similar problems
+    5. [Open a new issue] with logs and configuration details (remove sensitive data)
+
+  [default login credentials]: ../../getting-started/security/authentication.md#default-user-account
+  [Commands documentation]: ../../other/commands.md
+  [installation steps]: ../../getting-started/installation/docker-compose.md#generate-an-application-key
+  [installation docs]: ../../getting-started/installation/docker-compose.md#generate-an-application-key
+  [enable debugging]: general.md#enable-debug-mode
+  [open a GitHub issue]: https://github.com/alexjustesen/speedtest-tracker/issues
+  [container logs]: general.md#check-container-logs
+  [debug mode]: general.md#enable-debug-mode
+  [configuration documentation]: ../getting-started/configuration/environment-variables.md
+  [GitHub Issues]: https://github.com/alexjustesen/speedtest-tracker/issues
+  [Open a new issue]: https://github.com/alexjustesen/speedtest-tracker/issues/new

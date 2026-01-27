@@ -21,7 +21,7 @@ During the first start of the application a default admin account is created for
 | `admin@example.com` | `password` | Admin  |
 
 ??? tip "Custom default account"
-     Use [environment variables](../configuration/environment-variables.md#authentication) to define the default user account during installation.
+     Use [environment variables] to define the default user account during installation.
 
 ## Change Account Details
 
@@ -52,4 +52,7 @@ You can create additional user accounts.
 
 !!! info
 
-    The difference between the Roles can be found in the [Authorization](authorization.md) section.
+    The difference between the Roles can be found in the [Authorization] section.
+
+  [environment variables]: ../configuration/environment-variables.md#authentication
+  [Authorization]: authorization.md

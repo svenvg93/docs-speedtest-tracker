@@ -19,7 +19,7 @@ You can configure the Prometheus endpoint so it's only accessible from specific 
 
 ## Grafana Dashboard
 
-You can use this community made Grafana Dashboard to visualize your data: [Speedtest-Tracker-Prometheus](https://github.com/CrazyWolf13/Speedtest-Tracker-Prometheus)
+You can use this community made Grafana Dashboard to visualize your data: [Speedtest-Tracker-Prometheus]
 
 ## Data Pattern
 
@@ -65,3 +65,5 @@ scrape_configs:
     static_configs:
       - targets: ['speedtest-tracker.local']
 ```
+
+  [Speedtest-Tracker-Prometheus]: https://github.com/CrazyWolf13/Speedtest-Tracker-Prometheus

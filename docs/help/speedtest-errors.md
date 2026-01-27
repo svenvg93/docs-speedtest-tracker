@@ -17,21 +17,21 @@ This page covers errors related to running speedtests, server selection, and the
 
 ??? failure  "Failed to connected to hostname"
 
-    When a speedtest is being processed, Speedtest Tracker will make a ICMP ping to [icanhazip.com](http://icanhazip.com) to check if there is an internet connection before starting the Speedtest.
+    When a speedtest is being processed, Speedtest Tracker will make a ICMP ping to [icanhazip.com] to check if there is an internet connection before starting the Speedtest.
 
     **Possible reasons:**
 
     - There is a docker network problem or no internet connection
     - Some DNS block lists will block this domain, if you're getting errors and your server has access to the internet you'll need to add this to your allow lists
-    - If running with unprivileged containers, the ping check may fail. See the [unprivileged containers setup guide](../../getting-started/installation/docker-compose.md#running-with-unprivileged-containers) for configuration instructions.
+    - If running with unprivileged containers, the ping check may fail. See the [unprivileged containers setup guide] for configuration instructions.
 
     **Configuration options:**
 
-    - Use available [Environment Variables](../getting-started/configuration/environment-variables.md#speed-tests) to change the endpoint to your liking
+    - Use available [Environment Variables] to change the endpoint to your liking
 
 ??? failure "Failed to fetch external IP address"
 
-    When the `SPEEDTEST_SKIP_IPS` environment variable is set, Speedtest Tracker will make a call to [http://icanhazip.com](http://icanhazip.com/) to get your external IP address. This is done to check if your external IP address (WAN IP) should be skipped.
+    When the `SPEEDTEST_SKIP_IPS` environment variable is set, Speedtest Tracker will make a call to [http://icanhazip.com] to get your external IP address. This is done to check if your external IP address (WAN IP) should be skipped.
 
     **Possible reasons:**
 
@@ -40,7 +40,7 @@ This page covers errors related to running speedtests, server selection, and the
 
     **Configuration options:**
 
-    - Use available [Environment Variables](../getting-started/configuration/environment-variables.md#speed-tests) to change the endpoint to your liking
+    - Use available [Environment Variables] to change the endpoint to your liking
 
     !!! warning
 
@@ -83,7 +83,7 @@ This page covers errors related to running speedtests, server selection, and the
 
 ??? failure "Unable to retrieve Ookla servers, check internet connection and see logs"
 
-    This error is shown when we try to retrieve the Ookla server list when selecting a server when running a manual speedtest. We get the list from: [https://www.speedtest.net/api/js/servers](https://www.speedtest.net/api/js/servers).
+    This error is shown when we try to retrieve the Ookla server list when selecting a server when running a manual speedtest. We get the list from: [https://www.speedtest.net/api/js/servers].
 
     This error is usually caused by a docker network problem or no internet connection.
 
@@ -121,18 +121,31 @@ This page covers errors related to running speedtests, server selection, and the
     # Use: 7 * * * * (every hour at :07)
     ```
 
-    This [comment on GitHub](https://github.com/alexjustesen/speedtest-tracker/issues/552#issuecomment-2028532010) can help you get the formatting right.
+    This [comment on GitHub] can help you get the formatting right.
 
 ??? question "Healthy Column is empty in the results table"
 
-    Tests are compared against the configured [thresholds](../getting-started/settings/thresholds.md) to determine if they are healthy. If no thresholds are set, this check is skipped.
+    Tests are compared against the configured [thresholds] to determine if they are healthy. If no thresholds are set, this check is skipped.
 
 ??? info "Need More Help?"
 
     If you can't resolve the problem:
 
-    1. Check the [container logs](general.md#check-container-logs) for detailed error messages
-    2. Enable [debug mode](general.md#enable-debug-mode) for more information
-    3. Review the [configuration documentation](../getting-started/configuration/environment-variables.md)
-    4. Search [GitHub Issues](https://github.com/alexjustesen/speedtest-tracker/issues) for similar problems
-    5. [Open a new issue](https://github.com/alexjustesen/speedtest-tracker/issues/new) with logs and configuration details (remove sensitive data)
+    1. Check the [container logs] for detailed error messages
+    2. Enable [debug mode] for more information
+    3. Review the [configuration documentation]
+    4. Search [GitHub Issues] for similar problems
+    5. [Open a new issue] with logs and configuration details (remove sensitive data)
+
+  [icanhazip.com]: http://icanhazip.com
+  [unprivileged containers setup guide]: ../../getting-started/installation/docker-compose.md#running-with-unprivileged-containers
+  [Environment Variables]: ../getting-started/configuration/environment-variables.md#speed-tests
+  [http://icanhazip.com]: http://icanhazip.com/
+  [https://www.speedtest.net/api/js/servers]: https://www.speedtest.net/api/js/servers
+  [comment on GitHub]: https://github.com/alexjustesen/speedtest-tracker/issues/552#issuecomment-2028532010
+  [thresholds]: ../getting-started/settings/thresholds.md
+  [container logs]: general.md#check-container-logs
+  [debug mode]: general.md#enable-debug-mode
+  [configuration documentation]: ../getting-started/configuration/environment-variables.md
+  [GitHub Issues]: https://github.com/alexjustesen/speedtest-tracker/issues
+  [Open a new issue]: https://github.com/alexjustesen/speedtest-tracker/issues/new

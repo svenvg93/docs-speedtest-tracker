@@ -10,7 +10,7 @@ tags:
 
 # Speedtest Process
 
-Speedtest Tracker uses the [Official Ookla CLI](https://www.speedtest.net/apps/cli) client to execute the speedtest. There are a couple of stages the Speedtest Tracker goes through, explained below.
+Speedtest Tracker uses the [Official Ookla CLI] client to execute the speedtest. There are a couple of stages the Speedtest Tracker goes through, explained below.
 
 ## Process Stages
 
@@ -55,3 +55,5 @@ When you have thresholds set this step will evaluate the results against the thr
 ### 8. Completed
 
 This is the end stage of the process when every step is completed the test is marked as such.
+
+  [Official Ookla CLI]: https://www.speedtest.net/apps/cli

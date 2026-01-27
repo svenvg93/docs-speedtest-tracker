@@ -21,8 +21,13 @@ _...also some of us just like a lot of data._
 
 #### What about that other Speedtest Tracker?
 
-As far as I can tell [https://github.com/henrywhitaker3/Speedtest-Tracker](https://github.com/henrywhitaker3/Speedtest-Tracker) was abandoned. This version is meant to be an actively maintained replacement with an improved UI and feature set.
+As far as I can tell [https://github.com/henrywhitaker3/Speedtest-Tracker] was abandoned. This version is meant to be an actively maintained replacement with an improved UI and feature set.
 
 #### Do you have a demo?
 
-No, but [DB Tech](https://www.youtube.com/watch?v=feArak6WCLw), [Awesome Opens Source](https://www.youtube.com/watch?v=iyRUj77cjKg) and [Techdox](https://www.youtube.com/watch?v=vZiaWyuqsaY) over on YouTube have awesome videos showing you how to get Speedtest Tracker up and running with and a quick demo.
+No, but [DB Tech], [Awesome Opens Source] and [Techdox] over on YouTube have awesome videos showing you how to get Speedtest Tracker up and running with and a quick demo.
+
+  [https://github.com/henrywhitaker3/Speedtest-Tracker]: https://github.com/henrywhitaker3/Speedtest-Tracker
+  [DB Tech]: https://www.youtube.com/watch?v=feArak6WCLw
+  [Awesome Opens Source]: https://www.youtube.com/watch?v=iyRUj77cjKg
+  [Techdox]: https://www.youtube.com/watch?v=vZiaWyuqsaY

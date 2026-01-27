@@ -19,7 +19,7 @@ Apprise provides a unified notification channel that lets you send alerts to num
 
 ## Apprise Sidecar Container
 
-To use Apprise, you'll need to set up your own Apprise instance. This instance isn't created automatically, so make sure to include it in your deployment. See the Apprise [Github Repo](https://github.com/caronc/apprise-api) for the setup instructions. 
+To use Apprise, you'll need to set up your own Apprise instance. This instance isn't created automatically, so make sure to include it in your deployment. See the Apprise [Github Repo] for the setup instructions. 
 
 !!! info "Support"
 
@@ -37,7 +37,7 @@ On the notifications page under the Apprise tab, you'll need to configure the co
 
 Notification channels are the specially formatted URLs (`discord://WebhookID/Token`, `slack://TokenA/TokenB/TokenC`) used by Apprise to send notifications to various services. These URLs tell Apprise which service and which format needs to be used.
 
-Refer to the [Apprise documentation](https://appriseit.com/services/) for a full list of supported channels and their required formats. You can add as many different channels as you wish. The notifications will be sent to all of them.
+Refer to the [Apprise documentation] for a full list of supported channels and their required formats. You can add as many different channels as you wish. The notifications will be sent to all of them.
 
 ## Tips and Tricks
 
@@ -48,3 +48,6 @@ By default, the format used for messages is `markdown`. This allows us to do som
 ### Preview Images
 
 By default, Apprise does not allow preview images for URLs. This is a default setting on the Apprise instance. Depending on the service used, you can override this setting in the notification channel URL. Check the Apprise documentation to see if your service supports this and how to configure it.
+
+  [Github Repo]: https://github.com/caronc/apprise-api
+  [Apprise documentation]: https://appriseit.com/services/

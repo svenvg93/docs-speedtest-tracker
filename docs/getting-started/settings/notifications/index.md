@@ -18,16 +18,16 @@ Speedtest Tracker offers several notification channels, each with its own streng
 
 <div class="grid cards" markdown>
 
-- :lucide-inbox:{ .lg .middle } [__Database__](database.md)  
+- :lucide-inbox:{ .lg .middle } [__Database__]
   In-app notifications in the header.
 
-- :lucide-mail:{ .lg .middle } [__Mail__](mail.md)  
+- :lucide-mail:{ .lg .middle } [__Mail__]
   Email notifications via SMTP.
 
-- :lucide-webhook:{ .lg .middle } [__Webhook__](webhook.md)  
+- :lucide-webhook:{ .lg .middle } [__Webhook__]
   JSON payloads for integration with other services.
 
-- :lucide-bell-ring:{ .lg .middle } [__Apprise__](apprise.md)  
+- :lucide-bell-ring:{ .lg .middle } [__Apprise__]
   Unified notifications for 100+ services (Discord, Pushover, Ntfy, etc.).
 
 </div>
@@ -42,4 +42,10 @@ Triggers determine when notifications are sent. All notification channels suppor
 | On threshold failures for scheduled speedtests | Sends a notification if any threshold is exceeded during a scheduled speedtest. |
 
 ??? tip "Configure thresholds"
-    Set up your [thresholds](../thresholds.md) to define what counts as a failure.
+    Set up your [thresholds] to define what counts as a failure.
+
+  [__Database__]: database.md
+  [__Mail__]: mail.md
+  [__Webhook__]: webhook.md
+  [__Apprise__]: apprise.md
+  [thresholds]: ../thresholds.md

@@ -34,15 +34,15 @@ A complete inventory of all environment variables for configuring Speedtest Trac
 
 ## Database
 
-For database configuration options including SQLite, MySQL, MariaDB, and PostgreSQL, see the [Database Drivers](database-drivers.md) documentation.
+For database configuration options including SQLite, MySQL, MariaDB, and PostgreSQL, see the [Database Drivers] documentation.
 
 ## Authentication
 
 | Name | Required | Description | Default | Example |
 | ---- | :------: | ----------- | ------- | ------- |
-| `ADMIN_NAME` | :lucide-x:{ .env-required-no } | Initial admin username. :lucide-info:{ title="Initial setup only" .env-tooltip } | [See Authentication](../security/authentication.md#default-user-account) | `Speedy` |
-| `ADMIN_EMAIL` | :lucide-x:{ .env-required-no } | Initial admin email. :lucide-info:{ title="Initial setup only" .env-tooltip } | [See Authentication](../security/authentication.md#default-user-account) | `speedy@tracker.com` |
-| `ADMIN_PASSWORD` | :lucide-x:{ .env-required-no } | Initial admin password. :lucide-info:{ title="Initial setup only" .env-tooltip } |[See Authentication](../security/authentication.md#default-user-account) | `superinternet` |
+| `ADMIN_NAME` | :lucide-x:{ .env-required-no } | Initial admin username. :lucide-info:{ title="Initial setup only" .env-tooltip } | [See Authentication] | `Speedy` |
+| `ADMIN_EMAIL` | :lucide-x:{ .env-required-no } | Initial admin email. :lucide-info:{ title="Initial setup only" .env-tooltip } | [See Authentication] | `speedy@tracker.com` |
+| `ADMIN_PASSWORD` | :lucide-x:{ .env-required-no } | Initial admin password. :lucide-info:{ title="Initial setup only" .env-tooltip } |[See Authentication] | `superinternet` |
 
 ## Display
 
@@ -50,18 +50,18 @@ For database configuration options including SQLite, MySQL, MariaDB, and Postgre
 | ---- | :------: | ----------- | ------- | ------- |
 | `PUBLIC_DASHBOARD` | :lucide-x:{ .env-required-no } | Enable public (unauthenticated) dashboard. | `false` | `true` |
 | `DEFAULT_CHART_RANGE` | :lucide-x:{ .env-required-no } | Default dashboard time range. | `24h` | `week` |
-| `CONTENT_WIDTH` | :lucide-x:{ .env-required-no } | Maximum content width of pages. [Filament Docs](https://filamentphp.com/docs/4.x/panel-configuration#customizing-the-maximum-content-width) | `7xl` | |
+| `CONTENT_WIDTH` | :lucide-x:{ .env-required-no } | Maximum content width of pages. [Filament Docs] | `7xl` | |
 | `DISPLAY_TIMEZONE` | :lucide-x:{ .env-required-no } | Timezone used for displayed timestamps. | `UTC` | `America/New_York` |
-| `DATETIME_FORMAT` | :lucide-x:{ .env-required-no } | Date/time format for tables and notifications.  [PHP Format](https://www.php.net/manual/en/datetime.format.php) | `M. j, Y g:ia` | `j M Y, G:i:s` |
-| `CHART_DATETIME_FORMAT` | :lucide-x:{ .env-required-no } | Date/time format for charts.  [PHP Format](https://www.php.net/manual/en/datetime.format.php) | `'M. j - G:i'` | `j/m G:i` |
+| `DATETIME_FORMAT` | :lucide-x:{ .env-required-no } | Date/time format for tables and notifications.  [PHP Format] | `M. j, Y g:ia` | `j M Y, G:i:s` |
+| `CHART_DATETIME_FORMAT` | :lucide-x:{ .env-required-no } | Date/time format for charts.  [PHP Format] | `'M. j - G:i'` | `j/m G:i` |
 | `CHART_BEGIN_AT_ZERO` | :lucide-x:{ .env-required-no } | Start chart axes at zero. | `true` | `true` |
 
 ## Speed Tests
 
 | Name | Required | Description | Default | Example |
 | ---- | :------: | ----------- | ------- | ------- |
-| `SPEEDTEST_SCHEDULE` | :lucide-x:{ .env-required-no } | Cron schedule for automated speedtests. [crontab.guru](https://crontab.guru/) | | `6 */2 * * *` |
-| `SPEEDTEST_SERVERS` | :lucide-x:{ .env-required-no } | Server IDs randomly used for testing. [Server List](https://c.speedtest.net/speedtest-servers-static.php) | | `36998,52365` |
+| `SPEEDTEST_SCHEDULE` | :lucide-x:{ .env-required-no } | Cron schedule for automated speedtests. [crontab.guru] | | `6 */2 * * *` |
+| `SPEEDTEST_SERVERS` | :lucide-x:{ .env-required-no } | Server IDs randomly used for testing. [Server List] | | `36998,52365` |
 | `SPEEDTEST_BLOCKED_SERVERS` | :lucide-x:{ .env-required-no } | Server IDs excluded from testing. | | `36998,52365` |
 | `SPEEDTEST_INTERFACE` | :lucide-x:{ .env-required-no } | Network interface used inside the container. | | `eth0` |
 | `SPEEDTEST_INTERNET_CHECK_HOSTNAME` | :lucide-x:{ .env-required-no } | Hostname used to verify internet connectivity. | `icanhazip.com` | |
@@ -103,3 +103,10 @@ For database configuration options including SQLite, MySQL, MariaDB, and Postgre
 | ---- | :------: | ----------- | ------- | ------- |
 | `PROMETHEUS_ENABLED` | :lucide-x:{ .env-required-no } | Enable Prometheus metrics endpoint. :lucide-info:{ title="Initial setup only" .env-tooltip } | `false` | `true` |
 | `PROMETHEUS_ALLOWED_IPS` | :lucide-x:{ .env-required-no } | IP addresses allowed to scrape metrics. :lucide-info:{ title="Initial setup only" .env-tooltip } | | `127.0.0.1,192.168.1.0/24` |
+
+  [Database Drivers]: database-drivers.md
+  [See Authentication]: ../security/authentication.md#default-user-account
+  [Filament Docs]: https://filamentphp.com/docs/4.x/panel-configuration#customizing-the-maximum-content-width
+  [PHP Format]: https://www.php.net/manual/en/datetime.format.php
+  [crontab.guru]: https://crontab.guru/
+  [Server List]: https://c.speedtest.net/speedtest-servers-static.php

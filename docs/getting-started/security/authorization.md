@@ -39,7 +39,7 @@ tags:
 
 ### Notes
 
-If you need to change the role an existing user you can now use the available [commands](../../other/commands.md).
+If you need to change the role an existing user you can now use the available [commands].
 
 ## Other Permissions
 
@@ -55,3 +55,5 @@ If you need to change the role an existing user you can now use the available [c
 | Data integrations | No | Yes |
 | Notifications | No | Yes |
 | Thresholds | No | Yes |
+
+  [commands]: ../../other/commands.md

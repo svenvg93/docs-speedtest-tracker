@@ -14,7 +14,7 @@ tags:
 Speedtest Tracker can be served behind a reverse proxy to add features like SSL/TLS encryption, custom domains, and centralized routing for multiple services.
 
 !!! warning "Community Configuration"
-    This configuration is community-based and not officially supported by the Speedtest Tracker project. If you encounter any problems, please open a [discussion](https://github.com/alexjustesen/speedtest-tracker/discussions) to get community support. We welcome pull requests to improve this configuration.
+    This configuration is community-based and not officially supported by the Speedtest Tracker project. If you encounter any problems, please open a [discussion] to get community support. We welcome pull requests to improve this configuration.
 
 ## Common Configuration
 
@@ -99,3 +99,5 @@ labels:
 2. Use the `websecure` entrypoint (HTTPS) defined in your Traefik configuration
 3. Replace `yourresolver` with your Traefik certificate resolver name (e.g., `letsencrypt`)
 4. Tell Traefik to connect to container port 80
+
+  [discussion]: https://github.com/alexjustesen/speedtest-tracker/discussions
