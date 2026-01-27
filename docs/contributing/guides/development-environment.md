@@ -114,4 +114,6 @@ Stop the containers when done:
 
 ## Next Steps
 
-Environment ready? See the [Contributing Guide](getting-started.md) to learn how to submit your changes.
+Environment ready? See the [pull request] to learn how to submit your changes.
+
+  [pull request]: ../pull-requests.md

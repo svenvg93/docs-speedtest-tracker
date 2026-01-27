@@ -14,7 +14,7 @@ Setting up your environment with Docker Compose is the recommended way as it wil
 
 ## Generate an Application Key
 
-Run the command below to generate a key, the key is required for [encryption](../security/encryption.md). Copy this key including the `base64:` prefix and paste it as your `APP_KEY` value.
+Run the command below to generate a key, the key is required for [encryption]. Copy this key including the `base64:` prefix and paste it as your `APP_KEY` value.
 
 ```bash
 echo -n 'base64:'; openssl rand -base64 32;
@@ -259,7 +259,7 @@ SQLite is fine for most installs but you can also use more traditional relationa
 
 ## Environment Variables
 
-The examples above include the required environment variables. For additional configuration options like [Display](../configuration/environment-variables.md#display) and other settings, see the complete [Environment Variables](../configuration/environment-variables.md) reference.
+The examples above include the required environment variables. For additional configuration options like [Display] and other settings, see the complete [Environment Variables] reference.
 
 ## Start the Container
 
@@ -273,4 +273,10 @@ The `-d` flag runs the containers in detached mode (in the background).
 
 ## First Login
 
-When the container starts for the first time, a default username and password are created. Use the [default login](../security/authentication.md#default-user-account) credentials to login to the application. You can [change the default user](../security/authentication.md#change-account-details) after logging in.
+When the container starts for the first time, a default username and password are created. Use the [default login] credentials to login to the application. You can [change the default user] after logging in.
+
+  [encryption]: ../security/encryption.md
+  [Display]: ../configuration/environment-variables.md#display
+  [Environment Variables]: ../configuration/environment-variables.md
+  [default login]: ../security/authentication.md#default-user-account
+  [change the default user]: ../security/authentication.md#change-account-details

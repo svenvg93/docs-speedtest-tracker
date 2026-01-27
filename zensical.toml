@@ -50,7 +50,10 @@ nav = [
     "help/notification-errors.md",
     "help/data-export-errors.md"
   ]},
-  {"Changelog" = "https://github.com/alexjustesen/speedtest-tracker/releases"},
+  {"Changelog" = [
+    "changes/release-notes.md",
+    "changes/call-for-action.md",
+  ]},
   {"API" = [
     "api/authorization.md"
   ]},
@@ -60,14 +63,15 @@ nav = [
     "other/data-dictionary.md",
     "other/community-projects.md"
   ]},
-  {"Contributing" = [
-    "contributing/getting-started.md",
-    {"Documentation" = [
-      "contributing/documentation.md"
+  {"Contribute" = [
+    "contributing/get-involved.md",
+    {"Contribute" = [
+      "contributing/pull-requests.md",
+      "contributing/documentation.md",
     ]},
-    {"Code" = [
-      "contributing/development-environment.md"
-    ]}
+    {"Guides" = [
+      "contributing/guides/development-environment.md",
+    ]},
   ]}
 ]
 

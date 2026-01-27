@@ -1,16 +1,21 @@
 ---
-title: Guidelines
+title: Documentation
 description: Guidelines for contributing to and editing Speedtest Tracker documentation.
-icon: lucide/file-text
+icon: lucide/file-pen-line
 tags:
   - contributing
   - documentation
   - writing
 ---
 
-# Documentation Guidelines
+# Documentation
 
-Thank you for helping improve the Speedtest Tracker documentation! This guide will help you contribute effectively.
+Our documentation includes information on features, configurations  and much more. 
+If you have found an inconsistency or see room
+for improvement, please follow this guide to submit an issue on our [issue
+tracker] for the documentation repository.
+
+  [issue tracker]: https://github.com/alexjustesen/speedtest-tracker-docs/issues
 
 ## Documentation Structure
 
@@ -63,7 +68,9 @@ This approach gives you the best editing experience with real-time preview, spel
 
 If you have questions about contributing to the documentation:
 
-- Open a [GitHub Discussion](https://github.com/alexjustesen/speedtest-tracker/discussions)
+- Open a [GitHub Discussion]
 - Reference existing documentation pages as examples
+
+  [GitHub Discussion]: https://github.com/alexjustesen/speedtest-tracker/discussions
 
 Thank you for helping make Speedtest Tracker's documentation better!
