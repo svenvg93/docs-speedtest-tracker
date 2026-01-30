@@ -10,9 +10,18 @@ tags:
 
 # Commands
 
-Commands are intended to be run from within the CLI of the container and from the application's root directory. The application directory is located at: `/app/www`
+Commands are intended to be run from within the CLI of the container and from the application's root directory. The application directory is located at: `/app/www`. When using the commands below they should be prefixed with `php artisan`.
 
-When using the commands below they should be prefixed with `php artisan`, so the `about` command will look like `php artisan about`.
+??? example
+    From within the container:    
+    ```
+    /app/www php artisan about
+    ```
+
+    From the host system running the container:
+    ```
+    docker exec speedtest-tracker /app/www php artisan about
+    ```
 
 ## Core commands
 

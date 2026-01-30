@@ -65,10 +65,9 @@ This page covers errors related to running speedtests, server selection, and the
 
     **Solution:**
 
-    1. Go to Settings → Speedtest in the web interface
-    2. Remove the unavailable server from your server list
-    3. Add a different server or let it auto-select
-    4. Run a new test
+    1. Remove the unavailable server from your server list
+    2. Add a different server or let it auto-select
+    3. Run a new test
 
 ??? failure "Server Selection - Failed to find a working test server (NoServers)"
 
@@ -76,9 +75,8 @@ This page covers errors related to running speedtests, server selection, and the
 
     **Solution:**
 
-    1. Go to Settings → Speedtest in the web interface
-    2. Manually specify a list of preferred servers
-    3. Choose servers close to your location
+    1. Manually specify a list of preferred servers
+    2. Choose servers close to your location
     4. Save and run a new test
 
 ??? failure "Unable to retrieve Ookla servers, check internet connection and see logs"
