@@ -84,26 +84,6 @@ For database configuration options including SQLite, MySQL, MariaDB, and Postgre
 | `API_RATE_LIMIT` | :lucide-x:{ .env-required-no } | Maximum API requests per minute. | `60` | `100` |
 | `API_MAX_RESULTS` | :lucide-x:{ .env-required-no } | Maximum results returned per API request. | `500` | `500` |
 
-## Data Integrations
-
-### InfluxDB v2
-
-| Name | Required | Description | Default | Example |
-| ---- | :------: | ----------- | ------- | ------- |
-| `INFLUXDB_V2_ENABLED` | :lucide-x:{ .env-required-no } | Enable InfluxDB v2 integration. :lucide-info:{ title="Initial setup only" .env-tooltip } | `false` | `true` |
-| `INFLUXDB_V2_URL` | :lucide-x:{ .env-required-no } | InfluxDB v2 server URL. :lucide-info:{ title="Initial setup only" .env-tooltip } | | `http://influxdb:8086` |
-| `INFLUXDB_V2_ORG` | :lucide-x:{ .env-required-no } | InfluxDB v2 organization name. :lucide-info:{ title="Initial setup only" .env-tooltip } | | `my-org` |
-| `INFLUXDB_V2_BUCKET` | :lucide-x:{ .env-required-no } | InfluxDB v2 bucket name. :lucide-info:{ title="Initial setup only" .env-tooltip } | | `speedtest-tracker` |
-| `INFLUXDB_V2_TOKEN` | :lucide-x:{ .env-required-no } | InfluxDB v2 API token. :lucide-info:{ title="Initial setup only" .env-tooltip } | | |
-| `INFLUXDB_V2_VERIFY_SSL` | :lucide-x:{ .env-required-no } | Verify SSL certificates for InfluxDB connections. :lucide-info:{ title="Initial setup only" .env-tooltip } | `true` | `false` |
-
-### Prometheus
-
-| Name | Required | Description | Default | Example |
-| ---- | :------: | ----------- | ------- | ------- |
-| `PROMETHEUS_ENABLED` | :lucide-x:{ .env-required-no } | Enable Prometheus metrics endpoint. :lucide-info:{ title="Initial setup only" .env-tooltip } | `false` | `true` |
-| `PROMETHEUS_ALLOWED_IPS` | :lucide-x:{ .env-required-no } | IP addresses allowed to scrape metrics. :lucide-info:{ title="Initial setup only" .env-tooltip } | | `127.0.0.1,192.168.1.0/24` |
-
   [Database Drivers]: database-drivers.md
   [See Authentication]: ../security/authentication.md#default-user-account
   [Filament Docs]: https://filamentphp.com/docs/4.x/panel-configuration#customizing-the-maximum-content-width
